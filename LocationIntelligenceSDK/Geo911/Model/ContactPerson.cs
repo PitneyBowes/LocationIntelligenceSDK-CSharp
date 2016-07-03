@@ -1,0 +1,85 @@
+﻿#region copyright
+
+/*Copyright 2016 Pitney Bowes Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file 
+except in compliance with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed under the 
+License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  
+See the License for the specific language governing permissions and limitations under the License. */
+
+#endregion
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace com.pb.locationintelligence.geo911.model
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public class ContactPerson
+    {
+        /// <summary>
+        /// Gets or sets the title.
+        /// </summary>
+        /// <value>
+        /// The title.
+        /// </value>
+        public String title { get; set; }
+        /// <summary>
+        /// Gets or sets the prefix.
+        /// </summary>
+        /// <value>
+        /// The prefix.
+        /// </value>
+        public String prefix { get; set; }
+        /// <summary>
+        /// Gets or sets the first name.
+        /// </summary>
+        /// <value>
+        /// The first name.
+        /// </value>
+        public String firstName { get; set; }
+        /// <summary>
+        /// Gets or sets the last name.
+        /// </summary>
+        /// <value>
+        /// The last name.
+        /// </value>
+        public String lastName { get; set; }
+        /// <summary>
+        /// Gets or sets the phone.
+        /// </summary>
+        /// <value>
+        /// The phone.
+        /// </value>
+        public String phone { get; set; }
+        /// <summary>
+        /// Gets or sets the fax.
+        /// </summary>
+        /// <value>
+        /// The fax.
+        /// </value>
+        public String fax { get; set; }
+        /// <summary>
+        /// Gets or sets the email.
+        /// </summary>
+        /// <value>
+        /// The email.
+        /// </value>
+        public String email { get; set; }
+        /// <summary>
+        /// Gets or sets the additional details.
+        /// </summary>
+        /// <value>
+        /// The additional details.
+        /// </value>
+        public String additionalDetails { get; set; }
+    }
+}
