@@ -1,4 +1,4 @@
-
+![Pitney Bowes](/PitneyBowes_Logo.jpg)
 
 # Pitney Bowes Location Intelligence API
 
