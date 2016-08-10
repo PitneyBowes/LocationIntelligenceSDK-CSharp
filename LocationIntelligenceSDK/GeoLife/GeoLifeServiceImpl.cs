@@ -12,7 +12,7 @@ License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF 
 See the License for the specific language governing permissions and limitations under the License. */
 
 #endregion
-using com.pb.locationintelligence.geolife.model;
+using com.pb.locationintelligence.geolifeDemographics.model;
 using com.pb.locationintelligence.utils;
 using System;
 using System.Collections.Generic;
@@ -21,17 +21,18 @@ using System.Runtime.Remoting.Messaging;
 using com.pb.locationintelligence.common;
 using System.Diagnostics;
 using com.pb.locationintelligence.exception;
+using com.pb.locationintelligence.geoLifeSegmentation.model;
 
-namespace com.pb.locationintelligence.geolife
+namespace com.pb.locationintelligence.geolifeDemographics
 {
 
 
 
-   
+
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="com.pb.locationintelligence.geolife.GeoLifeService" />
+    /// <seealso cref="com.pb.locationintelligence.geolifeDemographics.GeoLifeService" />
     public class GeoLifeServiceImpl : GeoLifeService
 	{
 
@@ -41,6 +42,13 @@ namespace com.pb.locationintelligence.geolife
         /// The geo lilfe URL
         /// </summary>
         private const string geoLilfeUrl = "/geolife/v1/demographics/";
+
+
+        /// <summary>
+        /// The segmentation URL
+        /// </summary>
+        private String segmentationURL = "/geolife/v1/segmentation/";
+
         /// <summary>
         /// The URL maker
         /// </summary>
@@ -49,7 +57,15 @@ namespace com.pb.locationintelligence.geolife
         /// This event is Raised Asynchronously when web  response is complete.The event has Argument WebRequestFinishedEvent
         /// which has information regarding the response object and exception occurred
         /// </summary>
-        public event EventHandler<WebResponseEventArgs<GeoLifeResponse>> LiAPIRequestFinishedEvent;
+        public event EventHandler<WebResponseEventArgs<GeoLifeResponseDemographics>> LiAPIEventGeoLifeDemographics;
+
+        /// <summary>
+        /// This event is Raised Asynchronously when web  response is complete.The event has Argument WebRequestFinishedEvent
+        /// which has information regarding the response object and exception occurred
+        /// </summary>
+        public event EventHandler<WebResponseEventArgs<GeoLifeResponseSegmentation >> LiAPIEventGeoLifeSegmentation;
+
+
 
         #region V2 Demographics by Address
 
@@ -71,9 +87,9 @@ namespace com.pb.locationintelligence.geolife
         /// <returns>
         /// GeoLifeResponse
         /// </returns>
-        public GeoLifeResponse getDemographicsByAddress(String address, String country, String profile, String filter)
+        public GeoLifeResponseDemographics getDemographicsByAddress(String address, String country, String profile, String filter)
 		{
-            return Utility.processAPIRequest<GeoLifeResponse>(getUrlforAddress(address, country, profile, filter), Utility.HttpVerb.Get, String.Empty);
+            return Utility.processAPIRequest<GeoLifeResponseDemographics>(getDemographicsUrlforAddress(address, country, profile, filter), Utility.HttpVerb.Get, String.Empty);
 		}
 
         /// <summary>
@@ -92,8 +108,8 @@ namespace com.pb.locationintelligence.geolife
         /// for example; AgeTheme, IncomeTheme, EthnicityTheme.
         /// Maximum number of themes that can be provided as a filter are 10.</param>
         public void getDemographicsByAddressAsync( String address,  String country,  String  profile,  String filter) {
-			processAPIRequestDelegate<GeoLifeResponse> delegateApiRequs = new processAPIRequestDelegate<GeoLifeResponse>(Utility.processAPIRequest<GeoLifeResponse>);
-			delegateApiRequs.BeginInvoke(getUrlforAddress(address, country, profile, filter), Utility.HttpVerb.Get, String.Empty, new AsyncCallback(WorkflowCompletedCallback), null);
+			processAPIRequestDelegate<GeoLifeResponseDemographics> delegateApiRequs = new processAPIRequestDelegate<GeoLifeResponseDemographics>(Utility.processAPIRequest<GeoLifeResponseDemographics>);
+			delegateApiRequs.BeginInvoke(getDemographicsUrlforAddress(address, country, profile, filter), Utility.HttpVerb.Get, String.Empty, new AsyncCallback(WorkflowCompletedCallbackDemographics), null);
 
 		}
 
@@ -106,7 +122,7 @@ namespace com.pb.locationintelligence.geolife
         /// <param name="profile">The profile.</param>
         /// <param name="filter">The filter.</param>
         /// <returns></returns>
-        private string getUrlforAddress(String address, String country, String profile, String filter)
+        private string getDemographicsUrlforAddress(String address, String country, String profile, String filter)
         {
             urlMaker = UrlMaker.getInstance();
 
@@ -147,7 +163,7 @@ namespace com.pb.locationintelligence.geolife
         /// <returns>
         /// GeoLifeResponse
         /// </returns>
-        public GeoLifeResponse getDemographicsByLocation(Double latitude,Double longitude, String profile, String filter)
+        public GeoLifeResponseDemographics getDemographicsByLocation(Double latitude,Double longitude, String profile, String filter)
 		{
 			urlMaker = UrlMaker.getInstance();
 
@@ -161,7 +177,7 @@ namespace com.pb.locationintelligence.geolife
 			Utility.appendIfNotNull(urlBuilder, keyValueMap);
 
             Debug.WriteLine("API URL : " + urlBuilder);
-			return Utility.processAPIRequest<GeoLifeResponse>(urlBuilder.ToString(), Utility.HttpVerb.Get, String.Empty);
+			return Utility.processAPIRequest<GeoLifeResponseDemographics>(urlBuilder.ToString(), Utility.HttpVerb.Get, String.Empty);
 		}
 
 
@@ -182,8 +198,8 @@ namespace com.pb.locationintelligence.geolife
         /// for example; AgeTheme, IncomeTheme, EthnicityTheme.
         /// Maximum number of themes that can be provided as a filter are 10.</param>
         public void getDemographicsByLocationAsync( Double latitude,  Double longitude,  String profile,  String filter) {
-		   processAPIRequestDelegate<GeoLifeResponse> delegateApiRequs = new processAPIRequestDelegate<GeoLifeResponse>(Utility.processAPIRequest<GeoLifeResponse>);
-		   delegateApiRequs.BeginInvoke(getUrlforLocation(latitude,  longitude,  profile,  filter), Utility.HttpVerb.Get, String.Empty, new AsyncCallback(WorkflowCompletedCallback), null);
+		   processAPIRequestDelegate<GeoLifeResponseDemographics> delegateApiRequs = new processAPIRequestDelegate<GeoLifeResponseDemographics>(Utility.processAPIRequest<GeoLifeResponseDemographics>);
+		   delegateApiRequs.BeginInvoke(getDemographicsUrlforLocation(latitude,  longitude,  profile,  filter), Utility.HttpVerb.Get, String.Empty, new AsyncCallback(WorkflowCompletedCallbackDemographics), null);
 
 		}
 
@@ -196,7 +212,7 @@ namespace com.pb.locationintelligence.geolife
         /// <param name="profile">The profile.</param>
         /// <param name="filter">The filter.</param>
         /// <returns></returns>
-        private string getUrlforLocation(Double latitude, Double longitude, String profile, String filter)
+        private string getDemographicsUrlforLocation(Double latitude, Double longitude, String profile, String filter)
         {
             urlMaker = UrlMaker.getInstance();
 
@@ -222,34 +238,165 @@ namespace com.pb.locationintelligence.geolife
         /// Workflows the completed callback.
         /// </summary>
         /// <param name="results">The results.</param>
-        void WorkflowCompletedCallback(IAsyncResult results)
+        void WorkflowCompletedCallbackDemographics(IAsyncResult results)
 		{
 
 			AsyncResult result = (AsyncResult)results;
 
-			processAPIRequestDelegate<GeoLifeResponse> del = (processAPIRequestDelegate<GeoLifeResponse>)result.AsyncDelegate;
-			WebResponseEventArgs<GeoLifeResponse> webResponseEventArgs;
+			processAPIRequestDelegate<GeoLifeResponseDemographics> del = (processAPIRequestDelegate<GeoLifeResponseDemographics>)result.AsyncDelegate;
+			WebResponseEventArgs<GeoLifeResponseDemographics> webResponseEventArgs;
 
 			try
 			{
                 Debug.WriteLine("GeoLife SDK Asynchronous function called ");
-				GeoLifeResponse geoLifeResponse = del.EndInvoke(results);
-				webResponseEventArgs = new WebResponseEventArgs<GeoLifeResponse>(geoLifeResponse, null);
-				LiAPIRequestFinishedEvent.Invoke(this, webResponseEventArgs);
+				GeoLifeResponseDemographics geoLifeResponse = del.EndInvoke(results);
+				webResponseEventArgs = new WebResponseEventArgs<GeoLifeResponseDemographics>(geoLifeResponse, null);
+                LiAPIEventGeoLifeDemographics.Invoke(this, webResponseEventArgs);
 
 			}
 			catch (SdkException sdkException)
 			{
-				webResponseEventArgs = new WebResponseEventArgs<GeoLifeResponse>(null, sdkException);
-				LiAPIRequestFinishedEvent.Invoke(this, webResponseEventArgs);
+				webResponseEventArgs = new WebResponseEventArgs<GeoLifeResponseDemographics>(null, sdkException);
+                LiAPIEventGeoLifeDemographics.Invoke(this, webResponseEventArgs);
 				Trace.WriteLine(sdkException.Message);
 			}
 
 		}
-		
 
-	   
+        /// <summary>
+        /// Gets the segmentation by address.
+        /// </summary>
+        /// <param name="address">Required - address text.</param>
+        /// <param name="country">Optional - Country Code
+        /// Acceptable list of country codes: USA,CAN,AUS,SWE,JPN,GBR.</param>
+        /// <returns></returns>
+        public GeoLifeResponseSegmentation getSegmentationByAddress(String address, String country)
+        {
 
-	}
+            String url = getSegmentationUrlforAddress(address, country);
+
+            Debug.WriteLine("API URL : " + url);
+            return Utility.processAPIRequest<GeoLifeResponseSegmentation>(url, Utility.HttpVerb.Get, String.Empty);
+        }
+
+        /// <summary>
+        /// Gets the URL.
+        /// </summary>
+        /// <param name="address">The address.</param>
+        /// <param name="country">The country.</param>
+        /// <returns></returns>
+        private string getSegmentationUrlforAddress(string address, string country)
+        {
+            UrlMaker urlMaker = UrlMaker.getInstance();
+
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(segmentationURL));
+            urlBuilder.Append("byaddress");
+            Dictionary<String, Object> keyValueMap = new Dictionary<String, Object>();
+            keyValueMap.Add("address", address);
+            keyValueMap.Add("country", country);
+
+
+            Utility.appendIfNotNull(urlBuilder, keyValueMap);
+            return urlBuilder.ToString();
+        }
+
+        /// <summary>
+        /// Gets the urlfor location.
+        /// </summary>
+        /// <param name="longitude">The longitude.</param>
+        /// <param name="latitude">The latitude.</param>
+        /// <returns></returns>
+        private string getSegmentationUrlforLocation(Double longitude, Double latitude)
+        {
+            UrlMaker urlMaker = UrlMaker.getInstance();
+
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(segmentationURL));
+            urlBuilder.Append("bylocation");
+            Dictionary<String, Object> keyValueMap = new Dictionary<String, Object>();
+            keyValueMap.Add("longitude", longitude);
+            keyValueMap.Add("latitude", latitude);
+
+
+            Utility.appendIfNotNull(urlBuilder, keyValueMap);
+
+            Debug.WriteLine("API URL : " + urlBuilder);
+
+            return urlBuilder.ToString();
+        }
+
+
+
+        /// <summary>
+        /// Gets the segmentation by location.
+        /// </summary>
+        /// <param name="longitude">Required - longitude of the location.</param>
+        /// <param name="latitude">Required - latitude of the location.</param>
+        /// <returns></returns>
+        public GeoLifeResponseSegmentation getSegmentationByLocation(double longitude, double latitude)
+        {
+
+            return Utility.processAPIRequest<GeoLifeResponseSegmentation>(getSegmentationUrlforLocation(longitude, latitude), Utility.HttpVerb.Get, String.Empty);
+        }
+
+
+
+
+        /// <summary>
+        /// Gets the segmentation by address asynchronous.
+        /// </summary>
+        /// <param name="address">Required - The address.</param>
+        /// <param name="country">Optional -  The country.</param>
+        public void getSegmentationByAddressAsync(string address, string country)
+        {
+            processAPIRequestDelegate<GeoLifeResponseSegmentation> delegateApiRequest = new processAPIRequestDelegate<GeoLifeResponseSegmentation>(Utility.processAPIRequest<GeoLifeResponseSegmentation>);
+            delegateApiRequest.BeginInvoke(getSegmentationUrlforAddress(address, country), Utility.HttpVerb.Get, String.Empty, new AsyncCallback(WorkflowCompletedCallbackSegmentaton), null);
+
+        }
+
+
+        /// <summary>
+        /// Gets the segmentation by location asynchronous.
+        /// </summary>
+        /// <param name="longitude">Required - The longitude.</param>
+        /// <param name="latitude">Required - The latitude.</param>
+        public void getSegmentationByLocationAsync(double longitude, double latitude)
+        {
+
+            processAPIRequestDelegate<GeoLifeResponseSegmentation> delegateApiRequest = new processAPIRequestDelegate<GeoLifeResponseSegmentation>(Utility.processAPIRequest<GeoLifeResponseSegmentation>);
+            delegateApiRequest.BeginInvoke(getSegmentationUrlforLocation(longitude, latitude), Utility.HttpVerb.Get, String.Empty, new AsyncCallback(WorkflowCompletedCallbackSegmentaton), null);
+
+        }
+
+
+        /// <summary>
+        /// Workflows the completed callback.
+        /// </summary>
+        /// <param name="results">The results.</param>
+        void WorkflowCompletedCallbackSegmentaton(IAsyncResult results)
+        {
+
+            AsyncResult result = (AsyncResult)results;
+
+            processAPIRequestDelegate<GeoLifeResponseSegmentation> del = (processAPIRequestDelegate<GeoLifeResponseSegmentation>)result.AsyncDelegate;
+            WebResponseEventArgs<GeoLifeResponseSegmentation> webResponseEventArgs;
+
+            try
+            {
+                Debug.WriteLine("Locations SDK Asynchronous function called ");
+                GeoLifeResponseSegmentation segmentation = del.EndInvoke(results);
+                webResponseEventArgs = new WebResponseEventArgs<GeoLifeResponseSegmentation>(segmentation, null);
+                LiAPIEventGeoLifeSegmentation.Invoke(this, webResponseEventArgs);
+
+            }
+            catch (SdkException sdkException)
+            {
+                webResponseEventArgs = new WebResponseEventArgs<GeoLifeResponseSegmentation>(null, sdkException);
+                LiAPIEventGeoLifeSegmentation.Invoke(this, webResponseEventArgs);
+                Trace.WriteLine(sdkException.Message);
+            }
+
+        }
+      
+    }
 }
 

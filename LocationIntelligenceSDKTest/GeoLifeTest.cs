@@ -5,28 +5,26 @@
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file 
 except in compliance with the License.  You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the 
 License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  
 See the License for the specific language governing permissions and limitations under the License. */
 
 #endregion
-using com.pb.locationintelligence.common.model;
 using com.pb.locationintelligence.common;
 using com.pb.locationintelligence.exception;
-using com.pb.locationintelligence.geolife;
-using com.pb.locationintelligence.geolife.model;
+using com.pb.locationintelligence.geolifeDemographics;
+using com.pb.locationintelligence.geolifeDemographics.model;
 using com.pb.locationintelligence.manager;
 using com.pb.locationintelligence.oauth;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Diagnostics;
 using System.Threading;
 using System.Web.Script.Serialization;
-
+using com.pb.locationintelligence.geoLifeSegmentation.model;
 
 namespace LocationIntelligenceSDKTest
 {
@@ -68,8 +66,8 @@ namespace LocationIntelligenceSDKTest
 		{
 				try{
 
-                    GeoLifeResponse response = mGeoLifeService.getDemographicsByAddress("1 Global View, Troy, NY", "USA", "top3Ascending", "agetheme");
-					Assert.IsInstanceOfType(response, typeof(GeoLifeResponse));
+					GeoLifeResponseDemographics response = mGeoLifeService.getDemographicsByAddress("1 Global View, Troy, NY", "USA", "top3Ascending", "agetheme");
+					Assert.IsInstanceOfType(response, typeof(GeoLifeResponseDemographics));
 				}catch(Exception e){
 					Assert.Fail("Unexpected Exception");
 				}
@@ -81,7 +79,7 @@ namespace LocationIntelligenceSDKTest
 			{
 				Boolean failFlag = false;
 				this.TriggerTest = new AutoResetEvent(false);
-				mGeoLifeService.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<GeoLifeResponse> eventArgs) => 
+				mGeoLifeService.LiAPIEventGeoLifeDemographics += (object sender, WebResponseEventArgs<GeoLifeResponseDemographics> eventArgs) => 
 				{
 
 					try
@@ -98,7 +96,7 @@ namespace LocationIntelligenceSDKTest
 				   
 					
 				};
-                mGeoLifeService.getDemographicsByAddressAsync("1 Global View, Troy, NY", "USA", "top3Ascending", "agetheme");
+				mGeoLifeService.getDemographicsByAddressAsync("1 Global View, Troy, NY", "USA", "top3Ascending", "agetheme");
 				this.TriggerTest.WaitOne(10000);
 				if (failFlag)
 				{
@@ -117,7 +115,7 @@ namespace LocationIntelligenceSDKTest
 		[TestMethod]
 		public void getDemographicsByAddressNegativeTest() {
 			try{
-                mGeoLifeService.getDemographicsByAddress(null, "USA", "top3Ascending", "agetheme");
+				mGeoLifeService.getDemographicsByAddress(null, "USA", "top3Ascending", "agetheme");
 			}catch(SdkException exp){
 				Assert.IsTrue(exp.getHttpStatusCode()== 400);
 			}catch(Exception e){
@@ -133,7 +131,7 @@ namespace LocationIntelligenceSDKTest
 			{
 				Boolean failFlag = false;
 				this.TriggerTest = new AutoResetEvent(false);
-				mGeoLifeService.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<GeoLifeResponse> eventArgs) =>
+				mGeoLifeService.LiAPIEventGeoLifeDemographics += (object sender, WebResponseEventArgs<GeoLifeResponseDemographics> eventArgs) =>
 				{
 					
 					
@@ -149,7 +147,7 @@ namespace LocationIntelligenceSDKTest
 
 					}
 				};
-                mGeoLifeService.getDemographicsByAddressAsync(null, "USA", "top3Ascending", "agetheme");
+				mGeoLifeService.getDemographicsByAddressAsync(null, "USA", "top3Ascending", "agetheme");
 				this.TriggerTest.WaitOne(10000);
 				if (failFlag)
 				{
@@ -167,7 +165,7 @@ namespace LocationIntelligenceSDKTest
 		[TestMethod]
 			public void getDemographicsByAddressBadRequestTest() {
 					try{
-                        mGeoLifeService.getDemographicsByAddress("1 Global View, Troy, NY", "1234", "top3Ascending", "agetheme");
+						mGeoLifeService.getDemographicsByAddress("1 Global View, Troy, NY", "1234", "top3Ascending", "agetheme");
 					}
 					catch (SdkException exp)
 					{
@@ -186,7 +184,7 @@ namespace LocationIntelligenceSDKTest
 			{
 				Boolean failFlag = false;
 				this.TriggerTest = new AutoResetEvent(false);
-				mGeoLifeService.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<GeoLifeResponse> eventArgs) =>
+				mGeoLifeService.LiAPIEventGeoLifeDemographics += (object sender, WebResponseEventArgs<GeoLifeResponseDemographics> eventArgs) =>
 				{
 					
 					
@@ -204,7 +202,7 @@ namespace LocationIntelligenceSDKTest
 
 					}
 				};
-                mGeoLifeService.getDemographicsByAddressAsync("1 Global View, Troy, NY", "1234", "top3Ascending", "agetheme");
+				mGeoLifeService.getDemographicsByAddressAsync("1 Global View, Troy, NY", "1234", "top3Ascending", "agetheme");
 				this.TriggerTest.WaitOne(10000);
 				if (failFlag)
 				{
@@ -224,9 +222,9 @@ namespace LocationIntelligenceSDKTest
 		[TestMethod]
 		public void getDemographicsByAddressNoFilterTest() {
 			try{
-				GeoLifeResponse response = mGeoLifeService.getDemographicsByAddress("1 Global View, Troy, NY","USA","top3Ascending", null);
+				GeoLifeResponseDemographics response = mGeoLifeService.getDemographicsByAddress("1 Global View, Troy, NY","USA","top3Ascending", null);
 				//assertTrue(response instanceof GeoLifeResponse);
-				Assert.IsInstanceOfType(response, typeof(GeoLifeResponse));
+				Assert.IsInstanceOfType(response, typeof(GeoLifeResponseDemographics));
 
 			}catch(Exception e){
 				Assert.Fail("Unexpected Exception");
@@ -239,30 +237,30 @@ namespace LocationIntelligenceSDKTest
 
 			try
 			{
-                Boolean failFlag = false;
+				Boolean failFlag = false;
 				this.TriggerTest = new AutoResetEvent(false);
-				mGeoLifeService.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<GeoLifeResponse> eventArgs) =>
+				mGeoLifeService.LiAPIEventGeoLifeDemographics += (object sender, WebResponseEventArgs<GeoLifeResponseDemographics> eventArgs) =>
 				{
 					
 					
-                    try
-                    {
-                        Assert.IsInstanceOfType(eventArgs.ResponseObject, typeof(GeoLifeResponse)); 
-                        this.TriggerTest.Set();
-                    }
-                    catch (Exception)
-                    {
-                        failFlag = true;
-                        this.TriggerTest.Set();
+					try
+					{
+						Assert.IsInstanceOfType(eventArgs.ResponseObject, typeof(GeoLifeResponseDemographics)); 
+						this.TriggerTest.Set();
+					}
+					catch (Exception)
+					{
+						failFlag = true;
+						this.TriggerTest.Set();
 
-                    }
+					}
 				};
 				mGeoLifeService.getDemographicsByAddressAsync("1 Global View, Troy, NY", "USA", "top3Ascending", null);
 				this.TriggerTest.WaitOne(10000);
-                if (failFlag)
-                {
-                    Assert.Fail("Test Case Failed");
-                }
+				if (failFlag)
+				{
+					Assert.Fail("Test Case Failed");
+				}
 			}
 			catch (Exception e)
 			{
@@ -275,8 +273,8 @@ namespace LocationIntelligenceSDKTest
 		[TestMethod]
 		public void getDemographicsByLocationTest() {
 			try{
-                GeoLifeResponse response = mGeoLifeService.getDemographicsByLocation(35.0118D, -81.9571D, "top3Ascending", "agetheme");
-				Assert.IsInstanceOfType(response, typeof(GeoLifeResponse));
+				GeoLifeResponseDemographics response = mGeoLifeService.getDemographicsByLocation(35.0118D, -81.9571D, "top3Ascending", "agetheme");
+				Assert.IsInstanceOfType(response, typeof(GeoLifeResponseDemographics));
 			}catch(Exception e){
 				Assert.Fail("Unexpected Exception");
 			}
@@ -288,30 +286,30 @@ namespace LocationIntelligenceSDKTest
 
 			try
 			{
-                Boolean failFlag = false;
+				Boolean failFlag = false;
 				this.TriggerTest = new AutoResetEvent(false);
-				mGeoLifeService.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<GeoLifeResponse> eventArgs) =>
+				mGeoLifeService.LiAPIEventGeoLifeDemographics += (object sender, WebResponseEventArgs<GeoLifeResponseDemographics> eventArgs) =>
 				{
 					
 					
-                    try
-                    {
-                        Assert.IsInstanceOfType(eventArgs.ResponseObject, typeof(GeoLifeResponse));
-                        this.TriggerTest.Set();
-                    }
-                    catch (Exception)
-                    {
-                        failFlag = true;
-                        this.TriggerTest.Set();
+					try
+					{
+						Assert.IsInstanceOfType(eventArgs.ResponseObject, typeof(GeoLifeResponseDemographics));
+						this.TriggerTest.Set();
+					}
+					catch (Exception)
+					{
+						failFlag = true;
+						this.TriggerTest.Set();
 
-                    }
+					}
 				};
-                mGeoLifeService.getDemographicsByLocationAsync(35.0118D, -81.9571D, "top3Ascending", "agetheme");
+				mGeoLifeService.getDemographicsByLocationAsync(35.0118D, -81.9571D, "top3Ascending", "agetheme");
 				this.TriggerTest.WaitOne(10000);
-                if (failFlag)
-                {
-                    Assert.Fail("Test Case Failed");
-                }
+				if (failFlag)
+				{
+					Assert.Fail("Test Case Failed");
+				}
 			}
 			catch (Exception e)
 			{
@@ -322,7 +320,7 @@ namespace LocationIntelligenceSDKTest
 		[TestMethod]
 		public void getDemographicsByLocationBadRequestTest() {
 			try{
-                mGeoLifeService.getDemographicsByLocation(35.0118D, -81.9571D, "Invalid Values", "agetheme");
+				mGeoLifeService.getDemographicsByLocation(35.0118D, -81.9571D, "Invalid Values", "agetheme");
 			}
 			catch (SdkException exception)
 			{
@@ -339,31 +337,31 @@ namespace LocationIntelligenceSDKTest
 
 			try
 			{
-                Boolean failFlag = false;
+				Boolean failFlag = false;
 				this.TriggerTest = new AutoResetEvent(false);
-				mGeoLifeService.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<GeoLifeResponse> eventArgs) =>
+				mGeoLifeService.LiAPIEventGeoLifeDemographics += (object sender, WebResponseEventArgs<GeoLifeResponseDemographics> eventArgs) =>
 				{
 					
 					
-                    try
-                    {
-                        Assert.IsTrue((SdkException.ErrorResponseType)eventArgs.SDKException.ErrorResponseTypes == SdkException.ErrorResponseType.LI);
-                        Assert.IsTrue(eventArgs.SDKException.getHttpStatusCode() == 400);
-                        this.TriggerTest.Set();
-                    }
-                    catch (Exception)
-                    {
-                        failFlag = true;
-                        this.TriggerTest.Set();
+					try
+					{
+						Assert.IsTrue((SdkException.ErrorResponseType)eventArgs.SDKException.ErrorResponseTypes == SdkException.ErrorResponseType.LI);
+						Assert.IsTrue(eventArgs.SDKException.getHttpStatusCode() == 400);
+						this.TriggerTest.Set();
+					}
+					catch (Exception)
+					{
+						failFlag = true;
+						this.TriggerTest.Set();
 
-                    }
+					}
 				};
-                mGeoLifeService.getDemographicsByLocationAsync(35.0118D, -81.9571D, "Invalid Values", "agetheme");
+				mGeoLifeService.getDemographicsByLocationAsync(35.0118D, -81.9571D, "Invalid Values", "agetheme");
 				this.TriggerTest.WaitOne(10000);
-                if (failFlag)
-                {
-                    Assert.Fail("Test Case Failed");
-                }
+				if (failFlag)
+				{
+					Assert.Fail("Test Case Failed");
+				}
 			}
 			catch (Exception e)
 			{
@@ -376,8 +374,8 @@ namespace LocationIntelligenceSDKTest
 		[TestMethod]
 		public void getDemographicsByLocationNoFilterTest() {
 			try{
-				GeoLifeResponse response = mGeoLifeService.getDemographicsByLocation(35.0118D,-81.9571D,null, null);
-				Assert.IsInstanceOfType(response, typeof(GeoLifeResponse));
+				GeoLifeResponseDemographics response = mGeoLifeService.getDemographicsByLocation(35.0118D,-81.9571D,null, null);
+				Assert.IsInstanceOfType(response, typeof(GeoLifeResponseDemographics));
 			}catch(Exception e){
 				Assert.Fail("Unexpected Exception");
 			}
@@ -389,31 +387,31 @@ namespace LocationIntelligenceSDKTest
 
 			try
 			{
-                Boolean failFlag = false;
+				Boolean failFlag = false;
 
 				this.TriggerTest = new AutoResetEvent(false);
-				mGeoLifeService.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<GeoLifeResponse> eventArgs) =>
+				mGeoLifeService.LiAPIEventGeoLifeDemographics += (object sender, WebResponseEventArgs<GeoLifeResponseDemographics> eventArgs) =>
 				{
 					
 					
-                    try
-                    {
-                        Assert.IsInstanceOfType(eventArgs.ResponseObject, typeof(GeoLifeResponse));
-                        this.TriggerTest.Set();
-                    }
-                    catch (Exception)
-                    {
-                        failFlag = true;
-                        this.TriggerTest.Set();
+					try
+					{
+						Assert.IsInstanceOfType(eventArgs.ResponseObject, typeof(GeoLifeResponseDemographics));
+						this.TriggerTest.Set();
+					}
+					catch (Exception)
+					{
+						failFlag = true;
+						this.TriggerTest.Set();
 
-                    }
+					}
 				};
 				mGeoLifeService.getDemographicsByLocationAsync(35.0118D, -81.9571D, null, null);
 				this.TriggerTest.WaitOne(10000);
-                if (failFlag)
-                {
-                    Assert.Fail("Test Case Failed");
-                }
+				if (failFlag)
+				{
+					Assert.Fail("Test Case Failed");
+				}
 			}
 			catch (Exception e)
 			{
@@ -421,61 +419,176 @@ namespace LocationIntelligenceSDKTest
 			}
 		}
 
-        [TestMethod]
-        public void testGetGeolifeByLocationAndCompareSDKResponseTest()
-        {
-            try
-            {
-                GeoLifeResponse response = mGeoLifeService.getDemographicsByLocation(35.0118D, -81.9571D, "top3Ascending", "agetheme");
-                String serviceEndPoint = "/geolife/v1/demographics/bylocation";
-                Dictionary<String, Object> keyValueMap = new Dictionary<String, Object>();
-                keyValueMap.Add("latitude", 35.0118);
-                keyValueMap.Add("longitude", -81.9571);
-                keyValueMap.Add("profile", "top3Ascending");
-                keyValueMap.Add("filter", "agetheme");
-               
-                String responseJSON = TestUtility.getJSONResponseFromAPI(TEST_URL, serviceEndPoint, keyValueMap);
-                JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
-                String sdkResponseString = jsonSerializer.Serialize(response);
-         //     Assert.AreEqual(sdkResponseString, responseJSON);
-                GeoLifeResponse apiResponse= jsonSerializer.Deserialize<GeoLifeResponse>(responseJSON);
-               // Assert.AreEqual(response.boundaries.boundary[0].boundaryid,apiResponse.themes.age.boundaryid);
+		[TestMethod]
+		public void testGetGeolifeByLocationAndCompareSDKResponseTest()
+		{
+			try
+			{
+				GeoLifeResponseDemographics response = mGeoLifeService.getDemographicsByLocation(35.0118D, -81.9571D, "top3Ascending", "agetheme");
+				String serviceEndPoint = "/geolife/v1/demographics/bylocation";
+				Dictionary<String, Object> keyValueMap = new Dictionary<String, Object>();
+				keyValueMap.Add("latitude", 35.0118);
+				keyValueMap.Add("longitude", -81.9571);
+				keyValueMap.Add("profile", "top3Ascending");
+				keyValueMap.Add("filter", "agetheme");
+			   
+				String responseJSON = TestUtility.getJSONResponseFromAPI(TEST_URL, serviceEndPoint, keyValueMap);
+				JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
+				String sdkResponseString = jsonSerializer.Serialize(response);
+		 //     Assert.AreEqual(sdkResponseString, responseJSON);
+				GeoLifeResponseDemographics apiResponse= jsonSerializer.Deserialize<GeoLifeResponseDemographics>(responseJSON);
+			   // Assert.AreEqual(response.boundaries.boundary[0].boundaryid,apiResponse.themes.age.boundaryid);
 
 
-                Assert.AreEqual(response.themes.ageTheme.boundaryRef, apiResponse.themes.ageTheme.boundaryRef);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail("Unexpected Exception");
-            }
-        }
+				Assert.AreEqual(response.themes.ageTheme.boundaryRef, apiResponse.themes.ageTheme.boundaryRef);
+			}
+			catch (Exception e)
+			{
+				Assert.Fail("Unexpected Exception");
+			}
+		}
 
-        [TestMethod]
-        public void testGetGeolifeByAddressAndCompareSDKResponseTest()
-        {
-            try
-            {
-                GeoLifeResponse response = mGeoLifeService.getDemographicsByAddress("1 Global View, Troy, NY", "USA", "top3Ascending", "agetheme");
-                String serviceEndPoint = "/geolife/v1/demographics/byaddress";
-                Dictionary<String, Object> keyValueMap = new Dictionary<String, Object>();
-                keyValueMap.Add("address", "1 Global View, Troy, NY");
-                keyValueMap.Add("country", "USA");
-                keyValueMap.Add("profile", "top3Ascending");
-                keyValueMap.Add("filter", "agetheme");
-                String responseJSON = TestUtility.getJSONResponseFromAPI(TEST_URL, serviceEndPoint, keyValueMap);
-                JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
-                String sdkResponseString = jsonSerializer.Serialize(response);
-                //       Assert.AreEqual(sdkResponseString, responseJSON);
-                GeoLifeResponse apiResponse = jsonSerializer.Deserialize<GeoLifeResponse>(responseJSON);
-                //Assert.AreEqual(response.themes.age.boundaryid, apiResponse.themes.age.boundaryid);
-                Assert.AreEqual(response.themes.ageTheme.boundaryRef, apiResponse.themes.ageTheme.boundaryRef);
-            }
-            catch (Exception e)
-            {
-                Assert.Fail("Unexpected Exception");
-            }
-        } 
-    
-    }
+		[TestMethod]
+		public void testGetGeolifeByAddressAndCompareSDKResponseTest()
+		{
+			try
+			{
+				GeoLifeResponseDemographics response = mGeoLifeService.getDemographicsByAddress("1 Global View, Troy, NY", "USA", "top3Ascending", "agetheme");
+				String serviceEndPoint = "/geolife/v1/demographics/byaddress";
+				Dictionary<String, Object> keyValueMap = new Dictionary<String, Object>();
+				keyValueMap.Add("address", "1 Global View, Troy, NY");
+				keyValueMap.Add("country", "USA");
+				keyValueMap.Add("profile", "top3Ascending");
+				keyValueMap.Add("filter", "agetheme");
+				String responseJSON = TestUtility.getJSONResponseFromAPI(TEST_URL, serviceEndPoint, keyValueMap);
+				JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
+				String sdkResponseString = jsonSerializer.Serialize(response);
+				//       Assert.AreEqual(sdkResponseString, responseJSON);
+				GeoLifeResponseDemographics apiResponse = jsonSerializer.Deserialize<GeoLifeResponseDemographics>(responseJSON);
+				//Assert.AreEqual(response.themes.age.boundaryid, apiResponse.themes.age.boundaryid);
+				Assert.AreEqual(response.themes.ageTheme.boundaryRef, apiResponse.themes.ageTheme.boundaryRef);
+			}
+			catch (Exception e)
+			{
+				Assert.Fail("Unexpected Exception");
+			}
+		}
+
+
+
+		[TestMethod]
+		public void segmentationByLocationTest()
+		{
+			try
+			{
+				GeoLifeResponseSegmentation segmentation = mGeoLifeService.getSegmentationByLocation(-81.9571, 35.0118);
+				Assert.IsTrue(segmentation != null);
+			}
+			catch (Exception e)
+			{
+				Assert.Fail("Unexpected Exception");
+			}
+		}
+
+		[TestMethod]
+		public void segmentationByLocationTestAsync()
+		{
+			try
+			{
+				Boolean failFlag = false;
+				this.TriggerTest = new AutoResetEvent(false);
+				mGeoLifeService.LiAPIEventGeoLifeSegmentation += (object sender, WebResponseEventArgs<GeoLifeResponseSegmentation> eventArgs) =>
+				{
+					try
+					{
+						Assert.IsTrue(eventArgs.ResponseObject != null);
+						this.TriggerTest.Set();
+					}
+					catch (Exception)
+					{
+						failFlag = true;
+						this.TriggerTest.Set();
+
+					}
+				};
+				mGeoLifeService.getSegmentationByLocationAsync(-81.9571, 35.0118);
+				this.TriggerTest.WaitOne(10000);
+				if (failFlag)
+				{
+					Assert.Fail("Test Case Failed");
+				}
+
+			}
+			catch (Exception e)
+			{
+				Assert.Fail("Unexpected Exception");
+			}
+
+		}
+
+		[TestMethod]
+		public void segmentationByAddressTest()
+		{
+			try
+			{
+				GeoLifeResponseSegmentation segmentation = mGeoLifeService.getSegmentationByAddress("1 Global View, Troy, NY");
+				Assert.IsTrue(segmentation != null);
+			}
+			catch (Exception e)
+			{
+				Assert.Fail("Unexpected Exception");
+			}
+		}
+
+		[TestMethod]
+		public void segmentationByAddressTestAsync()
+		{
+
+			try
+			{
+				Boolean failFlag = false;
+				this.TriggerTest = new AutoResetEvent(false);
+				mGeoLifeService.LiAPIEventGeoLifeSegmentation += (object sender, WebResponseEventArgs<GeoLifeResponseSegmentation> eventArgs) =>
+				{
+
+
+					try
+					{
+						Assert.IsTrue(eventArgs.ResponseObject != null);
+						this.TriggerTest.Set();
+					}
+					catch (Exception)
+					{
+						failFlag = true;
+						this.TriggerTest.Set();
+
+					}
+				};
+				GeoLifeResponseSegmentation segmentation = mGeoLifeService.getSegmentationByAddress("1 Global View, Troy, NY", "USA");
+				this.TriggerTest.WaitOne(10000);
+				if (failFlag)
+				{
+					Assert.Fail("Test Case Failed");
+				}
+
+			}
+			catch (Exception e)
+			{
+				Assert.Fail("Unexpected Exception");
+			}
+
+
+
+		}
+
+
+
+		[TestCleanup]
+		public void tearDown()
+		{
+			mGeoLifeService = null;
+		}
+
+	}
 	
 }

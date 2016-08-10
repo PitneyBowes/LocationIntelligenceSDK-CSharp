@@ -14,10 +14,10 @@ See the License for the specific language governing permissions and limitations 
 #endregion
 using com.pb.locationintelligence.geo911;
 using com.pb.locationintelligence.geoenhance;
-using com.pb.locationintelligence.geolife;
+using com.pb.locationintelligence.geolifeDemographics;
 using com.pb.locationintelligence.geosearch;
 using com.pb.locationintelligence.geotax;
-using com.pb.locationintelligence.segmentation;
+using com.pb.locationintelligence.geoLifeSegmentation;
 using com.pb.locationintelligence.geocode;
 using com.pb.locationintelligence.oauth;
 
@@ -44,7 +44,7 @@ namespace com.pb.locationintelligence.manager
         private static LIServiceManager _LIServiceManager = null;
 
         /// <summary>
-        /// Prevents a default instance of the <see cref="LIServiceManager"/> class from being created.
+        /// Prevents a default instance of the <see cref="LIServiceManager" /> class from being created.
         /// </summary>
         private LIServiceManager() {
             if (!String.IsNullOrEmpty(ConfigurationManager.AppSettings["BASE_URL"]))
@@ -187,17 +187,6 @@ namespace com.pb.locationintelligence.manager
 	{
 		return new GeoTaxServiceImpl();
 	}
-
-
-
-        /// <summary>
-        /// Gets the segmentation service.
-        /// </summary>
-        /// <returns></returns>
-        public SegmentationService getSegmentationService()
-    {
-        return new SegmentationServiceImpl();
-    }
 
 
         /// <summary>

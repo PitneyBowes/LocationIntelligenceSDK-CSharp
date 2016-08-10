@@ -64,7 +64,6 @@
     <Compile Include="GeoEnhanceTest.cs" />
     <Compile Include="GeoTaxTest.cs" />
     <Compile Include="TestUtility.cs" />
-    <Compile Include="SegmentationTestCase.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LocationIntelligenceSDK\LocationIntelligenceSDK.csproj">
@@ -73,7 +72,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="LocationIntelligenceSDKTest.licenseheader" />
   </ItemGroup>
   <Choose>
