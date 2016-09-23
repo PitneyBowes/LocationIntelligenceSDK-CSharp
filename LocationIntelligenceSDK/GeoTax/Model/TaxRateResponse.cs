@@ -18,13 +18,14 @@ namespace com.pb.locationintelligence.geotax.model
 {
 
     /// <summary>
-    /// 
+    /// Represents Tax Rate Response of GeoTax API.
     /// </summary>
     public class TaxRateResponse
     {
 
         /// <summary>
-        /// Gets or sets the confidence.
+        /// Provides the percentage overlap of the geocode to the Place polygon layer. 
+        /// The returned percentage value describes the probability that the point falls in the specified Place..
         /// </summary>
         /// <value>
         /// The confidence.

@@ -52,6 +52,7 @@
     </Compile>
     <Compile Include="Common\Model\Address.cs" />
     <Compile Include="Common\Model\ContactDetails.cs" />
+	<Compile Include="Common\Model\County.cs" />
     <Compile Include="Common\Model\Distance.cs" />
     <Compile Include="Common\Model\Geometry.cs" />
     <Compile Include="Common\Model\Location.cs" />
@@ -66,6 +67,9 @@
     <Compile Include="Exception\SdkException.cs" />
     <Compile Include="Geo911\Geo911Service.cs" />
     <Compile Include="Geo911\Geo911ServiceImpl.cs" />
+    <Compile Include="Geo911\Model\AHJ.cs" />
+    <Compile Include="Geo911\Model\AhjList.cs" />
+    <Compile Include="Geo911\Model\AHJPlusPSAPResponse.cs" />
     <Compile Include="Geo911\Model\ContactPerson.cs" />
     <Compile Include="Geo911\Model\County.cs" />
     <Compile Include="Geo911\Model\Coverage.cs" />
@@ -103,6 +107,10 @@
     <Compile Include="Geocode\Model\Geocode\Request\PreferenceBuilder\GeocodePreference.cs" />
     <Compile Include="Geocode\Model\Geocode\Request\PreferenceBuilder\GeocodePreferenceBuilder.cs" />
     <Compile Include="Geocode\Model\Geocode\Request\PreferenceBuilder\GeocodeReturnFieldsDescriptor.cs" />
+	<Compile Include="GeoComm\GeoCommService.cs" />
+    <Compile Include="GeoComm\GeoCommServiceImpl.cs" />
+    <Compile Include="GeoComm\Model\AreaCodeResponse.cs" />
+    <Compile Include="GeoComm\Model\RateCenterResponse.cs" />
     <Compile Include="GeoEnhance\GeoEnhanceService.cs" />
     <Compile Include="GeoEnhance\GeoEnhanceServiceImpl.cs" />
     <Compile Include="GeoLife\GeoLifeService.cs" />
@@ -235,7 +243,28 @@
   <ItemGroup>
     <None Include="LocationIntelligenceSDK.licenseheader" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="GeoTax\Model\TaxAddress.cs" />
+    <Compile Include="GeoTax\Model\TaxAddressRequest.cs" />
+    <Compile Include="GeoTax\Model\TaxLocationRequest.cs" />
+    <Compile Include="GeoTax\Model\TaxRateAddress.cs" />
+    <Compile Include="GeoTax\Model\TaxRateAddressRequest.cs" />
+    <Compile Include="GeoTax\Model\TaxRateLocationRequest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GeoTax\Model\Locations.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GeoTax\Model\Geometry.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GeoTax\Model\TaxResponse.cs" />
+    <Compile Include="GeoTax\Model\LatLongFields.cs" />
+    <Compile Include="GeoTax\Model\Cbsa.cs" />
+    <Compile Include="GeoTax\Model\Census.cs" />
+    <Compile Include="GeoTax\Model\Mcd.cs" />
+    <Compile Include="GeoTax\Model\TaxResponseList.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -58,6 +58,7 @@
     <Compile Include="BasicAuthServiceImpl.cs" />
     <Compile Include="GeocodeTest.cs" />
     <Compile Include="Geo911Test.cs" />
+    <Compile Include="GeoCommTest.cs" />
     <Compile Include="GeoLifeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GeoSearchTest.cs" />
@@ -72,9 +73,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
     <None Include="LocationIntelligenceSDKTest.licenseheader" />
   </ItemGroup>
   <Choose>

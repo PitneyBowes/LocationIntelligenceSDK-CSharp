@@ -21,7 +21,7 @@ namespace com.pb.locationintelligence.geotax.model
 
 
     /// <summary>
-    /// 
+    /// Represents SPDs list
     /// </summary>
     public class SpecialPurposeDistrictList
     {

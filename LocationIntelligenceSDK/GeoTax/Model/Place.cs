@@ -18,54 +18,61 @@ namespace com.pb.locationintelligence.geotax.model
 {
 
     /// <summary>
-    /// 
+    /// Represents Place Information 
     /// </summary>
     public class Place
     {
         /// <summary>
-        /// Gets or sets the name.
+        /// The name of the "place" where the address is located. 
+        /// A "place" is a geographic area defined on the basis of population criteria that vary by state. 
+        /// Or, an area recognized as significant because it is located in an incorporated municipality..
         /// </summary>
         /// <value>
         /// The name.
         /// </value>
         public String name{get;set;}
         /// <summary>
-        /// Gets or sets the code.
+        /// An identifier for a specific place. A "place" is a geographic area defined on the basis of population criteria that vary by state. 
+        /// Or, an area recognized as significant because it is located in an incorporated municipality.
         /// </summary>
         /// <value>
         /// The code.
         /// </value>
         public String code{get;set;}
         /// <summary>
-        /// Gets or sets the class code.
+        /// Place class code. Place class codes are used to determine the proper taxing jurisdictions.
+        ///Note: This field is always included in the output regardless of whether or not you choose to include tax jurisdiction data in the output..
         /// </summary>
         /// <value>
         /// The class code.
         /// </value>
         public String classCode{get;set;}
         /// <summary>
-        /// Gets or sets the incorporated flag.
+        /// Indicates whether the address is located in an incorporated or unincorporated place. 
+        /// A "place" is a geographic area defined on the basis of population criteria that vary by state. 
+        /// Or, an area recognized as significant because it is located in an incorporated municipality.
         /// </summary>
         /// <value>
         /// The incorporated flag.
         /// </value>
         public String incorporatedFlag{get;set;}
         /// <summary>
-        /// Gets or sets the last annexed date.
+        /// Last annexed date, in the format MM/YYYY, representing the month and year of the most recent boundary 
+        /// change or the most recent available boundary information.
         /// </summary>
         /// <value>
         /// The last annexed date.
         /// </value>
         public String lastAnnexedDate{get;set;}
         /// <summary>
-        /// Gets or sets the last updated date.
+        ///	Last updated date, in the format MM/YYYY, reflecting the month and year..
         /// </summary>
         /// <value>
         /// The last updated date.
         /// </value>
         public String lastUpdatedDate{get;set;}
         /// <summary>
-        /// Gets or sets the last verified date.
+        /// 	Last verified date, in the format MM/YYYY, representing the month and year.
         /// </summary>
         /// <value>
         /// The last verified date.

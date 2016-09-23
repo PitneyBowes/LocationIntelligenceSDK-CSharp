@@ -18,7 +18,7 @@ namespace com.pb.locationintelligence.geotax.model
 
 
     /// <summary>
-    /// 
+    /// Represents SPDs Tax
     /// </summary>
     public class SpecialPurposeDistrictTax
     {

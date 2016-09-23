@@ -19,7 +19,7 @@ namespace com.pb.locationintelligence.geotax.model
 
 
     /// <summary>
-    /// 
+    /// Represents Tax Jurisdiction.
     /// </summary>
     public class TaxJurisdiction
 	{

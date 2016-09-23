@@ -21,19 +21,19 @@ using System.Threading.Tasks;
 namespace com.pb.locationintelligence.geo911.model
 {
     /// <summary>
-    /// 
+    /// Details of Country 
     /// </summary>
     public class County
     {
         /// <summary>
-        /// Gets or sets the name.
+        /// Name of county where the PSAP is located.
         /// </summary>
         /// <value>
         /// The name.
         /// </value>
         public String name { get; set; }
         /// <summary>
-        /// Gets or sets the fips.
+        /// FIPS of county where the PSAP is located.
         /// </summary>
         /// <value>
         /// The fips.

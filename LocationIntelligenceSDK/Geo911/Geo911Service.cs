@@ -19,19 +19,47 @@ using System;
 namespace com.pb.locationintelligence.geo911
 {
     /// <summary>
-    ///  This service provides Life-saving emergency call-routing information (PSAP details) w.r.t requested Address or Latitude-Longitude.
+    /// This service provides Life-saving emergency call-routing information (PSAP details) w.r.t requested Address or Latitude-Longitude.
     /// </summary>
     public interface Geo911Service
     {
 
         /// <summary>
-        ///  This event is Raised Asynchronously when web  response is complete.The event has Argument WebRequestFinishedEvent
-        ///  which has information regarding the response object and exception occurred
-        ///
+        /// This event is Raised Asynchronously when web  response is complete.The event has Argument WebRequestFinishedEvent
+        /// which has information regarding the response object and exception occurred
         /// </summary>
         event EventHandler<WebResponseEventArgs<PsapResponse>> LiAPIRequestFinishedEvent;
-        
-        
+
+        /// <summary>
+        /// Occurs when [li apiahj plus psas request finished event].
+        /// </summary>
+        event EventHandler<WebResponseEventArgs<AHJPlusPSAPResponse>> LiAPIAHJPlusPSASRequestFinishedEvent;
+
+        /// <summary>
+        /// Gets the ahj plus psap by address.
+        /// </summary>
+        /// <param name="address">The address.</param>
+        /// <returns></returns>
+        AHJPlusPSAPResponse getAHJPlusPSAPByAddress(String address);
+        /// <summary>
+        /// Gets the ahj plus psap by address asynchronous.
+        /// </summary>
+        /// <param name="address">The address.</param>
+        void getAHJPlusPSAPByAddressAsync(String address);
+        /// <summary>
+        /// Gets the ahj plus psap by location.
+        /// </summary>
+        /// <param name="latitude">The latitude.</param>
+        /// <param name="longitude">The longitude.</param>
+        /// <returns></returns>
+        AHJPlusPSAPResponse getAHJPlusPSAPByLocation(Double latitude, Double longitude);
+        /// <summary>
+        /// Gets the ahj plus psap by location asynchronous.
+        /// </summary>
+        /// <param name="latitude">The latitude.</param>
+        /// <param name="longitude">The longitude.</param>
+        void getAHJPlusPSAPByLocationAsync(Double latitude, Double longitude);
+
         /// <summary>
         /// Retrieves Public Safety Answering Points (PSAP) details.
         /// Accepts the address as input and returns PSAP locations' details
@@ -39,21 +67,25 @@ namespace com.pb.locationintelligence.geo911
         /// details, site details and mailing address
         /// </summary>
         /// <param name="address">Required - Free-form address text.</param>
-        /// <returns>PsapResponse</returns>
+        /// <returns>
+        /// PsapResponse
+        /// </returns>
         PsapResponse getPSAPByAddress(String address);
 
         /// <summary>
         /// Retrieves Public Safety Answering Points (PSAP) details.
-        ///Accepts latitude and longitude co-ordinates as input and returns PSAP locations' details
-        ///including agency name, including agency name, phone number, county name, coverage,
-        ///contact person's details, site details and mailing address.
+        /// Accepts latitude and longitude co-ordinates as input and returns PSAP locations' details
+        /// including agency name, including agency name, phone number, county name, coverage,
+        /// contact person's details, site details and mailing address.
         /// </summary>
         /// <param name="latitude">Required - latitude of the location.</param>
         /// <param name="longitude">Required - longitude of the location.</param>
-        /// <returns>PsapResponse</returns>
+        /// <returns>
+        /// PsapResponse
+        /// </returns>
         PsapResponse getPSAPByLocation(Double latitude, Double longitude);
 
-       
+
 
         /// <summary>
         /// Retrieves Public Safety Answering Points (PSAP) details in asynchronous mode.
@@ -63,19 +95,17 @@ namespace com.pb.locationintelligence.geo911
         /// details, site details and mailing address
         /// </summary>
         /// <param name="address">Required - Free-form address text.</param>
-        /// <returns>void</returns>
         void getPSAPByAddressAsync(String address);
 
         /// <summary>
         /// Retrieves Public Safety Answering Points (PSAP) details.
         /// Response can be retrieved by subscribing to event LiAPIRequestFinishedEvent.
-        ///Accepts latitude and longitude co-ordinates as input and returns PSAP locations' details in Async Mode
-        ///including agency name, including agency name, phone number, county name, coverage,
-        ///contact person's details, site details and mailing address.
+        /// Accepts latitude and longitude co-ordinates as input and returns PSAP locations' details in Async Mode
+        /// including agency name, including agency name, phone number, county name, coverage,
+        /// contact person's details, site details and mailing address.
         /// </summary>
         /// <param name="latitude">Required - latitude of the location.</param>
         /// <param name="longitude">Required - longitude of the location.</param>
-        /// <returns>void</returns>
         void getPSAPByLocationAsync(Double latitude, Double longitude);
 
 

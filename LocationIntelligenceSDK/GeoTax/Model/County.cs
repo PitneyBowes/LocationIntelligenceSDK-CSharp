@@ -17,18 +17,18 @@ namespace com.pb.locationintelligence.geotax.model
 {
 
     /// <summary>
-    /// 
+    /// Represents country Information.
     /// </summary>
     public class County {
         /// <summary>
-        /// Gets or sets the code.
+        /// Gets or sets the County code.
         /// </summary>
         /// <value>
         /// The code.
         /// </value>
         public String code { get; set; }
         /// <summary>
-        /// Gets or sets the name.
+        /// Gets or sets the County name.
         /// </summary>
         /// <value>
         /// The name.

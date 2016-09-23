@@ -21,61 +21,61 @@ using System.Threading.Tasks;
 namespace com.pb.locationintelligence.geo911.model
 {
     /// <summary>
-    /// 
+    /// Person Information.
     /// </summary>
     public class ContactPerson
     {
         /// <summary>
-        /// Gets or sets the title.
+        /// Title of contact person.
         /// </summary>
         /// <value>
         /// The title.
         /// </value>
         public String title { get; set; }
         /// <summary>
-        /// Gets or sets the prefix.
+        /// Prefix (Mr, Mrs, etc.) for the contact person.
         /// </summary>
         /// <value>
         /// The prefix.
         /// </value>
         public String prefix { get; set; }
         /// <summary>
-        /// Gets or sets the first name.
+        /// First name of contact person.
         /// </summary>
         /// <value>
         /// The first name.
         /// </value>
         public String firstName { get; set; }
         /// <summary>
-        /// Gets or sets the last name.
+        /// Last name of contact person.
         /// </summary>
         /// <value>
         /// The last name.
         /// </value>
         public String lastName { get; set; }
         /// <summary>
-        /// Gets or sets the phone.
+        /// Phone number of contact person.
         /// </summary>
         /// <value>
         /// The phone.
         /// </value>
         public String phone { get; set; }
         /// <summary>
-        /// Gets or sets the fax.
+        /// Fax number of contact person.
         /// </summary>
         /// <value>
         /// The fax.
         /// </value>
         public String fax { get; set; }
         /// <summary>
-        /// Gets or sets the email.
+        /// Email address of contact person.
         /// </summary>
         /// <value>
         /// The email.
         /// </value>
         public String email { get; set; }
         /// <summary>
-        /// Gets or sets the additional details.
+        /// Comments regarding contact person.
         /// </summary>
         /// <value>
         /// The additional details.

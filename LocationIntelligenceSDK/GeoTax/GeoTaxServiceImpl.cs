@@ -19,7 +19,9 @@ using com.pb.locationintelligence.utils;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Runtime.Remoting.Messaging;
+using System.Runtime.Serialization.Json;
 using System.Text;
 
 namespace com.pb.locationintelligence.geotax
@@ -40,6 +42,8 @@ namespace com.pb.locationintelligence.geotax
         /// The geotax URL
         /// </summary>
         private static readonly String geotaxUrl = "/geotax/v1/";
+       
+
         /// <summary>
         /// The URL maker
         /// </summary>
@@ -49,6 +53,11 @@ namespace com.pb.locationintelligence.geotax
         /// which has information regarding the response object and exception occurred
         /// </summary>
         public event EventHandler<WebResponseEventArgs<TaxRateResponse>> LiAPIRequestFinishedEvent;
+
+        public event EventHandler<WebResponseEventArgs<TaxResponseList>> LiAPIGEoTaxBatchRequestFinishedEvent;
+
+
+        #region HTTP GET
 
         #region GeoTaxRateByAddress
 
@@ -329,18 +338,193 @@ namespace com.pb.locationintelligence.geotax
 			}
 
 		}
+        #endregion
+
+        #region  HTTP POST
+
+        /// <summary>
+        /// Workflows the completed callback.
+        /// </summary>
+        /// <param name="results">The results.</param>
+        void WorkflowCompletedCallbackBatchGeoTax(IAsyncResult results)
+        {
+
+            AsyncResult result = (AsyncResult)results;
+
+            processAPIRequestDelegate<TaxResponseList> del = (processAPIRequestDelegate<TaxResponseList>)result.AsyncDelegate;
+            WebResponseEventArgs<TaxResponseList> webResponseEventArgs;
+
+            try
+            {
+                Debug.WriteLine("GeoLife SDK Asynchronous function called ");
+                TaxResponseList taxRateResponse = del.EndInvoke(results);
+                webResponseEventArgs = new WebResponseEventArgs<TaxResponseList>(taxRateResponse, null);
+                LiAPIGEoTaxBatchRequestFinishedEvent.Invoke(this, webResponseEventArgs);
+
+            }
+            catch (SdkException sdkException)
+            {
+                webResponseEventArgs = new WebResponseEventArgs<TaxResponseList>(null, sdkException);
+                LiAPIGEoTaxBatchRequestFinishedEvent.Invoke(this, webResponseEventArgs);
+
+            }
+
+        }
+        public TaxResponseList getGeoTaxRateBatchByLocation(string taxRateTypeId, TaxRateLocationRequest request)
+        {
+            String requestPayload = String.Empty;
+            
+            MemoryStream stream1 = new MemoryStream();
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(TaxRateLocationRequest));
+            serializer.WriteObject(stream1, request);
+            stream1.Position = 0;
+            StreamReader sr = new StreamReader(stream1);
+            requestPayload = sr.ReadToEnd();
+            UrlMaker urlMaker = UrlMaker.getInstance();
+            String GeoTaxBatch = String.Format(Constants.geoTaxbatchTaxRatelocationService, taxRateTypeId);
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(GeoTaxBatch));
+
+            return Utility.processAPIRequest<TaxResponseList>(urlBuilder.ToString(), Utility.HttpVerb.Post, requestPayload);
+        }
+
+        public TaxResponseList getGeoTaxRateByBatchAddress(string taxRateTypeId, TaxRateAddressRequest request)
+        {
+            String requestPayload = String.Empty;
+            
+            MemoryStream stream1 = new MemoryStream();
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(TaxRateAddressRequest));
+            serializer.WriteObject(stream1, request);
+            stream1.Position = 0;
+            StreamReader sr = new StreamReader(stream1);
+            requestPayload = sr.ReadToEnd();
+            UrlMaker urlMaker = UrlMaker.getInstance();
+            String GeoTaxBatch = String.Format(Constants.geoTaxbatchTaxRateAddressService, taxRateTypeId);
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(GeoTaxBatch));
+
+            return Utility.processAPIRequest<TaxResponseList>(urlBuilder.ToString(), Utility.HttpVerb.Post, requestPayload);
+        }
+
+        public TaxResponseList getGeoTaxByBatchLocation(string taxRateTypeId, TaxLocationRequest request)
+        {
+            String requestPayload = String.Empty;
+            
+
+            MemoryStream stream1 = new MemoryStream();
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(TaxLocationRequest));
+            serializer.WriteObject(stream1, request);
+            stream1.Position = 0;
+            StreamReader sr = new StreamReader(stream1);
+            requestPayload = sr.ReadToEnd();
+            UrlMaker urlMaker = UrlMaker.getInstance();
+            String GeoTaxBatch = String.Format(Constants.geoTaxbatchTaxlocationService, taxRateTypeId);
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(GeoTaxBatch));
+
+            return Utility.processAPIRequest<TaxResponseList>(urlBuilder.ToString(), Utility.HttpVerb.Post, requestPayload);
+        }
+
+        public TaxResponseList getGeoTaxByBatchAddress(string taxRateTypeId, TaxAddressRequest request)
+        {
+            String requestPayload = String.Empty;
+           
+
+            MemoryStream stream1 = new MemoryStream();
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(TaxAddressRequest));
+            serializer.WriteObject(stream1, request);
+            stream1.Position = 0;
+            StreamReader sr = new StreamReader(stream1);
+            requestPayload = sr.ReadToEnd();
+            UrlMaker urlMaker = UrlMaker.getInstance();
+            String GeoTaxBatch = String.Format(Constants.geoTaxbatchTaxAddressService, taxRateTypeId);
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(GeoTaxBatch));
+
+            return Utility.processAPIRequest<TaxResponseList>(urlBuilder.ToString(), Utility.HttpVerb.Post, requestPayload);
+        }
+
+        void GeoTaxService.getGeoTaxRateBatchByLocationAsync(string taxRateTypeId, TaxRateLocationRequest request)
+        {
+            String requestPayload = String.Empty;
 
 
-		
+            MemoryStream stream1 = new MemoryStream();
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(TaxRateLocationRequest));
+            serializer.WriteObject(stream1, request);
+            stream1.Position = 0;
+            StreamReader sr = new StreamReader(stream1);
+            requestPayload = sr.ReadToEnd();
 
-		
-
-		
-
-
+            UrlMaker urlMaker = UrlMaker.getInstance();
+            String GeoTaxBatch = String.Format(Constants.geoTaxbatchTaxRatelocationService, taxRateTypeId);
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(GeoTaxBatch));
 
 
+            processAPIRequestDelegate<TaxResponseList> delegateApiRequs = new processAPIRequestDelegate<TaxResponseList>(Utility.processAPIRequest<TaxResponseList>);
+            delegateApiRequs.BeginInvoke(urlBuilder.ToString(), Utility.HttpVerb.Post, requestPayload, new AsyncCallback(WorkflowCompletedCallbackBatchGeoTax), null);
+        }
 
-	   
-	}
+        void GeoTaxService.getGeoTaxRateByBatchAddressAsync(string taxRateTypeId, TaxRateAddressRequest request)
+        {
+            String requestPayload = String.Empty;
+
+
+            MemoryStream stream1 = new MemoryStream();
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(TaxRateAddressRequest));
+            serializer.WriteObject(stream1, request);
+            stream1.Position = 0;
+            StreamReader sr = new StreamReader(stream1);
+            requestPayload = sr.ReadToEnd();
+
+            UrlMaker urlMaker = UrlMaker.getInstance();
+            String GeoTaxBatch = String.Format(Constants.geoTaxbatchTaxRateAddressService, taxRateTypeId);
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(GeoTaxBatch));
+
+
+            processAPIRequestDelegate<TaxResponseList> delegateApiRequs = new processAPIRequestDelegate<TaxResponseList>(Utility.processAPIRequest<TaxResponseList>);
+            delegateApiRequs.BeginInvoke(urlBuilder.ToString(), Utility.HttpVerb.Post, requestPayload, new AsyncCallback(WorkflowCompletedCallbackBatchGeoTax), null);
+        }
+
+        void GeoTaxService.getGeoTaxByBatchLocationAsync(string taxRateTypeId, TaxLocationRequest request)
+        {
+            String requestPayload = String.Empty;
+
+
+            MemoryStream stream1 = new MemoryStream();
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(TaxLocationRequest));
+            serializer.WriteObject(stream1, request);
+            stream1.Position = 0;
+            StreamReader sr = new StreamReader(stream1);
+            requestPayload = sr.ReadToEnd();
+
+            UrlMaker urlMaker = UrlMaker.getInstance();
+            String GeoTaxBatch = String.Format(Constants.geoTaxbatchTaxlocationService, taxRateTypeId);
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(GeoTaxBatch));
+
+
+            processAPIRequestDelegate<TaxResponseList> delegateApiRequs = new processAPIRequestDelegate<TaxResponseList>(Utility.processAPIRequest<TaxResponseList>);
+            delegateApiRequs.BeginInvoke(urlBuilder.ToString(), Utility.HttpVerb.Post, requestPayload, new AsyncCallback(WorkflowCompletedCallbackBatchGeoTax), null);
+        }
+
+        void GeoTaxService.getGeoTaxByBatchAddressAsync(string taxRateTypeId, TaxAddressRequest request)
+        {
+            String requestPayload = String.Empty;
+
+
+            MemoryStream stream1 = new MemoryStream();
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(TaxAddressRequest));
+            serializer.WriteObject(stream1, request);
+            stream1.Position = 0;
+            StreamReader sr = new StreamReader(stream1);
+            requestPayload = sr.ReadToEnd();
+
+            UrlMaker urlMaker = UrlMaker.getInstance();
+            String GeoTaxBatch = String.Format(Constants.geoTaxbatchTaxAddressService, taxRateTypeId);
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(GeoTaxBatch));
+
+
+            processAPIRequestDelegate<TaxResponseList> delegateApiRequs = new processAPIRequestDelegate<TaxResponseList>(Utility.processAPIRequest<TaxResponseList>);
+            delegateApiRequs.BeginInvoke(urlBuilder.ToString(), Utility.HttpVerb.Post, requestPayload, new AsyncCallback(WorkflowCompletedCallbackBatchGeoTax), null);
+        }
+
+
+        #endregion
+    }
 }

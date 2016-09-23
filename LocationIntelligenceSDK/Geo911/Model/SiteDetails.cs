@@ -22,19 +22,19 @@ using com.pb.locationintelligence.common.model;
 namespace com.pb.locationintelligence.geo911.model
 {
     /// <summary>
-    /// 
+    /// Site details.
     /// </summary>
     public class SiteDetails
     {
         /// <summary>
-        /// Gets or sets the phone.
+        /// Phone number of the PSAP site.
         /// </summary>
         /// <value>
         /// The phone.
         /// </value>
         public String phone { get; set; }
         /// <summary>
-        /// Gets or sets the fax.
+        /// Fax number of the PSAP site.
         /// </summary>
         /// <value>
         /// The fax.

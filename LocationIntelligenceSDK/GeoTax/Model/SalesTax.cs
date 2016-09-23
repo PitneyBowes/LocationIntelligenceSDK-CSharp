@@ -19,60 +19,60 @@ namespace com.pb.locationintelligence.geotax.model
 {
 
     /// <summary>
-    /// 
+    /// Represents Sales Tax Information. 
     /// </summary>
     public class SalesTax {
         /// <summary>
-        /// Gets or sets the total tax rate.
+        /// The sum of the individual Municipal, County, State and SPD sales tax rates..
         /// </summary>
         /// <value>
         /// The total tax rate.
         /// </value>
         public Double totalTaxRate{get;set;}
         /// <summary>
-        /// Gets or sets the total tax amount.
+        /// The sum of the individual Municipal, County, State and SPD sales tax amounts.
         /// </summary>
         /// <value>
         /// The total tax amount.
         /// </value>
         public Double totalTaxAmount{get;set;}
         /// <summary>
-        /// Gets or sets the state tax rate.
+        /// State sales tax rate for the selected tax rate type.
         /// </summary>
         /// <value>
         /// The state tax rate.
         /// </value>
         public Double stateTaxRate{get;set;}
         /// <summary>
-        /// Gets or sets the state tax amount.
+        /// State sales tax amount for the selected tax rate type.
         /// </summary>
         /// <value>
         /// The state tax amount.
         /// </value>
         public Double stateTaxAmount{get;set;}
         /// <summary>
-        /// Gets or sets the county tax rate.
+        /// County sales tax rate for the selected tax rate type.
         /// </summary>
         /// <value>
         /// The county tax rate.
         /// </value>
         public Double countyTaxRate{get;set;}
         /// <summary>
-        /// Gets or sets the county tax amount.
+        /// County sales tax amount for the selected tax rate type.
         /// </summary>
         /// <value>
         /// The county tax amount.
         /// </value>
         public Double countyTaxAmount{get;set;}
         /// <summary>
-        /// Gets or sets the municipal tax rate.
+        /// Municipality sales tax rate for the selected tax rate type.
         /// </summary>
         /// <value>
         /// The municipal tax rate.
         /// </value>
         public Double municipalTaxRate{get;set;}
         /// <summary>
-        /// Gets or sets the municipal tax amount.
+        /// Municipality sales tax amount for the selected tax rate type.
         /// </summary>
         /// <value>
         /// The municipal tax amount.

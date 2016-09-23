@@ -23,114 +23,198 @@ namespace com.pb.locationintelligence.geotax
 
 
 
-	/// <summary>
-	/// This service provides tax details w.r.t requested Address or Latitude-Longitude.
-	/// </summary>
-	public interface GeoTaxService {
+    /// <summary>
+    /// This service provides tax details w.r.t requested Address or Latitude-Longitude.
+    /// </summary>
+    public interface GeoTaxService {
 
 
-		/// <summary>
-		///  This event is Raised Asynchronously when web  response is complete.The event has Argument WebRequestFinishedEvent
-		///  which has information regarding the response object and exception occurred
-		///
-		/// </summary>
-		event EventHandler<WebResponseEventArgs<TaxRateResponse>> LiAPIRequestFinishedEvent;
-		
-	   
-		/// <summary>
-		/// Accepts taxRateTypeId , latitude and longitude information and gets the GeoTax Rate information.
-		/// </summary>
+        /// <summary>
+        /// This event is Raised Asynchronously when web  response is complete.The event has Argument WebRequestFinishedEvent
+        /// which has information regarding the response object and exception occurred
+        /// </summary>
+        event EventHandler<WebResponseEventArgs<TaxRateResponse>> LiAPIRequestFinishedEvent;
+        event EventHandler<WebResponseEventArgs<TaxResponseList>> LiAPIGEoTaxBatchRequestFinishedEvent;
+
+
+        #region Http GetMethod Calls
+
+        /// <summary>
+        /// Accepts taxRateTypeId , latitude and longitude information and gets the GeoTax Rate information.
+        /// </summary>
         /// <param name="taxType">Required - Tax Rate Types.</param>
-		/// <param name="latitude">Required - latitude of the location.</param>
-		/// <param name="longitude">Required - longitude of the location.</param>
-		/// <returns>TaxRateResponse</returns>
+        /// <param name="latitude">Required - latitude of the location.</param>
+        /// <param name="longitude">Required - longitude of the location.</param>
+        /// <returns>
+        /// TaxRateResponse
+        /// </returns>
         TaxRateResponse getGeoTaxRateByLocation(String taxType, Double latitude, Double longitude);
 
 
 
 
-		 /// <summary>
-		 /// Accepts taxRateTypeId , latitude and longitude information and gets the GeoTax Rate information in asynchronous mode.
-		 /// We need to subscribe to event 
-		 /// LiAPIRequestFinishedEvent to get the response.
-		 /// </summary>
+        /// <summary>
+        /// Accepts taxRateTypeId , latitude and longitude information and gets the GeoTax Rate information in asynchronous mode.
+        /// We need to subscribe to event
+        /// LiAPIRequestFinishedEvent to get the response.
+        /// </summary>
         /// <param name="taxType">Required - Tax Rate Types.</param>
-		 /// <param name="latitude">Required - latitude of the location.</param>
-		 /// <param name="longitude">Required - longitude of the location.</param>
-		 /// <returns>void</returns>
+        /// <param name="latitude">Required - latitude of the location.</param>
+        /// <param name="longitude">Required - longitude of the location.</param>
         void getGeoTaxRateByLocationAsync(String taxType, Double latitude, Double longitude);
-	
-		
-		 /// <summary>
-		 /// Accepts taxRateTypeId  and address information and gets the GeoTax Rate information.
-		 /// </summary>
+
+
+        /// <summary>
+        /// Accepts taxRateTypeId  and address information and gets the GeoTax Rate information.
+        /// </summary>
         /// <param name="taxType">Required - Tax Rate Types.</param>
-		 /// <param name="address">Required - Free-form address text.</param>
-		 /// <returns>TaxRateResponse</returns>
+        /// <param name="address">Required - Free-form address text.</param>
+        /// <returns>
+        /// TaxRateResponse
+        /// </returns>
         TaxRateResponse getGeoTaxRateByAddress(String taxType, String address);
 
 
 
 
 
-		 /// <summary>
-		 /// Accepts taxRateTypeId  and address information and gets the GeoTax Rate information in Asynchronous mode.
-		 /// We need to subscribe to event 
-		 /// LiAPIRequestFinishedEvent to get the response. 
-		 /// </summary>
+        /// <summary>
+        /// Accepts taxRateTypeId  and address information and gets the GeoTax Rate information in Asynchronous mode.
+        /// We need to subscribe to event
+        /// LiAPIRequestFinishedEvent to get the response.
+        /// </summary>
         /// <param name="taxType">Required - Tax Rate Types.</param>
-		 /// <param name="address">Required - Free-form address text.</param>
-		 /// <returns>void</returns>
+        /// <param name="address">Required - Free-form address text.</param>
         void getGeoTaxRateByAddressAsync(String taxType, String address);
-	
-		
-		/// <summary>
-		/// Accepts taxRateTypeId , latitude , longitude and purchaseAmount information and gets the GeoTax  information.
-		/// </summary>
+
+
+        /// <summary>
+        /// Accepts taxRateTypeId , latitude , longitude and purchaseAmount information and gets the GeoTax  information.
+        /// </summary>
         /// <param name="taxType">Required - Tax Rate Types.</param>
-		/// <param name="latitude">Required - latitude of the location.</param>
-		/// <param name="longitude">Required - longitude of the location.</param>
-		/// <param name="purchaseAmount">Required - purchase amount.</param>
-		/// <returns>TaxRateResponse</returns>
+        /// <param name="latitude">Required - latitude of the location.</param>
+        /// <param name="longitude">Required - longitude of the location.</param>
+        /// <param name="purchaseAmount">Required - purchase amount.</param>
+        /// <returns>
+        /// TaxRateResponse
+        /// </returns>
         TaxRateResponse getGeoTaxByLocation(String taxType, Double latitude, Double longitude, Double purchaseAmount);
 
 
 
 
-		 /// <summary>
-		 /// Accepts taxRateTypeId , latitude , longitude and purchaseAmount information and gets the GeoTax  information in Asynchronous mode.
-		 /// We need to subscribe to event 
-		 /// LiAPIRequestFinishedEvent to get the response. 
-		 /// </summary>
+        /// <summary>
+        /// Accepts taxRateTypeId , latitude , longitude and purchaseAmount information and gets the GeoTax  information in Asynchronous mode.
+        /// We need to subscribe to event
+        /// LiAPIRequestFinishedEvent to get the response.
+        /// </summary>
         /// <param name="taxType">Required - Tax Rate Types.</param>
-		 /// <param name="latitude">Required - latitude of the location.</param>
-		 /// <param name="longitude">Required - longitude of the location.</param>
-		 /// <param name="purchaseAmount">Required - purchase amount.</param>
-		 /// <returns>void</returns>
+        /// <param name="latitude">Required - latitude of the location.</param>
+        /// <param name="longitude">Required - longitude of the location.</param>
+        /// <param name="purchaseAmount">Required - purchase amount.</param>
         void getGeoTaxByLocationAsync(String taxType, Double latitude, Double longitude, Double purchaseAmount);
 
-		
-		/// <summary>
-		/// Accepts taxRateTypeId , address  and purchaseAmount information and gets the GeoTax  information.
-		/// </summary>
+
+        /// <summary>
+        /// Accepts taxRateTypeId , address  and purchaseAmount information and gets the GeoTax  information.
+        /// </summary>
         /// <param name="taxType">Required - Tax Rate Types.</param>
-		/// <param name="address">Required - Free-form address text.</param>
-		/// <param name="purchaseAmount">Required - purchase amount.</param>
-		/// <returns>TaxRateResponse</returns>
+        /// <param name="address">Required - Free-form address text.</param>
+        /// <param name="purchaseAmount">Required - purchase amount.</param>
+        /// <returns>
+        /// TaxRateResponse
+        /// </returns>
         TaxRateResponse getGeoTaxByAddress(String taxType, String address, Double purchaseAmount);
 
-		 /// <summary>
-		 /// Accepts taxRateTypeId , address  and purchaseAmount information and gets the GeoTax  information in Asynchronous mode.
-		 /// We need to subscribe to event 
-		 /// LiAPIRequestFinishedEvent to get the response. 
-		 /// </summary>
+        /// <summary>
+        /// Accepts taxRateTypeId , address  and purchaseAmount information and gets the GeoTax  information in Asynchronous mode.
+        /// We need to subscribe to event
+        /// LiAPIRequestFinishedEvent to get the response.
+        /// </summary>
         /// <param name="taxType">Required - Tax Rate Types.</param>
-		 /// <param name="address">Required - Free-form address text.</param>
-		 /// <param name="purchaseAmount">Required - purchase amount.</param>
-		 /// <returns>void</returns>
+        /// <param name="address">Required - Free-form address text.</param>
+        /// <param name="purchaseAmount">Required - purchase amount.</param>
         void getGeoTaxByAddressAsync(String taxType, String address, Double purchaseAmount);
 
 
 
-	}
+        #endregion
+
+        
+
+        #region Http Post GeoTax_Batch
+
+        /// <summary>
+        /// Gets the geo tax rate batch by location.
+        /// </summary>
+        /// <param name="taxRateTypeId">The tax rate type identifier.</param>
+        /// <param name="request">The request.</param>
+        /// <returns></returns>
+        TaxResponseList getGeoTaxRateBatchByLocation(String taxRateTypeId, TaxRateLocationRequest request) ;
+
+
+        /// <summary>
+        /// Gets the geo tax rate by batch address.
+        /// </summary>
+        /// <param name="taxRateTypeId">The tax rate type identifier.</param>
+        /// <param name="request">The request.</param>
+        /// <returns></returns>
+         TaxResponseList getGeoTaxRateByBatchAddress(String taxRateTypeId, TaxRateAddressRequest request) ;
+
+
+        /// <summary>
+        /// Gets the geo tax by batch location.
+        /// </summary>
+        /// <param name="taxRateTypeId">The tax rate type identifier.</param>
+        /// <param name="request">The request.</param>
+        /// <returns></returns>
+         TaxResponseList getGeoTaxByBatchLocation(String taxRateTypeId, TaxLocationRequest request) ;
+
+
+        /// <summary>
+        /// Gets the geo tax by batch address.
+        /// </summary>
+        /// <param name="taxRateTypeId">The tax rate type identifier.</param>
+        /// <param name="request">The request.</param>
+        /// <returns></returns>
+         TaxResponseList getGeoTaxByBatchAddress(String taxRateTypeId, TaxAddressRequest request) ;
+
+
+        /// <summary>
+        /// Gets the geo tax rate batch by location.
+        /// </summary>
+        /// <param name="taxRateTypeId">The tax rate type identifier.</param>
+        /// <param name="request">The request.</param>
+        /// <param name="requestObserver">The request observer.</param>
+        void getGeoTaxRateBatchByLocationAsync(String taxRateTypeId, TaxRateLocationRequest request);
+
+
+        /// <summary>
+        /// Gets the geo tax rate by batch address.
+        /// </summary>
+        /// <param name="taxRateTypeId">The tax rate type identifier.</param>
+        /// <param name="request">The request.</param>
+        /// <param name="requestObserver">The request observer.</param>
+        void getGeoTaxRateByBatchAddressAsync(String taxRateTypeId, TaxRateAddressRequest request);
+
+
+        /// <summary>
+        /// Gets the geo tax by batch location.
+        /// </summary>
+        /// <param name="taxRateTypeId">The tax rate type identifier.</param>
+        /// <param name="request">The request.</param>
+        /// <param name="requestObserver">The request observer.</param>
+        void getGeoTaxByBatchLocationAsync(String taxRateTypeId, TaxLocationRequest request );
+
+
+        /// <summary>
+        /// Gets the geo tax by batch address.
+        /// </summary>
+        /// <param name="taxRateTypeId">The tax rate type identifier.</param>
+        /// <param name="request">The request.</param>
+        /// <param name="requestObserver">The request observer.</param>
+        void getGeoTaxByBatchAddressAsync(String taxRateTypeId, TaxAddressRequest request );
+
+        #endregion
+    }
 }

@@ -21,26 +21,26 @@ using System.Threading.Tasks;
 namespace com.pb.locationintelligence.geo911.model
 {
     /// <summary>
-    /// 
+    /// PSAP coverage area details
     /// </summary>
     public class Coverage
     {
         /// <summary>
-        /// Gets or sets the area.
+        /// Coverage area of the PSAP.
         /// </summary>
         /// <value>
         /// The area.
         /// </value>
         public String area { get; set; }
         /// <summary>
-        /// Gets or sets the comments.
+        /// Additional comments about the PSAP's coverage.
         /// </summary>
         /// <value>
         /// The comments.
         /// </value>
         public String comments { get; set; }
         /// <summary>
-        /// Gets or sets the exceptions.
+        /// Areas excluded from the coverageArea.
         /// </summary>
         /// <value>
         /// The exceptions.

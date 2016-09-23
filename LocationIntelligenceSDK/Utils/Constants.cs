@@ -107,7 +107,24 @@ namespace com.pb.locationintelligence.utils
         /// <summary>
         /// The reverse geocodegeo code
         /// </summary>
-        public static readonly String reverseGeocodegeoCode = "/geocode-service/v1/transient/Premium/reverseGeocode/";
-        
+        public static readonly String reverseGeocodegeoCode = "/geocode-service/v1/transient/{0}/reverseGeocode/";
+
+        /// <summary>
+        /// The geo taxbatch tax rate address service
+        /// </summary>
+        public static readonly String geoTaxbatchTaxRateAddressService = "/geotax/v1/taxrate/{0}/byaddress";
+        /// <summary>
+        /// The geo taxbatch tax address service
+        /// </summary>
+        public static readonly String geoTaxbatchTaxAddressService = "/geotax/v1/tax/{0}/byaddress";
+        /// <summary>
+        /// The geo taxbatch tax ratelocation service
+        /// </summary>
+        public static readonly String geoTaxbatchTaxRatelocationService = "/geotax/v1/taxrate/{0}/bylocation";
+        /// <summary>
+        /// The geo taxbatch taxlocation service
+        /// </summary>
+        public static readonly String geoTaxbatchTaxlocationService = "/geotax/v1/tax/{0}/bylocation";
+
     }
 }

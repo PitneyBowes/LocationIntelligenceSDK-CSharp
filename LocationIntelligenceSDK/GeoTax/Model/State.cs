@@ -18,19 +18,19 @@ namespace com.pb.locationintelligence.geotax.model
 {
 
     /// <summary>
-    /// 
+    /// Represents State Information.
     /// </summary>
     public class State
     {
         /// <summary>
-        /// Gets or sets the code.
+        /// Gets or sets the State code.
         /// </summary>
         /// <value>
         /// The code.
         /// </value>
         public String code { get; set; }
         /// <summary>
-        /// Gets or sets the name.
+        /// Gets or sets the State name.
         /// </summary>
         /// <value>
         /// The name.

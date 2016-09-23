@@ -12,86 +12,83 @@ License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF 
 See the License for the specific language governing permissions and limitations under the License. */
 
 #endregion
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using com.pb.locationintelligence.common.model;
-
-namespace com.pb.locationintelligence.geo911.model
+namespace com.pb.locationintelligence.geocomm.model
 {
     /// <summary>
-    /// Public Safety Answering Point (PSAP) details 
+    /// Represents AreaCode Response of GeoComm API.
     /// </summary>
-    public class PsapResponse 
+    public class AreaCodeResponse
     {
+        /// <summary>
+        /// Gets or sets the companyName.
+        /// </summary>
+        /// <value>
+        /// companyName.
+        /// </value> 
+        public string companyName { get; set; }
 
+        /// <summary>
+        /// Gets or sets the ocn.
+        /// </summary>
+        /// <value>
+        /// ocn.
+        /// </value>
+        public string ocn { get; set; }
 
         /// <summary>
-        /// FCC ID for PSAP.
+        /// Gets or sets the ocnCategory.
         /// </summary>
         /// <value>
-        /// The FCC identifier.
+        /// ocnCategory.
         /// </value>
-        public String fccId { get; set; }
+        public string ocnCategory { get; set; }
+
         /// <summary>
-        /// Values: enhanced, basic, military, non-9-1-1.
+        /// Gets or sets the npa.
         /// </summary>
         /// <value>
-        /// The type.
+        /// npa.
         /// </value>
-        public String type { get; set; }
+        public string npa { get; set; }
+
         /// <summary>
-        /// PSAP name.
+        /// Gets or sets the nxx.
         /// </summary>
         /// <value>
-        /// The agency.
+        /// nxx.
         /// </value>
-        public String agency { get; set; }
+        public string nxx { get; set; }
+
         /// <summary>
-        /// Emergency number that is answered 24x7.
+        /// Gets or sets the startRange.
         /// </summary>
         /// <value>
-        /// The phone.
+        /// startRange.
         /// </value>
-        public String phone { get; set; }
+        public string startRange { get; set; }
+
         /// <summary>
-        /// Gets or sets the county.
+        /// Gets or sets the endRange.
         /// </summary>
         /// <value>
-        /// The county.
+        /// endRange.
         /// </value>
-        public County county { get; set; }
+        public string endRange { get; set; }
+
         /// <summary>
-        /// Gets or sets the coverage.
+        /// Gets or sets the lata.
         /// </summary>
         /// <value>
-        /// The coverage.
+        /// lata.
         /// </value>
-        public Coverage coverage { get; set; }
+        public string lata { get; set; }
+
         /// <summary>
-        /// Gets or sets the contact person.
+        /// Gets or sets the areaName4.
         /// </summary>
         /// <value>
-        /// The contact person.
+        /// areaName4.
         /// </value>
-        public ContactPerson contactPerson { get; set; }
-        /// <summary>
-        /// Gets or sets the site details.
-        /// </summary>
-        /// <value>
-        /// The site details.
-        /// </value>
-        public SiteDetails siteDetails { get; set; }
-        /// <summary>
-        /// Gets or sets the mailing address.
-        /// </summary>
-        /// <value>
-        /// The mailing address.
-        /// </value>
-        public Address mailingAddress { get; set; }
-       
-        
+        public string areaName4 { get; set; }
     }
 }

@@ -19,17 +19,17 @@ namespace com.pb.locationintelligence.geotax.model
 
 
     /// <summary>
-    /// 
+    /// Represents SPDs
     /// </summary>
     public class SpecialPurposeDistrict
     {
 
         /// <summary>
-        /// The district name
+        /// SPD Name
         /// </summary>
         public String districtName;
         /// <summary>
-        /// The district code
+        /// 3-digit district type code.
         /// </summary>
         public String districtCode;
         /// <summary>
@@ -37,19 +37,19 @@ namespace com.pb.locationintelligence.geotax.model
         /// </summary>
         public String districtNumber;
         /// <summary>
-        /// The version date
+        /// SPD version date
         /// </summary>
         public String versionDate;
         /// <summary>
-        /// The effective date
+        /// SPD effective date.
         /// </summary>
         public String effectiveDate;
         /// <summary>
-        /// The compiled date
+        /// SPD compiled date.
         /// </summary>
         public String compiledDate;
         /// <summary>
-        /// The update date
+        /// SPD update date.
         /// </summary>
         public String updateDate;
 

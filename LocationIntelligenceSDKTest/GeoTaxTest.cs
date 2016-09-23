@@ -51,9 +51,10 @@ namespace LocationIntelligenceSDKTest
 			mGeoTaxService = liServiceManager.getGeoTaxService();
 
 		}
-		
-		
-		[TestMethod]
+
+        #region GeoTax
+
+        [TestMethod]
 	public void getGeoTaxRateByLocationTest() {
 		try{
 			TaxRateResponse response = mGeoTaxService.getGeoTaxRateByLocation("General", 40.018912D, -105.239771D);
@@ -310,13 +311,336 @@ public void testToCompareSDKAndAPIResponseOfGeoTaxByLocation()
         TaxRateResponse responseFromAPI = jsonSerializer.Deserialize<TaxRateResponse>(responseJSONFromAPI);
         Assert.AreEqual(responseFromSDK.salesTax.countyTaxAmount, responseFromAPI.salesTax.countyTaxAmount);
 	}
-        
-   [TestCleanup]
+
+#endregion
+
+        #region GoaTax Batch
+
+        [TestMethod]
+        public void testGeoTaxbatchRateAddress()
+        {
+            try
+            {
+                TaxRateAddressRequest taxRateAddressRequest = new TaxRateAddressRequest();
+
+                List<TaxRateAddress> taxAddressList = new List<TaxRateAddress>();
+
+                TaxRateAddress taxRateAddress = new TaxRateAddress();
+                taxRateAddress.MainAddressLine = "39 Sycamore Rd,Stafford 08050, USA";
+                taxAddressList.Add(taxRateAddress);
+                taxRateAddressRequest.taxRateAddresses = taxAddressList;
+
+                TaxResponseList response = mGeoTaxService.getGeoTaxRateByBatchAddress("General", taxRateAddressRequest);
+                Assert.IsTrue(response != null);
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+
+        [TestMethod]
+        public void testGeoTaxbatchAddress()
+        {
+            try
+            {
+                TaxAddressRequest taxAddressRequest = new TaxAddressRequest();
+
+                List<TaxAddress> taxAddressList = new List<TaxAddress>();
+
+                TaxAddress taxAddress = new TaxAddress();
+                taxAddress.MainAddressLine = "39 Sycamore Rd,Stafford 08050, USA";
+                taxAddressList.Add(taxAddress);
+                taxAddressRequest.taxAddresses = taxAddressList;
+                taxAddress.purchaseAmount = "100";
+
+                TaxResponseList response = mGeoTaxService.getGeoTaxByBatchAddress("General", taxAddressRequest);
+                Assert.IsTrue(response != null);
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+        [TestMethod]
+        public void testGeoTaxbatchRateLocation()
+        {
+            try
+            {
+                TaxRateLocationRequest taxRateLocatoinRequest = new TaxRateLocationRequest();
+
+                List<Locations> taxLocationList = new List<Locations>();
+
+                Locations location = new Locations();
+
+                 Geometry geometry= new Geometry();
+                geometry.type = "point";
+                geometry.coordinates =new List<Double>(){ -105.239771, 40.018912 };
+
+                location.geometry = geometry;
+                taxLocationList.Add(location);
+
+                taxRateLocatoinRequest.locations = taxLocationList;
+
+                TaxResponseList response = mGeoTaxService.getGeoTaxRateBatchByLocation("General", taxRateLocatoinRequest);
+                Assert.IsTrue(response != null);
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+        [TestMethod]
+        public void testGeoTaxbatchLocation()
+        {
+
+            try
+            {
+                TaxLocationRequest taxLocatoinRequest = new TaxLocationRequest();
+
+                List<Locations> taxLocationList = new List<Locations>();
+
+                Locations location = new Locations();
+
+                Geometry geometry = new Geometry();
+                geometry.type = "point";
+                geometry.coordinates = new List<Double>() { -105.239771, 40.018912 };
+
+                location.geometry = geometry;
+                location.purchaseAmount = "100";
+                taxLocationList.Add(location);
+
+                taxLocatoinRequest.locations = taxLocationList;
+
+                TaxResponseList response = mGeoTaxService.getGeoTaxByBatchLocation("General", taxLocatoinRequest);
+                Assert.IsTrue(response != null);
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+        [TestMethod]
+        public void TestgetGeoTaxbatchRateAddressAsync()
+        {
+            try
+            {
+                Boolean failFlag = false;
+                this.TriggerTest = new AutoResetEvent(false);
+                mGeoTaxService.LiAPIGEoTaxBatchRequestFinishedEvent += (object sender, WebResponseEventArgs<TaxResponseList> eventArgs) =>
+                {
+
+
+                    try
+                    {
+                        Assert.IsTrue(eventArgs.ResponseObject != null);
+                        this.TriggerTest.Set();
+                    }
+                    catch (Exception)
+                    {
+                        failFlag = true;
+                        this.TriggerTest.Set();
+
+                    }
+                };
+                TaxRateAddressRequest taxRateAddressRequest = new TaxRateAddressRequest();
+
+                List<TaxRateAddress> taxAddressList = new List<TaxRateAddress>();
+
+                TaxRateAddress taxRateAddress = new TaxRateAddress();
+                taxRateAddress.MainAddressLine = "39 Sycamore Rd,Stafford 08050, USA";
+                taxAddressList.Add(taxRateAddress);
+                taxRateAddressRequest.taxRateAddresses = taxAddressList;
+
+                mGeoTaxService.getGeoTaxRateByBatchAddressAsync("General", taxRateAddressRequest);
+
+                this.TriggerTest.WaitOne(10000);
+                if (failFlag)
+                {
+                    Assert.Fail("Test Case Failed");
+                }
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+
+        [TestMethod]
+        public void TestgetGeoTaxbatchAddressAsync()
+        {
+            try
+            {
+                Boolean failFlag = false;
+                this.TriggerTest = new AutoResetEvent(false);
+                mGeoTaxService.LiAPIGEoTaxBatchRequestFinishedEvent += (object sender, WebResponseEventArgs<TaxResponseList> eventArgs) =>
+                {
+
+
+                    try
+                    {
+                        Assert.IsTrue(eventArgs.ResponseObject != null);
+                        this.TriggerTest.Set();
+                    }
+                    catch (Exception)
+                    {
+                        failFlag = true;
+                        this.TriggerTest.Set();
+
+                    }
+                };
+                TaxAddressRequest taxeAddressRequest = new TaxAddressRequest();
+
+                List<TaxAddress> taxAddressList = new List<TaxAddress>();
+
+                TaxAddress taxAddress = new TaxAddress();
+                taxAddress.MainAddressLine = "39 Sycamore Rd,Stafford 08050, USA";
+                taxAddress.purchaseAmount = "200";
+
+                taxAddressList.Add(taxAddress);
+                taxeAddressRequest.taxAddresses = taxAddressList;
+                
+
+                mGeoTaxService.getGeoTaxByBatchAddressAsync("General", taxeAddressRequest);
+
+                this.TriggerTest.WaitOne(10000);
+                if (failFlag)
+                {
+                    Assert.Fail("Test Case Failed");
+                }
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+        [TestMethod]
+        public void TestgetGeoTaxbatchRateLocationAsync()
+        {
+            try
+            {
+                Boolean failFlag = false;
+                this.TriggerTest = new AutoResetEvent(false);
+                mGeoTaxService.LiAPIGEoTaxBatchRequestFinishedEvent += (object sender, WebResponseEventArgs<TaxResponseList> eventArgs) =>
+                {
+
+
+                    try
+                    {
+                        Assert.IsTrue(eventArgs.ResponseObject != null);
+                        this.TriggerTest.Set();
+                    }
+                    catch (Exception)
+                    {
+                        failFlag = true;
+                        this.TriggerTest.Set();
+
+                    }
+                };
+                TaxRateLocationRequest taxRateLocatoinRequest = new TaxRateLocationRequest();
+
+                List<Locations> taxLocationList = new List<Locations>();
+
+                Locations location = new Locations();
+
+                Geometry geometry = new Geometry();
+                geometry.type = "point";
+                geometry.coordinates = new List<Double>() { -105.239771, 40.018912 };
+
+                location.geometry = geometry;
+                taxLocationList.Add(location);
+
+                taxRateLocatoinRequest.locations = taxLocationList;
+
+                mGeoTaxService.getGeoTaxRateBatchByLocationAsync("General", taxRateLocatoinRequest);
+
+                this.TriggerTest.WaitOne(10000);
+                if (failFlag)
+                {
+                    Assert.Fail("Test Case Failed");
+                }
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+        [TestMethod]
+        public void TestgetGeoTaxbatchLocationAsync()
+        {
+            try
+            {
+                Boolean failFlag = false;
+                this.TriggerTest = new AutoResetEvent(false);
+                mGeoTaxService.LiAPIGEoTaxBatchRequestFinishedEvent += (object sender, WebResponseEventArgs<TaxResponseList> eventArgs) =>
+                {
+
+
+                    try
+                    {
+                        Assert.IsTrue(eventArgs.ResponseObject != null);
+                        this.TriggerTest.Set();
+                    }
+                    catch (Exception)
+                    {
+                        failFlag = true;
+                        this.TriggerTest.Set();
+
+                    }
+                };
+                TaxLocationRequest taxLocatoinRequest = new TaxLocationRequest();
+
+                List<Locations> taxLocationList = new List<Locations>();
+
+                Locations location = new Locations();
+
+                Geometry geometry = new Geometry();
+                geometry.type = "point";
+                geometry.coordinates = new List<Double>() { -105.239771, 40.018912 };
+
+                location.geometry = geometry;
+                location.purchaseAmount = "100";
+                taxLocationList.Add(location);
+
+                taxLocatoinRequest.locations = taxLocationList;
+
+                mGeoTaxService.getGeoTaxByBatchLocationAsync("General", taxLocatoinRequest);
+
+                this.TriggerTest.WaitOne(10000);
+                if (failFlag)
+                {
+                    Assert.Fail("Test Case Failed");
+                }
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+        [TestCleanup]
     public void tearDown()
     {
         mGeoTaxService = null;
     }
-	
-	
-	}
+
+        #endregion
+    }
 }

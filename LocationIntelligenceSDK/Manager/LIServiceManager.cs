@@ -17,7 +17,7 @@ using com.pb.locationintelligence.geoenhance;
 using com.pb.locationintelligence.geolifeDemographics;
 using com.pb.locationintelligence.geosearch;
 using com.pb.locationintelligence.geotax;
-using com.pb.locationintelligence.geoLifeSegmentation;
+using com.pb.locationintelligence.geocomm;
 using com.pb.locationintelligence.geocode;
 using com.pb.locationintelligence.oauth;
 
@@ -196,6 +196,15 @@ namespace com.pb.locationintelligence.manager
         public GeocodeService getGeocodeService()
         {
             return new GeocodeServiceImpl();
+        }
+
+        /// <summary>
+        /// Gets the geocomm service.
+        /// </summary>
+        /// <returns></returns>
+        public GeoCommService getGeoCommService()
+        {
+            return new GeoCommServiceImpl();
         }
 
 

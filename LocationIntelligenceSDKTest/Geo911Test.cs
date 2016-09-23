@@ -66,44 +66,158 @@ namespace LocationIntelligenceSDKTest
             }
         }
 
+        [TestMethod]
+        public void getAHJPlusPSAPByAddressTest()
+        {
+            try
+            {
+
+                AHJPlusPSAPResponse response = geo911Service.getAHJPlusPSAPByAddress("4750 Walnut St, Boulder, CO");
+                Assert.IsInstanceOfType(response, typeof(AHJPlusPSAPResponse));
+
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+        [TestMethod]
+        public void getAHJPlusPSAPByLocationTest()
+        {
+            try
+            {
+
+                AHJPlusPSAPResponse response = geo911Service.getAHJPlusPSAPByLocation(32.032, -93.703); 
+                Assert.IsInstanceOfType(response, typeof(AHJPlusPSAPResponse));
+
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+        [TestMethod]
+        public void getAHJPlusPSAPByAddressTestAsync()
+        {
+            try
+            {
+                Boolean failFlag = false;
+                this.TriggerTest = new AutoResetEvent(false);
+                geo911Service.LiAPIAHJPlusPSASRequestFinishedEvent += (object sender, WebResponseEventArgs<AHJPlusPSAPResponse> eventArgs) =>
+                {
+
+
+                    try
+                    {
+                        Assert.IsTrue(eventArgs.ResponseObject != null);
+                        this.TriggerTest.Set();
+                    }
+                    catch (Exception)
+                    {
+                        failFlag = true;
+                        this.TriggerTest.Set();
+
+                    }
+                };
+                geo911Service.getAHJPlusPSAPByAddressAsync("4750 Walnut St, Boulder, CO");
+                this.TriggerTest.WaitOne(10000);
+                if (failFlag)
+                {
+                    Assert.Fail("Test Case Failed");
+                }
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+
+        }
+
+
+        [TestMethod]
+        public void getAHJPlusPSAPByLocationTestAsync()
+        {
+            try
+            {
+                Boolean failFlag = false;
+                this.TriggerTest = new AutoResetEvent(false);
+                geo911Service.LiAPIAHJPlusPSASRequestFinishedEvent += (object sender, WebResponseEventArgs<AHJPlusPSAPResponse> eventArgs) =>
+                {
+
+
+                    try
+                    {
+                        Assert.IsTrue(eventArgs.ResponseObject != null);
+                        this.TriggerTest.Set();
+                    }
+                    catch (Exception)
+                    {
+                        failFlag = true;
+                        this.TriggerTest.Set();
+
+                    }
+                };
+                geo911Service.getAHJPlusPSAPByLocationAsync(32.032, -93.703); 
+                this.TriggerTest.WaitOne(10000);
+                if (failFlag)
+                {
+                    Assert.Fail("Test Case Failed");
+                }
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+
+        }
 
         [TestMethod]
         public void getPSAPByAddressTestAsync()
         {
-             try
-             {
-                    Boolean failFlag = false;
-                    this.TriggerTest = new AutoResetEvent(false);
-                    geo911Service.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<PsapResponse> eventArgs) =>
-                    {
-                       
-                       
-                        try
-                        {
-                            Assert.IsTrue(eventArgs.ResponseObject != null);
-                            this.TriggerTest.Set();
-                        }
-                        catch (Exception)
-                        {
-                            failFlag = true;
-                            this.TriggerTest.Set();
-
-                        }
-                    };
-                    geo911Service.getPSAPByAddressAsync("1 Global View, Troy, NY");
-                    this.TriggerTest.WaitOne(10000);
-                    if (failFlag)
-                    {
-                        Assert.Fail("Test Case Failed");
-                    }
-
-                }
-                catch (Exception e)
+            try
+            {
+                Boolean failFlag = false;
+                this.TriggerTest = new AutoResetEvent(false);
+                geo911Service.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<PsapResponse> eventArgs) =>
                 {
-                    Assert.Fail("Unexpected Exception");
+
+
+                    try
+                    {
+                        Assert.IsTrue(eventArgs.ResponseObject != null);
+                        this.TriggerTest.Set();
+                    }
+                    catch (Exception)
+                    {
+                        failFlag = true;
+                        this.TriggerTest.Set();
+
+                    }
+                };
+                geo911Service.getPSAPByAddressAsync("1 Global View, Troy, NY");
+                this.TriggerTest.WaitOne(10000);
+                if (failFlag)
+                {
+                    Assert.Fail("Test Case Failed");
                 }
-           
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+
         }
+
+       
 
         [TestMethod]
         public void getPSAPByLocationTestAsync()
