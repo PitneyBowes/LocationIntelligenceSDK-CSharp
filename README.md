@@ -12,7 +12,9 @@
 
 * [GeoSearch](https://developer2.pitneybowes.com/en/geosearch.php): Returns an autocompleted list of addresses and places based on the input of a partial address. Useful for commercial developers and content providers, or anyone wanting to offer their own search.
 
-* [Geo911](https://developer2.pitneybowes.com/en/geo911.php): Integrates Public Safety Answering Point (PSAP) administrative call routing information into your 911 products and services. The Geo911 API retrieves 10-digit phone numbers and local contact info with the input of a location coordinate. Useful for 911 administrators, planners, and auditors.
+* [GeoComm](https://developer2.pitneybowes.com/en/geocomm.php): Identifies Local Exchange Carrier presence with a Rate Center area. The GeoComm API retrieves Incumbent Local Exchange Carrier (ILEC) doing-business-as names with the input of an address. Useful for local telecommunications competitive intelligence, partnerships, and provisioning subscribers.
+
+* [Geo911](https://developer2.pitneybowes.com/en/geo911.php): Integrates Public Safety Answering Point (PSAP) administrative call routing information plus Authority Having Jurisdiction (AHJ) phone numbers into your 911 products and services. The Geo911 API retrieves 10-digit phone numbers and local contact info with the input of a location coordinate. Useful for emergency services administrators, call handlers, and dispatchers..
 
 * [GeoTax](https://developer2.pitneybowes.com/en/geotax.php): Returns local tax rates with the input of a location coordinate or an address. Critical for any billing, commerce, payment, or payroll application or service.
 
