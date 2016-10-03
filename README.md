@@ -18,6 +18,8 @@
 
 * [GeoCode](https://developer2.pitneybowes.com/en/geocode.php): Converts addresses to location coordinates and vice versa. The GeoCode API returns latitude & longitude coordinates with the input of an address and vice versa. Useful for enhancing & enriching your customer addresses.
 
+* [GeoMap](https://developer2.pitneybowes.com/en/geomap.php): Adds your data and more atop Maps. Choose from three map styles - Iron, Bronze, and Steel.
+
 The following platforms are supported by Location Intelligence SDKs:
 *	[Android](https://developer2.pitneybowes.com/docs/location-intelligence/v1/en/index.html#Android%20SDK/android_intro.html)
 *	[JavaScript](https://developer2.pitneybowes.com/docs/location-intelligence/v1/en/index.html#Java%20Script%20SDK/js_intro.html) 
