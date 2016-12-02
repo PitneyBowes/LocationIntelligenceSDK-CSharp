@@ -84,7 +84,7 @@ namespace com.pb.locationintelligence.geotax.model
         /// <value>
         /// The special purpose districts tax.
         /// </value>
-        public List<SpecialPurposeDistrictTax> specialPurposeDistrictsTax{get;set;}
+        public List<SpecialPurposeDistrictTax> spdsTax { get;set;}
 
 	
 }
