@@ -114,6 +114,9 @@ namespace LocationIntelligenceSDKTest
 
         }
 
+        
+
+
         [TestMethod]
         public void testGeoSearchWithInvalidParams()
         {
@@ -191,8 +194,6 @@ namespace LocationIntelligenceSDKTest
             }
         }
 
-
-       [TestMethod]
        private void verifyException(SdkException e) {
 
         Assert.IsTrue(SdkException.ErrorResponseType.LI.Equals(e.ErrorResponseTypes));
@@ -229,11 +230,301 @@ namespace LocationIntelligenceSDKTest
            {
                Assert.Fail("Unexpected Exception");
            }
-       } 
+       }
+
+        [TestMethod]
+        public void testGeoSearchWithCountry()
+        {
+            try
+            {
+                Locations response = mGeoSearchService.geoSearch("times sq", "USA", 40.761819, -73.997533);
+                Assert.IsNotNull(response);
+            }
+            catch (Exception e)
+            {
+                 Assert.Fail("Unexpected Exception");
+            }
+        }
 
 
 
-    [TestCleanup]
+        [TestMethod]
+        public void testGeoSearchWithCountryAsync()
+        {
+
+
+            try
+            {
+                Boolean failFlag = false;
+                this.TriggerTest = new AutoResetEvent(false);
+                mGeoSearchService.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<Locations> eventArgs) =>
+                {
+                    try
+                    {
+                        Assert.IsTrue(eventArgs.ResponseObject != null);
+                        this.TriggerTest.Set();
+                    }
+                    catch (Exception)
+                    {
+                        failFlag = true;
+                        this.TriggerTest.Set();
+
+                    }
+                };
+                mGeoSearchService.geoSearchAsync("times sq", "USA", 40.761819, -73.997533);
+                this.TriggerTest.WaitOne(10000);
+                if (failFlag)
+                {
+                    Assert.Fail("Test Case Failed");
+                }
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+
+
+        }
+
+
+
+
+
+        [TestMethod]
+    public void testGeoSearchOnlyCountry()
+        {
+            try
+            {
+                Locations response = mGeoSearchService.geoSearch("times sq", "USA");
+                Assert.IsNotNull(response != null);
+            }
+            catch (Exception e)
+            {
+                 Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+        [TestMethod]
+        public void testGeoSearchOnlyCountryAsync()
+        {
+
+
+            try
+            {
+                Boolean failFlag = false;
+                this.TriggerTest = new AutoResetEvent(false);
+                mGeoSearchService.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<Locations> eventArgs) =>
+                {
+                    try
+                    {
+                        Assert.IsTrue(eventArgs.ResponseObject != null);
+                        this.TriggerTest.Set();
+                    }
+                    catch (Exception)
+                    {
+                        failFlag = true;
+                        this.TriggerTest.Set();
+
+                    }
+                };
+                mGeoSearchService.geoSearchAsync("times sq", "USA"); 
+                this.TriggerTest.WaitOne(10000);
+                if (failFlag)
+                {
+                    Assert.Fail("Test Case Failed");
+                }
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+
+
+        }
+
+
+
+        [TestMethod]
+    public void testGeoSearchWithCountryInvalidParams()
+        {
+            try
+            {
+                mGeoSearchService.geoSearch("times sq", "UA", 240.761819, -73.997533);
+            }
+            catch (SdkException ex)
+            {
+
+                
+                Assert.IsTrue(ex is SdkException);
+
+            }
+            catch(Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+        [TestMethod]
+    public void testGeoSearchWithInvalidCountryParams()
+        {
+            try
+            {
+                mGeoSearchService.geoSearch("times sq", "XMYAbshvdshhvduhj");
+            }
+            catch (SdkException ex)
+            {
+
+
+                Assert.IsTrue(ex is SdkException);
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+        [TestMethod]
+    public void testGeoSearchWithAllParamsTest()
+        {
+            try
+            {
+                Locations response = mGeoSearchService.geoSearch("times sq", "USA", 40.761819, -73.997533, 1.00f, "MILES", 5);
+                Assert.IsNotNull(response);
+            }
+            catch (Exception e)
+            {
+                 Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+
+
+        [TestMethod]
+        public void testGeoSearchWithAllParamsTestAsync()
+        {
+
+
+            try
+            {
+                Boolean failFlag = false;
+                this.TriggerTest = new AutoResetEvent(false);
+                mGeoSearchService.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<Locations> eventArgs) =>
+                {
+                    try
+                    {
+                        Assert.IsTrue(eventArgs.ResponseObject != null);
+                        this.TriggerTest.Set();
+                    }
+                    catch (Exception)
+                    {
+                        failFlag = true;
+                        this.TriggerTest.Set();
+
+                    }
+                };
+                mGeoSearchService.geoSearchAsync("times sq", "USA", 40.761819, -73.997533, 1.00f, "MILES", 5);
+                this.TriggerTest.WaitOne(10000);
+                if (failFlag)
+                {
+                    Assert.Fail("Test Case Failed");
+                }
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+
+
+        }
+
+
+
+
+        [TestMethod]
+    public void testGeoSearchWithInvalidCounryRequest()
+        {
+            try
+            {
+                mGeoSearchService.geoSearch("times sq", "abcDf2gd", 40.761819, -73.997533, 1.00f, "MILES_AA", 59);
+            }
+            catch (SdkException ex)
+            {
+
+
+                Assert.IsTrue(ex is SdkException);
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+        [TestMethod]
+        public void testGeoSearchWithCountrywithoutLatLngParamsTestAsync()
+        {
+
+
+            try
+            {
+                Boolean failFlag = false;
+                this.TriggerTest = new AutoResetEvent(false);
+                mGeoSearchService.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<Locations> eventArgs) =>
+                {
+                    try
+                    {
+                        Assert.IsTrue(eventArgs.ResponseObject != null);
+                        this.TriggerTest.Set();
+                    }
+                    catch (Exception)
+                    {
+                        failFlag = true;
+                        this.TriggerTest.Set();
+
+                    }
+                };
+                mGeoSearchService.geoSearchAsync("times sq", "USA",1.00f, "MILES", 5);
+                this.TriggerTest.WaitOne(10000);
+                if (failFlag)
+                {
+                    Assert.Fail("Test Case Failed");
+                }
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+
+
+        }
+
+
+        [TestMethod]
+        public void testGeoSearcCountryWithOutLatLngParamsTest()
+        {
+            try
+            {
+                Locations response = mGeoSearchService.geoSearch("times sq", "USA",1.00f, "MILES", 5);
+                Assert.IsNotNull(response);
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+
+        [TestCleanup]
     public void tearDown(){
         mGeoSearchService = null;
     }
