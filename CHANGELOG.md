@@ -1,3 +1,6 @@
+## 2.6.0 - 2016-10-03
+- Changes for GeoSearch API.
+
 ## 2.5.0 - 2016-10-03
 - Changes for GeoComm API.
 - Changes for AHJ Geo911.
