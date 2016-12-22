@@ -195,7 +195,7 @@ namespace LocationIntelligenceSDKTest
                 add.MainAddressLine = "4750 Walnut St., Boulder CO, 80301";
                 add.Country = "USA";
 
-                GeocodeResponse response = geocodeService.getGeocode(add,GeocodeType.ADDRESS, BundleType.Premium);
+                GeocodeResponse response = geocodeService.getGeocode(add,GeocodeType.ADDRESS, BundleType.premium);
                 Assert.IsInstanceOfType(response, typeof(GeocodeResponse));
 
 
@@ -234,7 +234,7 @@ namespace LocationIntelligenceSDKTest
                 add.MainAddressLine = "4750 Walnut St., Boulder CO, 80301";
                 add.Country = "USA";
 
-               geocodeService.getGeocodeAsync(add, GeocodeType.ADDRESS, BundleType.Premium);
+               geocodeService.getGeocodeAsync(add, GeocodeType.ADDRESS, BundleType.premium);
 
                 this.TriggerTest.WaitOne(10000);
                 if (failFlag)
@@ -317,7 +317,7 @@ namespace LocationIntelligenceSDKTest
 
                 //CustomPreference
                 geocodePreferenceBuilder.GeocodePreference = geocodePreference;
-                GeocodeResponse response = geocodeService.getGeocodeAdvanceBatch(new List<Address> { add }, GeocodeType.ADDRESS, BundleType.Basic, geocodePreferenceBuilder);
+                GeocodeResponse response = geocodeService.getGeocodeAdvanceBatch(new List<Address> { add }, GeocodeType.ADDRESS, BundleType.basic, geocodePreferenceBuilder);
                 Assert.IsInstanceOfType(response, typeof(GeocodeResponse));
 
 
@@ -360,7 +360,7 @@ namespace LocationIntelligenceSDKTest
 
                 points.Geometry = geoposition;
 
-                GeocodeResponse response = geocodeService.getReverseGeocode(points);
+                GeocodeResponse response = geocodeService.getReverseGeocode(BundleType.premium, points);
                 Assert.IsInstanceOfType(response, typeof(GeocodeResponse));
 
 
@@ -423,7 +423,7 @@ namespace LocationIntelligenceSDKTest
 
                     points.Geometry = geoposition;
 
-                    geocodeService.getReverseGeocodeAsync(points);
+                    geocodeService.getReverseGeocodeAsync(BundleType.premium,points);
 
                     this.TriggerTest.WaitOne(10000);
                     if (failFlag)
@@ -526,7 +526,7 @@ namespace LocationIntelligenceSDKTest
 
                 //CustomPreference
                 geocodePreferenceBuilder.GeocodePreference = geocodePreference;
-                GeocodeResponse response = geocodeService.getReverseGeocodeAdvanceBatch(new List<Points> { points }, geocodePreferenceBuilder);
+                GeocodeResponse response = geocodeService.getReverseGeocodeAdvanceBatch(BundleType.premium, new List<Points> { points }, geocodePreferenceBuilder);
                 Assert.IsInstanceOfType(response, typeof(GeocodeResponse));
 
 
@@ -536,6 +536,217 @@ namespace LocationIntelligenceSDKTest
                 Assert.Fail("Unexpected Exception");
             }
         }
+
+
+
+        [TestMethod]
+        public void getReverseGeocodeBasicTest()
+        {
+            try
+            {
+                Points points = new Points();
+                points.Country = "USA";
+
+                GeoPos geoposition = new GeoPos();
+
+                List<double> lst = new List<double>();
+                lst.Add(12.025594);
+                lst.Add(57.712891);
+                geoposition.Coordinates = lst;
+                geoposition.Type = "point";
+
+
+
+                Crs crs = new Crs();
+                crs.Type = "name";
+                Properties properties = new Properties();
+                properties.Name = "EPSG:4326";
+                crs.Properties = properties;
+
+
+                geoposition.Crs = crs;
+
+                points.Geometry = geoposition;
+
+                GeocodeResponse response = geocodeService.getReverseGeocode(BundleType.premium, points);
+                Assert.IsInstanceOfType(response, typeof(GeocodeResponse));
+
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+        [TestMethod]
+        public void getReverseGeocodeBasicTestAsync()
+        {
+
+
+
+
+            try
+            {
+                Boolean failFlag = false;
+                this.TriggerTest = new AutoResetEvent(false);
+                geocodeService.LiAPIRequestFinishedEvent += (object sender, WebResponseEventArgs<GeocodeResponse> eventArgs) =>
+                {
+
+
+                    try
+                    {
+                        Assert.IsTrue(eventArgs.ResponseObject != null);
+                        this.TriggerTest.Set();
+                    }
+                    catch (Exception)
+                    {
+                        failFlag = true;
+                        this.TriggerTest.Set();
+
+                    }
+                };
+                Points points = new Points();
+                points.Country = "USA";
+
+                GeoPos geoposition = new GeoPos();
+
+                List<double> list = new List<double>();
+                list.Add(-78.009);
+                list.Add(39.52);
+                geoposition.Coordinates = list;
+                geoposition.Type = "point";
+
+
+
+                Crs crs = new Crs();
+                crs.Type = "name";
+                Properties properties = new Properties();
+                properties.Name = "EPSG:4326";
+                crs.Properties = properties;
+
+
+                geoposition.Crs = crs;
+
+                points.Geometry = geoposition;
+
+                geocodeService.getReverseGeocodeAsync(BundleType.basic, points);
+
+                this.TriggerTest.WaitOne(10000);
+                if (failFlag)
+                {
+                    Assert.Fail("Test Case Failed");
+                }
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+
+        }
+
+
+        [TestMethod]
+        public void getReverseGeocodePreferenceBasicTest()
+        {
+            try
+            {
+                Points points = new Points();
+                points.Country = "USA";
+
+                GeoPos geoposition = new GeoPos();
+
+                List<double> lst = new List<double>();
+                lst.Add(-78.009);
+                lst.Add(39.52);
+                geoposition.Coordinates = lst;
+                geoposition.Type = "point";
+
+
+
+                Crs crs = new Crs();
+                crs.Type = "name";
+                Properties properties = new Properties();
+                properties.Name = "EPSG:4326";
+                crs.Properties = properties;
+
+
+                geoposition.Crs = crs;
+
+                points.Geometry = geoposition;
+
+                GeocodePreferenceBuilder geocodePreferenceBuilder = new GeocodePreferenceBuilder();
+
+                #region Preference
+                GeocodePreference geocodePreference = new GeocodePreference();
+
+                //Must match fields
+                FieldsMatching mustMatchField = new FieldsMatching();
+                mustMatchField.matchOnAddressNumber = true;
+                geocodePreference.mustMatchFields = mustMatchField;
+
+
+                //Preferred Dictionary Order
+                geocodePreference.preferredDictionaryOrders = new Dictionary<Country, int[]> { { Country.AMERICAN_SAMOA, new int[] { 0, 1 } } };
+
+                #endregion
+
+                #region ReturnFieldsDescriptorPreferences
+
+                GeocodeReturnFieldsDescriptor geocodeReturnFieldsDescriptor = new GeocodeReturnFieldsDescriptor();
+                geocodeReturnFieldsDescriptor.ReturnedCustomFieldKeys = new List<ReturnedCustomFieldsKeys> { ReturnedCustomFieldsKeys.NZL_ORIGINAL_LONGITUDE };
+                geocodePreferenceBuilder.ReturnFieldsDescriptorPreferences = geocodeReturnFieldsDescriptor;
+
+                #endregion
+
+                #region CustomPreference
+
+                List<ICustomPreference> customList = new List<ICustomPreference>();
+
+
+                ICustomPreference customPrefernce = CustomPreferenceFactory.GetCustomPreference();
+
+                customPrefernce.FALLBACK_TO_WORLD = true;
+                customPrefernce.distanceUnits = DistanceUnits.FEET;
+                customList.Add(customPrefernce);
+
+
+                ICustomPreferenceUSA customPrefernceUSA = CustomPreferenceFactory.GetCustomPreferenceUSA();
+
+                customPrefernce.FALLBACK_TO_WORLD = true;
+                customPrefernce.distanceUnits = DistanceUnits.FEET;
+                customList.Add(customPrefernceUSA);
+
+
+
+
+                ICustomPreference customPrefernceArgentena = CustomPreferenceFactory.GetCustomPreference(Country.ARGENTINA);
+
+                customPrefernce.FALLBACK_TO_WORLD = true;
+                customPrefernce.distanceUnits = DistanceUnits.FEET;
+                customList.Add(customPrefernceArgentena);
+
+
+                geocodePreferenceBuilder.CustomPreference = customList;
+                #endregion
+
+                //CustomPreference
+                geocodePreferenceBuilder.GeocodePreference = geocodePreference;
+                GeocodeResponse response = geocodeService.getReverseGeocodeAdvanceBatch(BundleType.basic, new List<Points> { points }, geocodePreferenceBuilder);
+                Assert.IsInstanceOfType(response, typeof(GeocodeResponse));
+
+
+            }
+            catch (Exception e)
+            {
+                Assert.Fail("Unexpected Exception");
+            }
+        }
+
+
+
         #endregion
 
     }

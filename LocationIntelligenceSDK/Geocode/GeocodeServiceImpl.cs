@@ -37,12 +37,12 @@ namespace com.pb.locationintelligence.geocode
         public event EventHandler<WebResponseEventArgs<GeocodeCapabilitiesResponse>> LiGeocodeCapabilitiesFinishedEvent;
 
         #region Capabilities
-        public GeocodeCapabilitiesResponse getCapabilities(Country? country=null, OperationType? operationType=null, BundleType bundleType=BundleType.Basic)
+        public GeocodeCapabilitiesResponse getCapabilities(Country? country=null, OperationType? operationType=null, BundleType bundleType=BundleType.basic)
         {
             return Utility.processAPIRequest<GeocodeCapabilitiesResponse>(getUrlForConfiguration(country, operationType, bundleType), Utility.HttpVerb.Get, String.Empty);
         }
 
-        public void getCapabilitiesAsync(Country? country=null, OperationType? operationType=null,  BundleType bundleType = BundleType.Basic)
+        public void getCapabilitiesAsync(Country? country=null, OperationType? operationType=null,  BundleType bundleType = BundleType.basic)
         {
             processAPIRequestDelegate<GeocodeCapabilitiesResponse> delegateApiRequs = new processAPIRequestDelegate<GeocodeCapabilitiesResponse>(Utility.processAPIRequest<GeocodeCapabilitiesResponse>);
             delegateApiRequs.BeginInvoke(getUrlForConfiguration(country, operationType , bundleType), Utility.HttpVerb.Get, String.Empty, new AsyncCallback(WorkflowCompletedCallbackConfiguration), null);
@@ -98,12 +98,12 @@ namespace com.pb.locationintelligence.geocode
         #endregion
 
         #region Dictionary 
-        public ConfiguredDictionaryResponse getDictionary(Country? country = null,  BundleType bundleType = BundleType.Basic)
+        public ConfiguredDictionaryResponse getDictionary(Country? country = null,  BundleType bundleType = BundleType.basic)
         {
             return Utility.processAPIRequest<ConfiguredDictionaryResponse>(getUrlForDictionary(country, bundleType), Utility.HttpVerb.Get, String.Empty);
         }
 
-        public void getDictionaryAsync(Country? country = null,   BundleType bundleType = BundleType.Basic)
+        public void getDictionaryAsync(Country? country = null,   BundleType bundleType = BundleType.basic)
         {
             processAPIRequestDelegate<ConfiguredDictionaryResponse> delegateApiRequs = new processAPIRequestDelegate<ConfiguredDictionaryResponse>(Utility.processAPIRequest<ConfiguredDictionaryResponse>);
             delegateApiRequs.BeginInvoke(getUrlForDictionary(country, bundleType), Utility.HttpVerb.Get, String.Empty, new AsyncCallback(WorkflowCompletedCallbackDictionary), null);
@@ -509,16 +509,16 @@ namespace com.pb.locationintelligence.geocode
 
         #region ReverseGeocode
 
-        public GeocodeResponse getReverseGeocode(Points points)
+        public GeocodeResponse getReverseGeocode(BundleType bundleType, Points points)
         {
             IList<Points> pointList = new List<Points>();
             pointList.Add(points);
 
-            return getReverseGeocodeBatch(pointList);
+            return getReverseGeocodeBatch(bundleType,pointList);
         }
 
 
-        public GeocodeResponse getReverseGeocodeBatch(IList<Points> points)
+        public GeocodeResponse getReverseGeocodeBatch(BundleType bundleType, IList<Points> points)
         {
 
             String requestPayload = String.Empty;
@@ -537,19 +537,19 @@ namespace com.pb.locationintelligence.geocode
             UrlMaker urlMaker = UrlMaker.getInstance();
             string url = Constants.reverseGeocodegeoCode;
 
-            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(url));
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(String.Format(url, bundleType.ToString())));
 
             return Utility.processAPIRequest<GeocodeResponse>(urlBuilder.ToString(), Utility.HttpVerb.Post, requestPayload);
         }
 
         
 
-        public void getReverseGeocodeAsync(Points points)
+        public void getReverseGeocodeAsync(BundleType bundleType, Points points)
         {
-            getReverseGeocodeBatchAsync(new List<Points>{points});
+            getReverseGeocodeBatchAsync(bundleType,new List <Points>{points});
         }
 
-        public void getReverseGeocodeBatchAsync(IList<Points> points)
+        public void getReverseGeocodeBatchAsync(BundleType bundleType,IList<Points> points)
         {
             String requestPayload = String.Empty;
 
@@ -566,14 +566,14 @@ namespace com.pb.locationintelligence.geocode
             requestPayload = sr.ReadToEnd();
             UrlMaker urlMaker = UrlMaker.getInstance();
             string url = Constants.reverseGeocodegeoCode;
-            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(url));
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(String.Format(url, bundleType.ToString())));
 
 
             processAPIRequestDelegate<GeocodeResponse> delegateApiRequs = new processAPIRequestDelegate<GeocodeResponse>(Utility.processAPIRequest<GeocodeResponse>);
             delegateApiRequs.BeginInvoke(urlBuilder.ToString(), Utility.HttpVerb.Post, requestPayload, new AsyncCallback(WorkflowCompletedCallbackGeocode), null);
         }
 
-        public void getReverseGeocodeAdvanceBatchAsync(IList<Points> points,   GeocodePreferenceBuilder geocodePreferenceBuilder)
+        public void getReverseGeocodeAdvanceBatchAsync(BundleType bundleType, IList<Points> points,   GeocodePreferenceBuilder geocodePreferenceBuilder)
         {
             String requestPayload = String.Empty;
 
@@ -597,7 +597,7 @@ namespace com.pb.locationintelligence.geocode
             requestPayload = sr.ReadToEnd();
             UrlMaker urlMaker = UrlMaker.getInstance();
             string url =Constants.reverseGeocodegeoCode;
-            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(url));
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(String.Format(url, bundleType.ToString())));
 
 
             processAPIRequestDelegate<GeocodeResponse> delegateApiRequs = new processAPIRequestDelegate<GeocodeResponse>(Utility.processAPIRequest<GeocodeResponse>);
@@ -606,7 +606,7 @@ namespace com.pb.locationintelligence.geocode
 
       
 
-        public GeocodeResponse getReverseGeocodeAdvanceBatch(IList<Points> points,  GeocodePreferenceBuilder preferenceBuilder)
+        public GeocodeResponse getReverseGeocodeAdvanceBatch(BundleType bundleType, IList<Points> points,  GeocodePreferenceBuilder preferenceBuilder)
         {
             String requestPayload = String.Empty;
 
@@ -630,7 +630,7 @@ namespace com.pb.locationintelligence.geocode
             UrlMaker urlMaker = UrlMaker.getInstance();
             string url = Constants.reverseGeocodegeoCode;
 
-            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(url));
+            StringBuilder urlBuilder = new StringBuilder(urlMaker.getAbsoluteUrl(String.Format(url, bundleType.ToString())));
 
             return Utility.processAPIRequest<GeocodeResponse>(urlBuilder.ToString(), Utility.HttpVerb.Post, requestPayload);
         }

@@ -306,8 +306,8 @@ namespace LocationIntelligenceSDKTest
                 keyValueMap.Add("longitude", -73.7042231);
                 String responseJSON = TestUtility.getJSONResponseFromAPI(TEST_URL, serviceEndPoint, keyValueMap);
                 JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
-                String sdkResponseString = jsonSerializer.Serialize(sdkResponse);
-                Assert.AreEqual(sdkResponseString, responseJSON);
+                PsapResponse DirectResponse = jsonSerializer.Deserialize<PsapResponse>(responseJSON);
+                Assert.AreEqual(sdkResponse.mailingAddress, DirectResponse.mailingAddress);
             }
             catch (Exception e)
             {

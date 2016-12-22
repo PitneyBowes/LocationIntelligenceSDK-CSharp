@@ -45,11 +45,11 @@ namespace com.pb.locationintelligence.geocode.model
         /// <summary>
         /// The basic
         /// </summary>
-        Basic,
+        basic,
         /// <summary>
         /// The premium
         /// </summary>
-        Premium
+        premium
     }
 
 

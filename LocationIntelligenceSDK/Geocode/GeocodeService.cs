@@ -54,7 +54,7 @@ namespace com.pb.locationintelligence.geocode
         /// <returns>
         /// GeocodeCapabilitiesResponse
         /// </returns>
-        GeocodeCapabilitiesResponse getCapabilities(Country? country = null,OperationType? operationType=null,BundleType bundleType=BundleType.Basic);
+        GeocodeCapabilitiesResponse getCapabilities(Country? country = null,OperationType? operationType=null,BundleType bundleType=BundleType.basic);
 
         /// <summary>
         /// This method provides Geocode Capabilities of Geocode API asynchronously
@@ -62,7 +62,7 @@ namespace com.pb.locationintelligence.geocode
         /// <param name="country">The country.</param>
         /// <param name="operationType">Type of the operation.</param>
         /// <param name="bundleType">Type of the bundle.</param>
-        void getCapabilitiesAsync(Country? country=null, OperationType? operationType=null,  BundleType bundleType = BundleType.Basic);
+        void getCapabilitiesAsync(Country? country=null, OperationType? operationType=null,  BundleType bundleType = BundleType.basic);
 
         #endregion
 
@@ -75,7 +75,7 @@ namespace com.pb.locationintelligence.geocode
         /// <returns>
         /// ConfiguredDictionaryResponse
         /// </returns>
-        ConfiguredDictionaryResponse getDictionary(Country? country=null,  BundleType bundleType = BundleType.Basic);
+        ConfiguredDictionaryResponse getDictionary(Country? country=null,  BundleType bundleType = BundleType.basic);
 
 
 
@@ -85,7 +85,7 @@ namespace com.pb.locationintelligence.geocode
         /// </summary>
         /// <param name="country">Optional</param>
         /// <param name="bundleType">Optional</param>
-        void getDictionaryAsync(Country? country=null,  BundleType bundleType = BundleType.Basic);
+        void getDictionaryAsync(Country? country=null,  BundleType bundleType = BundleType.basic);
         #endregion
 
         #region Geocode
@@ -156,7 +156,7 @@ namespace com.pb.locationintelligence.geocode
         /// <returns>
         /// GeocodeResponse
         /// </returns>
-        GeocodeResponse getReverseGeocode(Points points);
+        GeocodeResponse getReverseGeocode(BundleType bundleType, Points points);
         /// <summary>
         /// This method reverse Geocodes a list of point
         /// </summary>
@@ -164,7 +164,7 @@ namespace com.pb.locationintelligence.geocode
         /// <returns>
         /// GeocodeResponse
         /// </returns>
-        GeocodeResponse getReverseGeocodeBatch(IList<Points> points);
+        GeocodeResponse getReverseGeocodeBatch(BundleType bundleType, IList<Points> points);
 
         /// <summary>
         /// This method reverse Geocodes a list of point and Preferences can  also be passed to change default behaviour of Geocoder
@@ -172,27 +172,27 @@ namespace com.pb.locationintelligence.geocode
         /// <param name="points">required</param>
         /// <param name="preferenceBuilder">required</param>
         /// <returns></returns>
-        GeocodeResponse getReverseGeocodeAdvanceBatch(IList<Points> points, GeocodePreferenceBuilder preferenceBuilder);
+        GeocodeResponse getReverseGeocodeAdvanceBatch(BundleType bundleType, IList<Points> points, GeocodePreferenceBuilder preferenceBuilder);
 
         /// <summary>
         /// This method reverse geocode a given point asynchronously
         /// </summary>
         /// <param name="points">required</param>
 
-        void getReverseGeocodeAsync(Points points);
+        void getReverseGeocodeAsync(BundleType bundleType, Points points);
 
         /// <summary>
         /// This method reverse Geocodes a list of point asynchronously
         /// </summary>
         /// <param name="points">required</param>
-        void getReverseGeocodeBatchAsync(IList<Points> points);
+        void getReverseGeocodeBatchAsync(BundleType bundleType, IList<Points> points);
 
         /// <summary>
         /// This method reverse Geocodes a list of point and Preferences can  also be passed to change default behaviour of Geocoder asynchronously
         /// </summary>
         /// <param name="points">required</param>
         /// <param name="preferenceBuilder">required</param>
-        void getReverseGeocodeAdvanceBatchAsync(IList<Points> points,  GeocodePreferenceBuilder preferenceBuilder);
+        void getReverseGeocodeAdvanceBatchAsync(BundleType bundleType, IList<Points> points,  GeocodePreferenceBuilder preferenceBuilder);
 
         #endregion
     }
