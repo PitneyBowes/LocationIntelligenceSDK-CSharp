@@ -109,190 +109,190 @@ All URIs are relative to *https://api.pitneybowes.com/location-intelligence*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*LIAPIGeo911ServiceApi* | [**GetAHJPlusPSAPByAddress**](docs/LIAPIGeo911ServiceApi.md#getahjpluspsapbyaddress) | **GET** /geo911/v1/ahj-psap/byaddress | AHJ & PSAP By Address.
-*LIAPIGeo911ServiceApi* | [**GetAHJPlusPSAPByLocation**](docs/LIAPIGeo911ServiceApi.md#getahjpluspsapbylocation) | **GET** /geo911/v1/ahj-psap/bylocation | AHJ & PSAP By Location
-*LIAPIGeo911ServiceApi* | [**GetPSAPByAddress**](docs/LIAPIGeo911ServiceApi.md#getpsapbyaddress) | **GET** /geo911/v1/psap/byaddress | PSAP By Address.
-*LIAPIGeo911ServiceApi* | [**GetPSAPByLocation**](docs/LIAPIGeo911ServiceApi.md#getpsapbylocation) | **GET** /geo911/v1/psap/bylocation | PSAP By Location.
-*LIAPIGeoCommServiceApi* | [**GetRateCenterByAddress**](docs/LIAPIGeoCommServiceApi.md#getratecenterbyaddress) | **GET** /geocomm/v1/ratecenter/byaddress | Rate Center By Address.
-*LIAPIGeoCommServiceApi* | [**GetRateCenterByLocation**](docs/LIAPIGeoCommServiceApi.md#getratecenterbylocation) | **GET** /geocomm/v1/ratecenter/bylocation | Rate Center By Location.
-*LIAPIGeoEnhanceServiceApi* | [**GetAddress**](docs/LIAPIGeoEnhanceServiceApi.md#getaddress) | **GET** /geoenhance/v1/address/bylocation | Address By Location.
-*LIAPIGeoEnhanceServiceApi* | [**GetEntityByLocation**](docs/LIAPIGeoEnhanceServiceApi.md#getentitybylocation) | **GET** /geoenhance/v1/poi/bylocation | Points Of Interest By Location.
-*LIAPIGeoEnhanceServiceApi* | [**GetPlaceByLocation**](docs/LIAPIGeoEnhanceServiceApi.md#getplacebylocation) | **GET** /geoenhance/v1/place/bylocation | Place By Location.
-*LIAPIGeoEnhanceServiceApi* | [**GetTimezoneByLocation**](docs/LIAPIGeoEnhanceServiceApi.md#gettimezonebylocation) | **GET** /geoenhance/v1/timezone/bylocation | Timezone By Location.
-*LIAPIGeoLifeServiceApi* | [**GetDemographicsByAddress**](docs/LIAPIGeoLifeServiceApi.md#getdemographicsbyaddress) | **GET** /geolife/v1/demographics/byaddress | Demographics By Address.
-*LIAPIGeoLifeServiceApi* | [**GetDemographicsByLocation**](docs/LIAPIGeoLifeServiceApi.md#getdemographicsbylocation) | **GET** /geolife/v1/demographics/bylocation | Demographics By Location.
-*LIAPIGeoLifeServiceApi* | [**GetSegmentationByAddress**](docs/LIAPIGeoLifeServiceApi.md#getsegmentationbyaddress) | **GET** /geolife/v1/segmentation/byaddress | Segmentation By Address.
-*LIAPIGeoLifeServiceApi* | [**GetSegmentationByLocation**](docs/LIAPIGeoLifeServiceApi.md#getsegmentationbylocation) | **GET** /geolife/v1/segmentation/bylocation | Segmentation By Location.
-*LIAPIGeoRiskServiceApi* | [**GetCrimeRiskByAddress**](docs/LIAPIGeoRiskServiceApi.md#getcrimeriskbyaddress) | **GET** /georisk/v1/crime/byaddress | Gets CrimeRiskResponse
-*LIAPIGeoRiskServiceApi* | [**GetCrimeRiskByLocation**](docs/LIAPIGeoRiskServiceApi.md#getcrimeriskbylocation) | **GET** /georisk/v1/crime/bylocation | Gets CrimeRiskResponse
-*LIAPIGeoRiskServiceApi* | [**GetEarthquakeRiskByAddress**](docs/LIAPIGeoRiskServiceApi.md#getearthquakeriskbyaddress) | **GET** /georisk/v1/earthquake/byaddress | Gets EarthquakeRiskResponse
-*LIAPIGeoRiskServiceApi* | [**GetEarthquakeRiskByLocation**](docs/LIAPIGeoRiskServiceApi.md#getearthquakeriskbylocation) | **GET** /georisk/v1/earthquake/bylocation | Gets EarthquakeRiskResponse
-*LIAPIGeoRiskServiceApi* | [**GetFireRiskByAddress**](docs/LIAPIGeoRiskServiceApi.md#getfireriskbyaddress) | **GET** /georisk/v1/fire/byaddress | Gets FireRiskResponse
-*LIAPIGeoRiskServiceApi* | [**GetFireRiskByLocation**](docs/LIAPIGeoRiskServiceApi.md#getfireriskbylocation) | **GET** /georisk/v1/fire/bylocation | Gets FireRiskResponse
-*LIAPIGeoRiskServiceApi* | [**GetFireStationByAddress**](docs/LIAPIGeoRiskServiceApi.md#getfirestationbyaddress) | **GET** /georisk/v1/firestation/byaddress | Gets FireStationResponse
-*LIAPIGeoRiskServiceApi* | [**GetFireStationByLocation**](docs/LIAPIGeoRiskServiceApi.md#getfirestationbylocation) | **GET** /georisk/v1/firestation/bylocation | Gets FireStationResponse
-*LIAPIGeoRiskServiceApi* | [**GetFloodRiskByAddress**](docs/LIAPIGeoRiskServiceApi.md#getfloodriskbyaddress) | **GET** /georisk/v1/flood/byaddress | Gets FloodRiskResponse
-*LIAPIGeoRiskServiceApi* | [**GetFloodRiskByLocation**](docs/LIAPIGeoRiskServiceApi.md#getfloodriskbylocation) | **GET** /georisk/v1/flood/bylocation | Gets FloodRiskResponse
-*LIAPIGeoSearchServiceApi* | [**GeoSearch**](docs/LIAPIGeoSearchServiceApi.md#geosearch) | **GET** /geosearch/v1/locations | Gets LocationList
-*LIAPIGeoTaxServiceApi* | [**GetBatchTaxByAddress**](docs/LIAPIGeoTaxServiceApi.md#getbatchtaxbyaddress) | **POST** /geotax/v1/tax/{taxRateTypeId}/byaddress | Post Tax By Address
-*LIAPIGeoTaxServiceApi* | [**GetBatchTaxByLocation**](docs/LIAPIGeoTaxServiceApi.md#getbatchtaxbylocation) | **POST** /geotax/v1/tax/{taxRateTypeId}/bylocation | Post Tax By Location
-*LIAPIGeoTaxServiceApi* | [**GetBatchTaxRateByAddress**](docs/LIAPIGeoTaxServiceApi.md#getbatchtaxratebyaddress) | **POST** /geotax/v1/taxrate/{taxRateTypeId}/byaddress | Post Taxrate By Address
-*LIAPIGeoTaxServiceApi* | [**GetBatchTaxRateByLocation**](docs/LIAPIGeoTaxServiceApi.md#getbatchtaxratebylocation) | **POST** /geotax/v1/taxrate/{taxRateTypeId}/bylocation | Post Taxrate By Location
-*LIAPIGeoTaxServiceApi* | [**GetSpecificTaxByAddress**](docs/LIAPIGeoTaxServiceApi.md#getspecifictaxbyaddress) | **GET** /geotax/v1/tax/{taxRateTypeId}/byaddress | Get Tax By Address
-*LIAPIGeoTaxServiceApi* | [**GetSpecificTaxByLocation**](docs/LIAPIGeoTaxServiceApi.md#getspecifictaxbylocation) | **GET** /geotax/v1/tax/{taxRateTypeId}/bylocation | Get Tax By Location
-*LIAPIGeoTaxServiceApi* | [**GetSpecificTaxRateByAddress**](docs/LIAPIGeoTaxServiceApi.md#getspecifictaxratebyaddress) | **GET** /geotax/v1/taxrate/{taxRateTypeId}/byaddress | Get Taxrate By Address
-*LIAPIGeoTaxServiceApi* | [**GetSpecificTaxRateByLocation**](docs/LIAPIGeoTaxServiceApi.md#getspecifictaxratebylocation) | **GET** /geotax/v1/taxrate/{taxRateTypeId}/bylocation | Get Taxrate By Location
-*LIAPIGeoZoneServiceApi* | [**GetRouteByAddress**](docs/LIAPIGeoZoneServiceApi.md#getroutebyaddress) | **GET** /georoute/v1/route/byaddress | Gets Route by Address
-*LIAPIGeoZoneServiceApi* | [**GetRouteByLocation**](docs/LIAPIGeoZoneServiceApi.md#getroutebylocation) | **GET** /georoute/v1/route/bylocation | Gets Route by Location
-*LIAPIGeoZoneServiceApi* | [**GetTravelBoundaryByDistance**](docs/LIAPIGeoZoneServiceApi.md#gettravelboundarybydistance) | **GET** /geozone/v1/travelboundary/bydistance | Gets travel Boundary by Distance
-*LIAPIGeoZoneServiceApi* | [**GetTravelBoundaryByTime**](docs/LIAPIGeoZoneServiceApi.md#gettravelboundarybytime) | **GET** /geozone/v1/travelboundary/bytime | Gets travel Boundary by Time
-*LIAPIGeoZoneServiceApi* | [**GetTravelCostMatrixByAddress**](docs/LIAPIGeoZoneServiceApi.md#gettravelcostmatrixbyaddress) | **GET** /georoute/v1/travelcostmatrix/byaddress | Gets Cost Matrix by Address
-*LIAPIGeoZoneServiceApi* | [**GetTravelCostMatrixByLocation**](docs/LIAPIGeoZoneServiceApi.md#gettravelcostmatrixbylocation) | **GET** /georoute/v1/travelcostmatrix/bylocation | Gets Cost Matrix by Location
-*LIAPIGeocodeServiceApi* | [**Geocode**](docs/LIAPIGeocodeServiceApi.md#geocode) | **GET** /geocode-service/v1/transient/{datapackBundle}/geocode | Gets Geocode
-*LIAPIGeocodeServiceApi* | [**GeocodeBatch**](docs/LIAPIGeocodeServiceApi.md#geocodebatch) | **POST** /geocode-service/v1/transient/{datapackBundle}/geocode | Gets Geocode
-*LIAPIGeocodeServiceApi* | [**GetCapabilities**](docs/LIAPIGeocodeServiceApi.md#getcapabilities) | **GET** /geocode-service/v1/transient/{datapackBundle}/capabilities | Gets Capabilities
-*LIAPIGeocodeServiceApi* | [**GetDictionaries**](docs/LIAPIGeocodeServiceApi.md#getdictionaries) | **GET** /geocode-service/v1/transient/{datapackBundle}/dictionaries | Gets installed Dictionaries
-*LIAPIGeocodeServiceApi* | [**ReverseGeocodBatch**](docs/LIAPIGeocodeServiceApi.md#reversegeocodbatch) | **POST** /geocode-service/v1/transient/{datapackBundle}/reverseGeocode | reverse Geocode
-*LIAPIGeocodeServiceApi* | [**ReverseGeocode**](docs/LIAPIGeocodeServiceApi.md#reversegeocode) | **GET** /geocode-service/v1/transient/{datapackBundle}/reverseGeocode | reverse Geocode
+*LIAPIGeo911ServiceApi* | [**GetAHJPlusPSAPByAddress**](Documentation/LIAPIGeo911ServiceApi.md#getahjpluspsapbyaddress) | **GET** /geo911/v1/ahj-psap/byaddress | AHJ & PSAP By Address.
+*LIAPIGeo911ServiceApi* | [**GetAHJPlusPSAPByLocation**](Documentation/LIAPIGeo911ServiceApi.md#getahjpluspsapbylocation) | **GET** /geo911/v1/ahj-psap/bylocation | AHJ & PSAP By Location
+*LIAPIGeo911ServiceApi* | [**GetPSAPByAddress**](Documentation/LIAPIGeo911ServiceApi.md#getpsapbyaddress) | **GET** /geo911/v1/psap/byaddress | PSAP By Address.
+*LIAPIGeo911ServiceApi* | [**GetPSAPByLocation**](Documentation/LIAPIGeo911ServiceApi.md#getpsapbylocation) | **GET** /geo911/v1/psap/bylocation | PSAP By Location.
+*LIAPIGeoCommServiceApi* | [**GetRateCenterByAddress**](Documentation/LIAPIGeoCommServiceApi.md#getratecenterbyaddress) | **GET** /geocomm/v1/ratecenter/byaddress | Rate Center By Address.
+*LIAPIGeoCommServiceApi* | [**GetRateCenterByLocation**](Documentation/LIAPIGeoCommServiceApi.md#getratecenterbylocation) | **GET** /geocomm/v1/ratecenter/bylocation | Rate Center By Location.
+*LIAPIGeoEnhanceServiceApi* | [**GetAddress**](Documentation/LIAPIGeoEnhanceServiceApi.md#getaddress) | **GET** /geoenhance/v1/address/bylocation | Address By Location.
+*LIAPIGeoEnhanceServiceApi* | [**GetEntityByLocation**](Documentation/LIAPIGeoEnhanceServiceApi.md#getentitybylocation) | **GET** /geoenhance/v1/poi/bylocation | Points Of Interest By Location.
+*LIAPIGeoEnhanceServiceApi* | [**GetPlaceByLocation**](Documentation/LIAPIGeoEnhanceServiceApi.md#getplacebylocation) | **GET** /geoenhance/v1/place/bylocation | Place By Location.
+*LIAPIGeoEnhanceServiceApi* | [**GetTimezoneByLocation**](Documentation/LIAPIGeoEnhanceServiceApi.md#gettimezonebylocation) | **GET** /geoenhance/v1/timezone/bylocation | Timezone By Location.
+*LIAPIGeoLifeServiceApi* | [**GetDemographicsByAddress**](Documentation/LIAPIGeoLifeServiceApi.md#getdemographicsbyaddress) | **GET** /geolife/v1/demographics/byaddress | Demographics By Address.
+*LIAPIGeoLifeServiceApi* | [**GetDemographicsByLocation**](Documentation/LIAPIGeoLifeServiceApi.md#getdemographicsbylocation) | **GET** /geolife/v1/demographics/bylocation | Demographics By Location.
+*LIAPIGeoLifeServiceApi* | [**GetSegmentationByAddress**](Documentation/LIAPIGeoLifeServiceApi.md#getsegmentationbyaddress) | **GET** /geolife/v1/segmentation/byaddress | Segmentation By Address.
+*LIAPIGeoLifeServiceApi* | [**GetSegmentationByLocation**](Documentation/LIAPIGeoLifeServiceApi.md#getsegmentationbylocation) | **GET** /geolife/v1/segmentation/bylocation | Segmentation By Location.
+*LIAPIGeoRiskServiceApi* | [**GetCrimeRiskByAddress**](Documentation/LIAPIGeoRiskServiceApi.md#getcrimeriskbyaddress) | **GET** /georisk/v1/crime/byaddress | Gets CrimeRiskResponse
+*LIAPIGeoRiskServiceApi* | [**GetCrimeRiskByLocation**](Documentation/LIAPIGeoRiskServiceApi.md#getcrimeriskbylocation) | **GET** /georisk/v1/crime/bylocation | Gets CrimeRiskResponse
+*LIAPIGeoRiskServiceApi* | [**GetEarthquakeRiskByAddress**](Documentation/LIAPIGeoRiskServiceApi.md#getearthquakeriskbyaddress) | **GET** /georisk/v1/earthquake/byaddress | Gets EarthquakeRiskResponse
+*LIAPIGeoRiskServiceApi* | [**GetEarthquakeRiskByLocation**](Documentation/LIAPIGeoRiskServiceApi.md#getearthquakeriskbylocation) | **GET** /georisk/v1/earthquake/bylocation | Gets EarthquakeRiskResponse
+*LIAPIGeoRiskServiceApi* | [**GetFireRiskByAddress**](Documentation/LIAPIGeoRiskServiceApi.md#getfireriskbyaddress) | **GET** /georisk/v1/fire/byaddress | Gets FireRiskResponse
+*LIAPIGeoRiskServiceApi* | [**GetFireRiskByLocation**](Documentation/LIAPIGeoRiskServiceApi.md#getfireriskbylocation) | **GET** /georisk/v1/fire/bylocation | Gets FireRiskResponse
+*LIAPIGeoRiskServiceApi* | [**GetFireStationByAddress**](Documentation/LIAPIGeoRiskServiceApi.md#getfirestationbyaddress) | **GET** /georisk/v1/firestation/byaddress | Gets FireStationResponse
+*LIAPIGeoRiskServiceApi* | [**GetFireStationByLocation**](Documentation/LIAPIGeoRiskServiceApi.md#getfirestationbylocation) | **GET** /georisk/v1/firestation/bylocation | Gets FireStationResponse
+*LIAPIGeoRiskServiceApi* | [**GetFloodRiskByAddress**](Documentation/LIAPIGeoRiskServiceApi.md#getfloodriskbyaddress) | **GET** /georisk/v1/flood/byaddress | Gets FloodRiskResponse
+*LIAPIGeoRiskServiceApi* | [**GetFloodRiskByLocation**](Documentation/LIAPIGeoRiskServiceApi.md#getfloodriskbylocation) | **GET** /georisk/v1/flood/bylocation | Gets FloodRiskResponse
+*LIAPIGeoSearchServiceApi* | [**GeoSearch**](Documentation/LIAPIGeoSearchServiceApi.md#geosearch) | **GET** /geosearch/v1/locations | Gets LocationList
+*LIAPIGeoTaxServiceApi* | [**GetBatchTaxByAddress**](Documentation/LIAPIGeoTaxServiceApi.md#getbatchtaxbyaddress) | **POST** /geotax/v1/tax/{taxRateTypeId}/byaddress | Post Tax By Address
+*LIAPIGeoTaxServiceApi* | [**GetBatchTaxByLocation**](Documentation/LIAPIGeoTaxServiceApi.md#getbatchtaxbylocation) | **POST** /geotax/v1/tax/{taxRateTypeId}/bylocation | Post Tax By Location
+*LIAPIGeoTaxServiceApi* | [**GetBatchTaxRateByAddress**](Documentation/LIAPIGeoTaxServiceApi.md#getbatchtaxratebyaddress) | **POST** /geotax/v1/taxrate/{taxRateTypeId}/byaddress | Post Taxrate By Address
+*LIAPIGeoTaxServiceApi* | [**GetBatchTaxRateByLocation**](Documentation/LIAPIGeoTaxServiceApi.md#getbatchtaxratebylocation) | **POST** /geotax/v1/taxrate/{taxRateTypeId}/bylocation | Post Taxrate By Location
+*LIAPIGeoTaxServiceApi* | [**GetSpecificTaxByAddress**](Documentation/LIAPIGeoTaxServiceApi.md#getspecifictaxbyaddress) | **GET** /geotax/v1/tax/{taxRateTypeId}/byaddress | Get Tax By Address
+*LIAPIGeoTaxServiceApi* | [**GetSpecificTaxByLocation**](Documentation/LIAPIGeoTaxServiceApi.md#getspecifictaxbylocation) | **GET** /geotax/v1/tax/{taxRateTypeId}/bylocation | Get Tax By Location
+*LIAPIGeoTaxServiceApi* | [**GetSpecificTaxRateByAddress**](Documentation/LIAPIGeoTaxServiceApi.md#getspecifictaxratebyaddress) | **GET** /geotax/v1/taxrate/{taxRateTypeId}/byaddress | Get Taxrate By Address
+*LIAPIGeoTaxServiceApi* | [**GetSpecificTaxRateByLocation**](Documentation/LIAPIGeoTaxServiceApi.md#getspecifictaxratebylocation) | **GET** /geotax/v1/taxrate/{taxRateTypeId}/bylocation | Get Taxrate By Location
+*LIAPIGeoZoneServiceApi* | [**GetRouteByAddress**](Documentation/LIAPIGeoZoneServiceApi.md#getroutebyaddress) | **GET** /georoute/v1/route/byaddress | Gets Route by Address
+*LIAPIGeoZoneServiceApi* | [**GetRouteByLocation**](Documentation/LIAPIGeoZoneServiceApi.md#getroutebylocation) | **GET** /georoute/v1/route/bylocation | Gets Route by Location
+*LIAPIGeoZoneServiceApi* | [**GetTravelBoundaryByDistance**](Documentation/LIAPIGeoZoneServiceApi.md#gettravelboundarybydistance) | **GET** /geozone/v1/travelboundary/bydistance | Gets travel Boundary by Distance
+*LIAPIGeoZoneServiceApi* | [**GetTravelBoundaryByTime**](Documentation/LIAPIGeoZoneServiceApi.md#gettravelboundarybytime) | **GET** /geozone/v1/travelboundary/bytime | Gets travel Boundary by Time
+*LIAPIGeoZoneServiceApi* | [**GetTravelCostMatrixByAddress**](Documentation/LIAPIGeoZoneServiceApi.md#gettravelcostmatrixbyaddress) | **GET** /georoute/v1/travelcostmatrix/byaddress | Gets Cost Matrix by Address
+*LIAPIGeoZoneServiceApi* | [**GetTravelCostMatrixByLocation**](Documentation/LIAPIGeoZoneServiceApi.md#gettravelcostmatrixbylocation) | **GET** /georoute/v1/travelcostmatrix/bylocation | Gets Cost Matrix by Location
+*LIAPIGeocodeServiceApi* | [**Geocode**](Documentation/LIAPIGeocodeServiceApi.md#geocode) | **GET** /geocode-service/v1/transient/{datapackBundle}/geocode | Gets Geocode
+*LIAPIGeocodeServiceApi* | [**GeocodeBatch**](Documentation/LIAPIGeocodeServiceApi.md#geocodebatch) | **POST** /geocode-service/v1/transient/{datapackBundle}/geocode | Gets Geocode
+*LIAPIGeocodeServiceApi* | [**GetCapabilities**](Documentation/LIAPIGeocodeServiceApi.md#getcapabilities) | **GET** /geocode-service/v1/transient/{datapackBundle}/capabilities | Gets Capabilities
+*LIAPIGeocodeServiceApi* | [**GetDictionaries**](Documentation/LIAPIGeocodeServiceApi.md#getdictionaries) | **GET** /geocode-service/v1/transient/{datapackBundle}/dictionaries | Gets installed Dictionaries
+*LIAPIGeocodeServiceApi* | [**ReverseGeocodBatch**](Documentation/LIAPIGeocodeServiceApi.md#reversegeocodbatch) | **POST** /geocode-service/v1/transient/{datapackBundle}/reverseGeocode | reverse Geocode
+*LIAPIGeocodeServiceApi* | [**ReverseGeocode**](Documentation/LIAPIGeocodeServiceApi.md#reversegeocode) | **GET** /geocode-service/v1/transient/{datapackBundle}/reverseGeocode | reverse Geocode
 
 
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
- - [Model.AHJ](docs/AHJ.md)
- - [Model.AHJList](docs/AHJList.md)
- - [Model.AHJPlusPSAPResponse](docs/AHJPlusPSAPResponse.md)
- - [Model.Address](docs/Address.md)
- - [Model.AgeTheme](docs/AgeTheme.md)
- - [Model.AreaCodeInfo](docs/AreaCodeInfo.md)
- - [Model.AttitudesAndMotivationTheme](docs/AttitudesAndMotivationTheme.md)
- - [Model.AutomobileTheme](docs/AutomobileTheme.md)
- - [Model.BaseFloodElevation](docs/BaseFloodElevation.md)
- - [Model.Boundaries](docs/Boundaries.md)
- - [Model.Boundary](docs/Boundary.md)
- - [Model.Candidate](docs/Candidate.md)
- - [Model.CandidateRange](docs/CandidateRange.md)
- - [Model.CandidateRangeUnit](docs/CandidateRangeUnit.md)
- - [Model.Cbsa](docs/Cbsa.md)
- - [Model.Census](docs/Census.md)
- - [Model.ChannelPreferencesTheme](docs/ChannelPreferencesTheme.md)
- - [Model.Community](docs/Community.md)
- - [Model.CommuterPatternsTheme](docs/CommuterPatternsTheme.md)
- - [Model.ConfiguredDictionaryResponse](docs/ConfiguredDictionaryResponse.md)
- - [Model.ContactDetails](docs/ContactDetails.md)
- - [Model.ContactPerson](docs/ContactPerson.md)
- - [Model.Cost](docs/Cost.md)
- - [Model.Costs](docs/Costs.md)
- - [Model.CountrySupport](docs/CountrySupport.md)
- - [Model.County](docs/County.md)
- - [Model.Coverage](docs/Coverage.md)
- - [Model.CrimeBoundary](docs/CrimeBoundary.md)
- - [Model.CrimeIndexTheme](docs/CrimeIndexTheme.md)
- - [Model.CrimeRiskResponse](docs/CrimeRiskResponse.md)
- - [Model.Crs](docs/Crs.md)
- - [Model.CustomObject](docs/CustomObject.md)
- - [Model.CustomObjectMember](docs/CustomObjectMember.md)
- - [Model.Demographics](docs/Demographics.md)
- - [Model.DemographicsThemes](docs/DemographicsThemes.md)
- - [Model.Dictionary](docs/Dictionary.md)
- - [Model.DirectionGeometry](docs/DirectionGeometry.md)
- - [Model.Distance](docs/Distance.md)
- - [Model.EarthquakeRiskResponse](docs/EarthquakeRiskResponse.md)
- - [Model.EducationalAttainmentTheme](docs/EducationalAttainmentTheme.md)
- - [Model.EthnicityTheme](docs/EthnicityTheme.md)
- - [Model.EventsCount](docs/EventsCount.md)
- - [Model.Field](docs/Field.md)
- - [Model.FieldsMatching](docs/FieldsMatching.md)
- - [Model.FinancialProductsTheme](docs/FinancialProductsTheme.md)
- - [Model.FireDepartment](docs/FireDepartment.md)
- - [Model.FireRiskResponse](docs/FireRiskResponse.md)
- - [Model.FireShed](docs/FireShed.md)
- - [Model.FireStation](docs/FireStation.md)
- - [Model.FireStations](docs/FireStations.md)
- - [Model.FloodBoundary](docs/FloodBoundary.md)
- - [Model.FloodRiskResponse](docs/FloodRiskResponse.md)
- - [Model.FloodZone](docs/FloodZone.md)
- - [Model.GenderTheme](docs/GenderTheme.md)
- - [Model.GeoPos](docs/GeoPos.md)
- - [Model.GeoRiskBoundaries](docs/GeoRiskBoundaries.md)
- - [Model.GeoRiskCrimeTheme](docs/GeoRiskCrimeTheme.md)
- - [Model.GeoRiskGeometry](docs/GeoRiskGeometry.md)
- - [Model.GeoRouteResponse](docs/GeoRouteResponse.md)
- - [Model.GeoTaxLocations](docs/GeoTaxLocations.md)
- - [Model.GeocodeAddress](docs/GeocodeAddress.md)
- - [Model.GeocodeCapabilitiesResponse](docs/GeocodeCapabilitiesResponse.md)
- - [Model.GeocodeRequest](docs/GeocodeRequest.md)
- - [Model.GeocodeServiceResponse](docs/GeocodeServiceResponse.md)
- - [Model.GeocodeServiceResponseList](docs/GeocodeServiceResponseList.md)
- - [Model.Geometry](docs/Geometry.md)
- - [Model.GeometryPolygon](docs/GeometryPolygon.md)
- - [Model.Grid](docs/Grid.md)
- - [Model.HouseholdSizeTheme](docs/HouseholdSizeTheme.md)
- - [Model.IncomeTheme](docs/IncomeTheme.md)
- - [Model.IndexVariable](docs/IndexVariable.md)
- - [Model.IndividualValueVariable](docs/IndividualValueVariable.md)
- - [Model.InputParameter](docs/InputParameter.md)
- - [Model.LatLongFields](docs/LatLongFields.md)
- - [Model.LifeStyleTheme](docs/LifeStyleTheme.md)
- - [Model.Location](docs/Location.md)
- - [Model.Locations](docs/Locations.md)
- - [Model.MaritalStatusTheme](docs/MaritalStatusTheme.md)
- - [Model.Match](docs/Match.md)
- - [Model.Mcd](docs/Mcd.md)
- - [Model.Name](docs/Name.md)
- - [Model.Operation](docs/Operation.md)
- - [Model.OutputParameter](docs/OutputParameter.md)
- - [Model.PSAPResponse](docs/PSAPResponse.md)
- - [Model.Place](docs/Place.md)
- - [Model.PlaceByLocations](docs/PlaceByLocations.md)
- - [Model.PlaceByLocationsLocation](docs/PlaceByLocationsLocation.md)
- - [Model.PlaceLocation](docs/PlaceLocation.md)
- - [Model.PlaceLocationName](docs/PlaceLocationName.md)
- - [Model.Poi](docs/Poi.md)
- - [Model.Point](docs/Point.md)
- - [Model.Points](docs/Points.md)
- - [Model.Polygon](docs/Polygon.md)
- - [Model.Preferences](docs/Preferences.md)
- - [Model.PrimaryZone](docs/PrimaryZone.md)
- - [Model.Properties](docs/Properties.md)
- - [Model.PurchasingBehaviorTheme](docs/PurchasingBehaviorTheme.md)
- - [Model.RaceTheme](docs/RaceTheme.md)
- - [Model.RangeVariable](docs/RangeVariable.md)
- - [Model.RateCenterResponse](docs/RateCenterResponse.md)
- - [Model.ReturnFieldsDescriptor](docs/ReturnFieldsDescriptor.md)
- - [Model.ReverseGeocodeRequest](docs/ReverseGeocodeRequest.md)
- - [Model.Risk](docs/Risk.md)
- - [Model.RouteDirection](docs/RouteDirection.md)
- - [Model.RouteDirections](docs/RouteDirections.md)
- - [Model.RouteGeometry](docs/RouteGeometry.md)
- - [Model.SalesTax](docs/SalesTax.md)
- - [Model.Segmentation](docs/Segmentation.md)
- - [Model.SegmentationThemes](docs/SegmentationThemes.md)
- - [Model.SiteDetails](docs/SiteDetails.md)
- - [Model.SpecialPurposeDistrict](docs/SpecialPurposeDistrict.md)
- - [Model.SpecialPurposeDistrictTax](docs/SpecialPurposeDistrictTax.md)
- - [Model.State](docs/State.md)
- - [Model.Status](docs/Status.md)
- - [Model.SupportLevel](docs/SupportLevel.md)
- - [Model.TaxAddress](docs/TaxAddress.md)
- - [Model.TaxAddressRequest](docs/TaxAddressRequest.md)
- - [Model.TaxJurisdiction](docs/TaxJurisdiction.md)
- - [Model.TaxLocationRequest](docs/TaxLocationRequest.md)
- - [Model.TaxRateAddress](docs/TaxRateAddress.md)
- - [Model.TaxRateAddressRequest](docs/TaxRateAddressRequest.md)
- - [Model.TaxRateLocationRequest](docs/TaxRateLocationRequest.md)
- - [Model.TaxResponse](docs/TaxResponse.md)
- - [Model.TaxResponses](docs/TaxResponses.md)
- - [Model.Time](docs/Time.md)
- - [Model.Timezone](docs/Timezone.md)
- - [Model.TravelBoundaries](docs/TravelBoundaries.md)
- - [Model.TravelBoundary](docs/TravelBoundary.md)
- - [Model.TravelCostMatrixResponse](docs/TravelCostMatrixResponse.md)
- - [Model.TravelCostMatrixResponseEndPoint](docs/TravelCostMatrixResponseEndPoint.md)
- - [Model.TravelCostMatrixResponseEndPointCrs](docs/TravelCostMatrixResponseEndPointCrs.md)
- - [Model.TravelCostMatrixResponseEndPointCrsProperties](docs/TravelCostMatrixResponseEndPointCrsProperties.md)
- - [Model.TravelCostMatrixResponseMatrix](docs/TravelCostMatrixResponseMatrix.md)
- - [Model.UseTax](docs/UseTax.md)
+ - [Model.AHJ](Documentation/AHJ.md)
+ - [Model.AHJList](Documentation/AHJList.md)
+ - [Model.AHJPlusPSAPResponse](Documentation/AHJPlusPSAPResponse.md)
+ - [Model.Address](Documentation/Address.md)
+ - [Model.AgeTheme](Documentation/AgeTheme.md)
+ - [Model.AreaCodeInfo](Documentation/AreaCodeInfo.md)
+ - [Model.AttitudesAndMotivationTheme](Documentation/AttitudesAndMotivationTheme.md)
+ - [Model.AutomobileTheme](Documentation/AutomobileTheme.md)
+ - [Model.BaseFloodElevation](Documentation/BaseFloodElevation.md)
+ - [Model.Boundaries](Documentation/Boundaries.md)
+ - [Model.Boundary](Documentation/Boundary.md)
+ - [Model.Candidate](Documentation/Candidate.md)
+ - [Model.CandidateRange](Documentation/CandidateRange.md)
+ - [Model.CandidateRangeUnit](Documentation/CandidateRangeUnit.md)
+ - [Model.Cbsa](Documentation/Cbsa.md)
+ - [Model.Census](Documentation/Census.md)
+ - [Model.ChannelPreferencesTheme](Documentation/ChannelPreferencesTheme.md)
+ - [Model.Community](Documentation/Community.md)
+ - [Model.CommuterPatternsTheme](Documentation/CommuterPatternsTheme.md)
+ - [Model.ConfiguredDictionaryResponse](Documentation/ConfiguredDictionaryResponse.md)
+ - [Model.ContactDetails](Documentation/ContactDetails.md)
+ - [Model.ContactPerson](Documentation/ContactPerson.md)
+ - [Model.Cost](Documentation/Cost.md)
+ - [Model.Costs](Documentation/Costs.md)
+ - [Model.CountrySupport](Documentation/CountrySupport.md)
+ - [Model.County](Documentation/County.md)
+ - [Model.Coverage](Documentation/Coverage.md)
+ - [Model.CrimeBoundary](Documentation/CrimeBoundary.md)
+ - [Model.CrimeIndexTheme](Documentation/CrimeIndexTheme.md)
+ - [Model.CrimeRiskResponse](Documentation/CrimeRiskResponse.md)
+ - [Model.Crs](Documentation/Crs.md)
+ - [Model.CustomObject](Documentation/CustomObject.md)
+ - [Model.CustomObjectMember](Documentation/CustomObjectMember.md)
+ - [Model.Demographics](Documentation/Demographics.md)
+ - [Model.DemographicsThemes](Documentation/DemographicsThemes.md)
+ - [Model.Dictionary](Documentation/Dictionary.md)
+ - [Model.DirectionGeometry](Documentation/DirectionGeometry.md)
+ - [Model.Distance](Documentation/Distance.md)
+ - [Model.EarthquakeRiskResponse](Documentation/EarthquakeRiskResponse.md)
+ - [Model.EducationalAttainmentTheme](Documentation/EducationalAttainmentTheme.md)
+ - [Model.EthnicityTheme](Documentation/EthnicityTheme.md)
+ - [Model.EventsCount](Documentation/EventsCount.md)
+ - [Model.Field](Documentation/Field.md)
+ - [Model.FieldsMatching](Documentation/FieldsMatching.md)
+ - [Model.FinancialProductsTheme](Documentation/FinancialProductsTheme.md)
+ - [Model.FireDepartment](Documentation/FireDepartment.md)
+ - [Model.FireRiskResponse](Documentation/FireRiskResponse.md)
+ - [Model.FireShed](Documentation/FireShed.md)
+ - [Model.FireStation](Documentation/FireStation.md)
+ - [Model.FireStations](Documentation/FireStations.md)
+ - [Model.FloodBoundary](Documentation/FloodBoundary.md)
+ - [Model.FloodRiskResponse](Documentation/FloodRiskResponse.md)
+ - [Model.FloodZone](Documentation/FloodZone.md)
+ - [Model.GenderTheme](Documentation/GenderTheme.md)
+ - [Model.GeoPos](Documentation/GeoPos.md)
+ - [Model.GeoRiskBoundaries](Documentation/GeoRiskBoundaries.md)
+ - [Model.GeoRiskCrimeTheme](Documentation/GeoRiskCrimeTheme.md)
+ - [Model.GeoRiskGeometry](Documentation/GeoRiskGeometry.md)
+ - [Model.GeoRouteResponse](Documentation/GeoRouteResponse.md)
+ - [Model.GeoTaxLocations](Documentation/GeoTaxLocations.md)
+ - [Model.GeocodeAddress](Documentation/GeocodeAddress.md)
+ - [Model.GeocodeCapabilitiesResponse](Documentation/GeocodeCapabilitiesResponse.md)
+ - [Model.GeocodeRequest](Documentation/GeocodeRequest.md)
+ - [Model.GeocodeServiceResponse](Documentation/GeocodeServiceResponse.md)
+ - [Model.GeocodeServiceResponseList](Documentation/GeocodeServiceResponseList.md)
+ - [Model.Geometry](Documentation/Geometry.md)
+ - [Model.GeometryPolygon](Documentation/GeometryPolygon.md)
+ - [Model.Grid](Documentation/Grid.md)
+ - [Model.HouseholdSizeTheme](Documentation/HouseholdSizeTheme.md)
+ - [Model.IncomeTheme](Documentation/IncomeTheme.md)
+ - [Model.IndexVariable](Documentation/IndexVariable.md)
+ - [Model.IndividualValueVariable](Documentation/IndividualValueVariable.md)
+ - [Model.InputParameter](Documentation/InputParameter.md)
+ - [Model.LatLongFields](Documentation/LatLongFields.md)
+ - [Model.LifeStyleTheme](Documentation/LifeStyleTheme.md)
+ - [Model.Location](Documentation/Location.md)
+ - [Model.Locations](Documentation/Locations.md)
+ - [Model.MaritalStatusTheme](Documentation/MaritalStatusTheme.md)
+ - [Model.Match](Documentation/Match.md)
+ - [Model.Mcd](Documentation/Mcd.md)
+ - [Model.Name](Documentation/Name.md)
+ - [Model.Operation](Documentation/Operation.md)
+ - [Model.OutputParameter](Documentation/OutputParameter.md)
+ - [Model.PSAPResponse](Documentation/PSAPResponse.md)
+ - [Model.Place](Documentation/Place.md)
+ - [Model.PlaceByLocations](Documentation/PlaceByLocations.md)
+ - [Model.PlaceByLocationsLocation](Documentation/PlaceByLocationsLocation.md)
+ - [Model.PlaceLocation](Documentation/PlaceLocation.md)
+ - [Model.PlaceLocationName](Documentation/PlaceLocationName.md)
+ - [Model.Poi](Documentation/Poi.md)
+ - [Model.Point](Documentation/Point.md)
+ - [Model.Points](Documentation/Points.md)
+ - [Model.Polygon](Documentation/Polygon.md)
+ - [Model.Preferences](Documentation/Preferences.md)
+ - [Model.PrimaryZone](Documentation/PrimaryZone.md)
+ - [Model.Properties](Documentation/Properties.md)
+ - [Model.PurchasingBehaviorTheme](Documentation/PurchasingBehaviorTheme.md)
+ - [Model.RaceTheme](Documentation/RaceTheme.md)
+ - [Model.RangeVariable](Documentation/RangeVariable.md)
+ - [Model.RateCenterResponse](Documentation/RateCenterResponse.md)
+ - [Model.ReturnFieldsDescriptor](Documentation/ReturnFieldsDescriptor.md)
+ - [Model.ReverseGeocodeRequest](Documentation/ReverseGeocodeRequest.md)
+ - [Model.Risk](Documentation/Risk.md)
+ - [Model.RouteDirection](Documentation/RouteDirection.md)
+ - [Model.RouteDirections](Documentation/RouteDirections.md)
+ - [Model.RouteGeometry](Documentation/RouteGeometry.md)
+ - [Model.SalesTax](Documentation/SalesTax.md)
+ - [Model.Segmentation](Documentation/Segmentation.md)
+ - [Model.SegmentationThemes](Documentation/SegmentationThemes.md)
+ - [Model.SiteDetails](Documentation/SiteDetails.md)
+ - [Model.SpecialPurposeDistrict](Documentation/SpecialPurposeDistrict.md)
+ - [Model.SpecialPurposeDistrictTax](Documentation/SpecialPurposeDistrictTax.md)
+ - [Model.State](Documentation/State.md)
+ - [Model.Status](Documentation/Status.md)
+ - [Model.SupportLevel](Documentation/SupportLevel.md)
+ - [Model.TaxAddress](Documentation/TaxAddress.md)
+ - [Model.TaxAddressRequest](Documentation/TaxAddressRequest.md)
+ - [Model.TaxJurisdiction](Documentation/TaxJurisdiction.md)
+ - [Model.TaxLocationRequest](Documentation/TaxLocationRequest.md)
+ - [Model.TaxRateAddress](Documentation/TaxRateAddress.md)
+ - [Model.TaxRateAddressRequest](Documentation/TaxRateAddressRequest.md)
+ - [Model.TaxRateLocationRequest](Documentation/TaxRateLocationRequest.md)
+ - [Model.TaxResponse](Documentation/TaxResponse.md)
+ - [Model.TaxResponses](Documentation/TaxResponses.md)
+ - [Model.Time](Documentation/Time.md)
+ - [Model.Timezone](Documentation/Timezone.md)
+ - [Model.TravelBoundaries](Documentation/TravelBoundaries.md)
+ - [Model.TravelBoundary](Documentation/TravelBoundary.md)
+ - [Model.TravelCostMatrixResponse](Documentation/TravelCostMatrixResponse.md)
+ - [Model.TravelCostMatrixResponseEndPoint](Documentation/TravelCostMatrixResponseEndPoint.md)
+ - [Model.TravelCostMatrixResponseEndPointCrs](Documentation/TravelCostMatrixResponseEndPointCrs.md)
+ - [Model.TravelCostMatrixResponseEndPointCrsProperties](Documentation/TravelCostMatrixResponseEndPointCrsProperties.md)
+ - [Model.TravelCostMatrixResponseMatrix](Documentation/TravelCostMatrixResponseMatrix.md)
+ - [Model.UseTax](Documentation/UseTax.md)
 
 
 ## Documentation for Authorization
