@@ -28,6 +28,8 @@
 
 * [GeoRisk](https://locate.pitneybowes.com/georisk): Returns critical risk intelligence with the input of Location Coordinates or Addresses. Critical for any Risk Mitigation Analyses involving threats to lives or property.
 
+* [GeoProperty](https://locate.pitneybowes.com/geoproperty)::  Property Details. Capture property details for analysis and planning. The GeoProperty API returns extensive property attributes with the input of address or PB key. Critical for any property investment, insurance or risk analysis and mitigation.
+
 The following platforms are supported by Location Intelligence SDKs:
 *	[Android](https://github.com/PitneyBowes/LocationIntelligenceSDK-Android)
 *	[JavaScript](https://github.com/PitneyBowes/LocationIntelligenceSDK-javascript) 
