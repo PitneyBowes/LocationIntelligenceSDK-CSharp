@@ -82,7 +82,7 @@ Then include the DLL (under the `bin` folder) in the C# project, and use the nam
 ```csharp
 using pb.locationIntelligence.Api;
 using pb.locationIntelligence.Client;
-using Model;
+using pb.locationIntelligence.Model;
 ```
 
 ## Getting Started
@@ -92,7 +92,7 @@ using System;
 using System.Diagnostics;
 using pb.locationIntelligence.Api;
 using pb.locationIntelligence.Client;
-using Model;
+using pb.locationIntelligence.Model;
 
 namespace Example
 {
