@@ -136,18 +136,17 @@ Class | Method | HTTP request | Description
 *LIAPIGeo911ServiceApi* | [**GetPSAPByLocation**](docs/LIAPIGeo911ServiceApi.md#getpsapbylocation) | **GET** /geo911/v1/psap/bylocation | PSAP By Location.
 *LIAPIGeoCommServiceApi* | [**GetRateCenterByAddress**](docs/LIAPIGeoCommServiceApi.md#getratecenterbyaddress) | **GET** /geocomm/v1/ratecenter/byaddress | Rate Center By Address.
 *LIAPIGeoCommServiceApi* | [**GetRateCenterByLocation**](docs/LIAPIGeoCommServiceApi.md#getratecenterbylocation) | **GET** /geocomm/v1/ratecenter/bylocation | Rate Center By Location.
-*LIAPIGeoEnhanceServiceApi* | [**GetAddress**](docs/LIAPIGeoEnhanceServiceApi.md#getaddress) | **GET** /geoenhance/v1/address/bylocation | Address By Location.
-*LIAPIGeoEnhanceServiceApi* | [**GetEntityByLocation**](docs/LIAPIGeoEnhanceServiceApi.md#getentitybylocation) | **GET** /geoenhance/v1/poi/bylocation | Points Of Interest By Location.
-*LIAPIGeoEnhanceServiceApi* | [**GetPlaceByLocation**](docs/LIAPIGeoEnhanceServiceApi.md#getplacebylocation) | **GET** /geoenhance/v1/place/bylocation | Place By Location.
-*LIAPIGeoEnhanceServiceApi* | [**GetTimezoneByLocation**](docs/LIAPIGeoEnhanceServiceApi.md#gettimezonebylocation) | **GET** /geoenhance/v1/timezone/bylocation | Timezone By Location.
+*LIAPIGeoEnrichServiceApi* | [**GetAddress**](docs/LIAPIGeoEnrichServiceApi.md#getaddress) | **GET** /geoenrich/v1/address/bylocation | Address By Location.
+*LIAPIGeoEnrichServiceApi* | [**GetEntityByLocation**](docs/LIAPIGeoEnrichServiceApi.md#getentitybylocation) | **GET** /geoenrich/v1/poi/bylocation | Points Of Interest By Location.
+*LIAPIGeoEnrichServiceApi* | [**GetPlaceByLocation**](docs/LIAPIGeoEnrichServiceApi.md#getplacebylocation) | **GET** /geoenrich/v1/place/bylocation | Place By Location.
 *LIAPIGeoLifeServiceApi* | [**GetDemographicsByAddress**](docs/LIAPIGeoLifeServiceApi.md#getdemographicsbyaddress) | **GET** /geolife/v1/demographics/byaddress | Demographics By Address.
 *LIAPIGeoLifeServiceApi* | [**GetDemographicsByLocation**](docs/LIAPIGeoLifeServiceApi.md#getdemographicsbylocation) | **GET** /geolife/v1/demographics/bylocation | Demographics By Location.
 *LIAPIGeoLifeServiceApi* | [**GetSegmentationByAddress**](docs/LIAPIGeoLifeServiceApi.md#getsegmentationbyaddress) | **GET** /geolife/v1/segmentation/byaddress | Segmentation By Address.
 *LIAPIGeoLifeServiceApi* | [**GetSegmentationByLocation**](docs/LIAPIGeoLifeServiceApi.md#getsegmentationbylocation) | **GET** /geolife/v1/segmentation/bylocation | Segmentation By Location.
-*LIAPIGeoPropertyServiceApi* | [**GetGeoPropertyByAddress**](docs/LIAPIGeoPropertyServiceApi.md#getgeopropertybyaddress) | **GET** /geoproperty/v1/{category}/attributes/byaddress | Gets GeoPropertyResponse
-*LIAPIGeoPropertyServiceApi* | [**GetGeoPropertyByAddressBatch**](docs/LIAPIGeoPropertyServiceApi.md#getgeopropertybyaddressbatch) | **POST** /geoproperty/v1/{category}/attributes/byaddress | Gets GeoPropertyResponses
-*LIAPIGeoPropertyServiceApi* | [**GetGeoPropertyByPBKey**](docs/LIAPIGeoPropertyServiceApi.md#getgeopropertybypbkey) | **GET** /geoproperty/v1/{category}/attributes/bypbkey | Gets GeoPropertyResponse
-*LIAPIGeoPropertyServiceApi* | [**GetGeoPropertyByPBKeyBatch**](docs/LIAPIGeoPropertyServiceApi.md#getgeopropertybypbkeybatch) | **POST** /geoproperty/v1/{category}/attributes/bypbkey | Gets GeoPropertyResponses
+*LIAPIGeoPropertyServiceApi* | [**GetGeoPropertyByAddress**](docs/LIAPIGeoPropertyServiceApi.md#getgeopropertybyaddress) | **GET** /geoproperty/v1/all/attributes/byaddress | Gets GeoPropertyResponse
+*LIAPIGeoPropertyServiceApi* | [**GetGeoPropertyByAddressBatch**](docs/LIAPIGeoPropertyServiceApi.md#getgeopropertybyaddressbatch) | **POST** /geoproperty/v1/all/attributes/byaddress | Gets GeoPropertyResponses
+*LIAPIGeoPropertyServiceApi* | [**GetGeoPropertyByPBKey**](docs/LIAPIGeoPropertyServiceApi.md#getgeopropertybypbkey) | **GET** /geoproperty/v1/all/attributes/bypbkey | Gets GeoPropertyResponse
+*LIAPIGeoPropertyServiceApi* | [**GetGeoPropertyByPBKeyBatch**](docs/LIAPIGeoPropertyServiceApi.md#getgeopropertybypbkeybatch) | **POST** /geoproperty/v1/all/attributes/bypbkey | Gets GeoPropertyResponses
 *LIAPIGeoRiskServiceApi* | [**GetCrimeRiskByAddress**](docs/LIAPIGeoRiskServiceApi.md#getcrimeriskbyaddress) | **GET** /georisk/v1/crime/byaddress | Gets CrimeRiskResponse
 *LIAPIGeoRiskServiceApi* | [**GetCrimeRiskByLocation**](docs/LIAPIGeoRiskServiceApi.md#getcrimeriskbylocation) | **GET** /georisk/v1/crime/bylocation | Gets CrimeRiskResponse
 *LIAPIGeoRiskServiceApi* | [**GetDistanceToCoastByAddress**](docs/LIAPIGeoRiskServiceApi.md#getdistancetocoastbyaddress) | **GET** /georisk/v1/shoreline/distancetocoast/byaddress | Gets WaterBodyResponse
@@ -175,10 +174,14 @@ Class | Method | HTTP request | Description
 *LIAPIGeoTaxServiceApi* | [**GetBatchTaxByLocation**](docs/LIAPIGeoTaxServiceApi.md#getbatchtaxbylocation) | **POST** /geotax/v1/tax/{taxRateTypeId}/bylocation | Post Tax By Location
 *LIAPIGeoTaxServiceApi* | [**GetBatchTaxRateByAddress**](docs/LIAPIGeoTaxServiceApi.md#getbatchtaxratebyaddress) | **POST** /geotax/v1/taxrate/{taxRateTypeId}/byaddress | Post Taxrate By Address
 *LIAPIGeoTaxServiceApi* | [**GetBatchTaxRateByLocation**](docs/LIAPIGeoTaxServiceApi.md#getbatchtaxratebylocation) | **POST** /geotax/v1/taxrate/{taxRateTypeId}/bylocation | Post Taxrate By Location
+*LIAPIGeoTaxServiceApi* | [**GetIPDTaxByAddress**](docs/LIAPIGeoTaxServiceApi.md#getipdtaxbyaddress) | **GET** /geotax/v1/taxdistrict/ipd/byaddress | Get IPD Tax by Address
+*LIAPIGeoTaxServiceApi* | [**GetIPDTaxByAddressBatch**](docs/LIAPIGeoTaxServiceApi.md#getipdtaxbyaddressbatch) | **POST** /geotax/v1/taxdistrict/ipd/byaddress | Get IPD Tax for batch requests
 *LIAPIGeoTaxServiceApi* | [**GetSpecificTaxByAddress**](docs/LIAPIGeoTaxServiceApi.md#getspecifictaxbyaddress) | **GET** /geotax/v1/tax/{taxRateTypeId}/byaddress | Get Tax By Address
 *LIAPIGeoTaxServiceApi* | [**GetSpecificTaxByLocation**](docs/LIAPIGeoTaxServiceApi.md#getspecifictaxbylocation) | **GET** /geotax/v1/tax/{taxRateTypeId}/bylocation | Get Tax By Location
 *LIAPIGeoTaxServiceApi* | [**GetSpecificTaxRateByAddress**](docs/LIAPIGeoTaxServiceApi.md#getspecifictaxratebyaddress) | **GET** /geotax/v1/taxrate/{taxRateTypeId}/byaddress | Get Taxrate By Address
 *LIAPIGeoTaxServiceApi* | [**GetSpecificTaxRateByLocation**](docs/LIAPIGeoTaxServiceApi.md#getspecifictaxratebylocation) | **GET** /geotax/v1/taxrate/{taxRateTypeId}/bylocation | Get Taxrate By Location
+*LIAPIGeoTimeServiceApi* | [**GetTimezoneByAddress**](docs/LIAPIGeoTimeServiceApi.md#gettimezonebyaddress) | **GET** /geotime/v1/timezone/byaddress | Timezone By Address.
+*LIAPIGeoTimeServiceApi* | [**GetTimezoneByLocation**](docs/LIAPIGeoTimeServiceApi.md#gettimezonebylocation) | **GET** /geotime/v1/timezone/bylocation | Timezone By Location.
 *LIAPIGeoZoneServiceApi* | [**GetTravelBoundaryByDistance**](docs/LIAPIGeoZoneServiceApi.md#gettravelboundarybydistance) | **GET** /geozone/v1/travelboundary/bydistance | Gets travel Boundary by Distance
 *LIAPIGeoZoneServiceApi* | [**GetTravelBoundaryByTime**](docs/LIAPIGeoZoneServiceApi.md#gettravelboundarybytime) | **GET** /geozone/v1/travelboundary/bytime | Gets travel Boundary by Time
 *LIAPIGeocodeServiceApi* | [**Geocode**](docs/LIAPIGeocodeServiceApi.md#geocode) | **GET** /geocode-service/v1/transient/{datapackBundle}/geocode | Gets Geocode
@@ -207,6 +210,8 @@ Class | Method | HTTP request | Description
  - [Model.BaseFloodElevation](docs/BaseFloodElevation.md)
  - [Model.Boundaries](docs/Boundaries.md)
  - [Model.Boundary](docs/Boundary.md)
+ - [Model.BoundaryBuffer](docs/BoundaryBuffer.md)
+ - [Model.BufferRelation](docs/BufferRelation.md)
  - [Model.Candidate](docs/Candidate.md)
  - [Model.CandidateRange](docs/CandidateRange.md)
  - [Model.CandidateRangeUnit](docs/CandidateRangeUnit.md)
@@ -236,6 +241,8 @@ Class | Method | HTTP request | Description
  - [Model.Dictionary](docs/Dictionary.md)
  - [Model.DirectionGeometry](docs/DirectionGeometry.md)
  - [Model.Distance](docs/Distance.md)
+ - [Model.DistanceToBorder](docs/DistanceToBorder.md)
+ - [Model.DistrictType](docs/DistrictType.md)
  - [Model.EarthquakeEvent](docs/EarthquakeEvent.md)
  - [Model.EarthquakeEventsResponse](docs/EarthquakeEventsResponse.md)
  - [Model.EarthquakeHistory](docs/EarthquakeHistory.md)
@@ -284,10 +291,13 @@ Class | Method | HTTP request | Description
  - [Model.GeometryPolygon](docs/GeometryPolygon.md)
  - [Model.Grid](docs/Grid.md)
  - [Model.HouseholdSizeTheme](docs/HouseholdSizeTheme.md)
+ - [Model.IPDTaxByAddressBatchRequest](docs/IPDTaxByAddressBatchRequest.md)
+ - [Model.IPDTaxJurisdiction](docs/IPDTaxJurisdiction.md)
  - [Model.IncomeTheme](docs/IncomeTheme.md)
  - [Model.IndexVariable](docs/IndexVariable.md)
  - [Model.IndividualValueVariable](docs/IndividualValueVariable.md)
  - [Model.InputParameter](docs/InputParameter.md)
+ - [Model.Ipd](docs/Ipd.md)
  - [Model.LatLongFields](docs/LatLongFields.md)
  - [Model.LifeStyleTheme](docs/LifeStyleTheme.md)
  - [Model.Location](docs/Location.md)
@@ -319,6 +329,7 @@ Class | Method | HTTP request | Description
  - [Model.PurchasingBehaviorTheme](docs/PurchasingBehaviorTheme.md)
  - [Model.RaceTheme](docs/RaceTheme.md)
  - [Model.RangeVariable](docs/RangeVariable.md)
+ - [Model.Rate](docs/Rate.md)
  - [Model.RateCenterResponse](docs/RateCenterResponse.md)
  - [Model.ReturnFieldsDescriptor](docs/ReturnFieldsDescriptor.md)
  - [Model.ReverseGeocodeRequest](docs/ReverseGeocodeRequest.md)
@@ -341,6 +352,8 @@ Class | Method | HTTP request | Description
  - [Model.SupportLevel](docs/SupportLevel.md)
  - [Model.TaxAddress](docs/TaxAddress.md)
  - [Model.TaxAddressRequest](docs/TaxAddressRequest.md)
+ - [Model.TaxDistrictResponse](docs/TaxDistrictResponse.md)
+ - [Model.TaxDistrictResponseList](docs/TaxDistrictResponseList.md)
  - [Model.TaxJurisdiction](docs/TaxJurisdiction.md)
  - [Model.TaxLocationRequest](docs/TaxLocationRequest.md)
  - [Model.TaxRateAddress](docs/TaxRateAddress.md)
