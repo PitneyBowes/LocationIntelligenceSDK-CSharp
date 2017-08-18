@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ObjectId** | **string** |  | [optional] 
 **Count** | **int?** |  | [optional] 
 **State** | [**State**](State.md) |  | [optional] 
 **FireShed** | [**FireShed**](FireShed.md) |  | [optional] 

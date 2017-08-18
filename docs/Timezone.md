@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **UtcOffset** | **long?** |  | [optional] 
 **DstOffset** | **long?** |  | [optional] 
 **Timestamp** | **long?** |  | [optional] 
+**MatchedAddress** | [**Address**](Address.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

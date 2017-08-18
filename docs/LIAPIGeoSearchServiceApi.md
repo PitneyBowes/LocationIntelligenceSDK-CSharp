@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="geosearch"></a>
 # **GeoSearch**
-> Locations GeoSearch (string searchText, string latitude = null, string longitude = null, string searchRadius = null, string searchRadiusUnit = null, string maxCandidates = null, string country = null, string matchOnAddressNumber = null, string autoDetectLocation = null, string ipAddress = null)
+> Locations GeoSearch (string searchText, string latitude = null, string longitude = null, string searchRadius = null, string searchRadiusUnit = null, string maxCandidates = null, string country = null, string matchOnAddressNumber = null, string autoDetectLocation = null, string ipAddress = null, string areaName1 = null, string areaName3 = null, string postCode = null)
 
 Gets LocationList
 
@@ -45,11 +45,14 @@ namespace Example
             var matchOnAddressNumber = matchOnAddressNumber_example;  // string | Option so that we force api to match on address number (optional) 
             var autoDetectLocation = autoDetectLocation_example;  // string | Option to allow API to detect origin of API request automatically (optional)  (default to true)
             var ipAddress = ipAddress_example;  // string |  (optional) 
+            var areaName1 = areaName1_example;  // string | State province of the input to be searched (optional) 
+            var areaName3 = areaName3_example;  // string | City of the input to be searched (optional) 
+            var postCode = postCode_example;  // string | Postal Code of the input to be searched (optional) 
 
             try
             {
                 // Gets LocationList
-                Locations result = apiInstance.GeoSearch(searchText, latitude, longitude, searchRadius, searchRadiusUnit, maxCandidates, country, matchOnAddressNumber, autoDetectLocation, ipAddress);
+                Locations result = apiInstance.GeoSearch(searchText, latitude, longitude, searchRadius, searchRadiusUnit, maxCandidates, country, matchOnAddressNumber, autoDetectLocation, ipAddress, areaName1, areaName3, postCode);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -75,6 +78,9 @@ Name | Type | Description  | Notes
  **matchOnAddressNumber** | **string**| Option so that we force api to match on address number | [optional] 
  **autoDetectLocation** | **string**| Option to allow API to detect origin of API request automatically | [optional] [default to true]
  **ipAddress** | **string**|  | [optional] 
+ **areaName1** | **string**| State province of the input to be searched | [optional] 
+ **areaName3** | **string**| City of the input to be searched | [optional] 
+ **postCode** | **string**| Postal Code of the input to be searched | [optional] 
 
 ### Return type
 

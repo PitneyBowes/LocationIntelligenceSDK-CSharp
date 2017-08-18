@@ -1,3 +1,8 @@
+## 3.6.0 - 2017-08-18
+- GeoTime - New API Added 
+- GeoEnrich - older API renamed to GeoEnhance
+- GeoTax - IPD tax API added
+
 ## 3.5.0 - 2017-06-29
 - GeoProperty API - Capture detailed property information for analysis, planning, and decisions
 - GeoRisk API  - New Endpoints Added

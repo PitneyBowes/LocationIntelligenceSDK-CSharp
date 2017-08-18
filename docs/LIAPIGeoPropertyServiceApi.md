@@ -4,15 +4,15 @@ All URIs are relative to *https://api.pitneybowes.com/location-intelligence*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetGeoPropertyByAddress**](LIAPIGeoPropertyServiceApi.md#getgeopropertybyaddress) | **GET** /geoproperty/v1/{category}/attributes/byaddress | Gets GeoPropertyResponse
-[**GetGeoPropertyByAddressBatch**](LIAPIGeoPropertyServiceApi.md#getgeopropertybyaddressbatch) | **POST** /geoproperty/v1/{category}/attributes/byaddress | Gets GeoPropertyResponses
-[**GetGeoPropertyByPBKey**](LIAPIGeoPropertyServiceApi.md#getgeopropertybypbkey) | **GET** /geoproperty/v1/{category}/attributes/bypbkey | Gets GeoPropertyResponse
-[**GetGeoPropertyByPBKeyBatch**](LIAPIGeoPropertyServiceApi.md#getgeopropertybypbkeybatch) | **POST** /geoproperty/v1/{category}/attributes/bypbkey | Gets GeoPropertyResponses
+[**GetGeoPropertyByAddress**](LIAPIGeoPropertyServiceApi.md#getgeopropertybyaddress) | **GET** /geoproperty/v1/all/attributes/byaddress | Gets GeoPropertyResponse
+[**GetGeoPropertyByAddressBatch**](LIAPIGeoPropertyServiceApi.md#getgeopropertybyaddressbatch) | **POST** /geoproperty/v1/all/attributes/byaddress | Gets GeoPropertyResponses
+[**GetGeoPropertyByPBKey**](LIAPIGeoPropertyServiceApi.md#getgeopropertybypbkey) | **GET** /geoproperty/v1/all/attributes/bypbkey | Gets GeoPropertyResponse
+[**GetGeoPropertyByPBKeyBatch**](LIAPIGeoPropertyServiceApi.md#getgeopropertybypbkeybatch) | **POST** /geoproperty/v1/all/attributes/bypbkey | Gets GeoPropertyResponses
 
 
 <a name="getgeopropertybyaddress"></a>
 # **GetGeoPropertyByAddress**
-> GeoPropertyResponse GetGeoPropertyByAddress (string address, string category)
+> GeoPropertyResponse GetGeoPropertyByAddress (string address)
 
 Gets GeoPropertyResponse
 
@@ -33,14 +33,17 @@ namespace Example
         public void main()
         {
             
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
             var apiInstance = new LIAPIGeoPropertyServiceApi();
             var address = address_example;  // string | free form address text
-            var category = category_example;  // string | all, insuranceBasic, insuranceExtended, owner, financialServices, retail, realEstate
 
             try
             {
                 // Gets GeoPropertyResponse
-                GeoPropertyResponse result = apiInstance.GetGeoPropertyByAddress(address, category);
+                GeoPropertyResponse result = apiInstance.GetGeoPropertyByAddress(address);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,7 +60,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **address** | **string**| free form address text | 
- **category** | **string**| all, insuranceBasic, insuranceExtended, owner, financialServices, retail, realEstate | 
 
 ### Return type
 
@@ -65,7 +67,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oAuth2Password](../README.md#oAuth2Password)
 
 ### HTTP request headers
 
@@ -76,7 +78,7 @@ No authorization required
 
 <a name="getgeopropertybyaddressbatch"></a>
 # **GetGeoPropertyByAddressBatch**
-> GeoPropertyResponses GetGeoPropertyByAddressBatch (string category, GeoPropertyAddressRequest body = null)
+> GeoPropertyResponses GetGeoPropertyByAddressBatch (GeoPropertyAddressRequest body = null)
 
 Gets GeoPropertyResponses
 
@@ -97,14 +99,17 @@ namespace Example
         public void main()
         {
             
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
             var apiInstance = new LIAPIGeoPropertyServiceApi();
-            var category = category_example;  // string | all, insuranceBasic, insuranceExtended, owner, financialServices, retail, realEstate
             var body = new GeoPropertyAddressRequest(); // GeoPropertyAddressRequest |  (optional) 
 
             try
             {
                 // Gets GeoPropertyResponses
-                GeoPropertyResponses result = apiInstance.GetGeoPropertyByAddressBatch(category, body);
+                GeoPropertyResponses result = apiInstance.GetGeoPropertyByAddressBatch(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -120,7 +125,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category** | **string**| all, insuranceBasic, insuranceExtended, owner, financialServices, retail, realEstate | 
  **body** | [**GeoPropertyAddressRequest**](GeoPropertyAddressRequest.md)|  | [optional] 
 
 ### Return type
@@ -129,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oAuth2Password](../README.md#oAuth2Password)
 
 ### HTTP request headers
 
@@ -140,7 +144,7 @@ No authorization required
 
 <a name="getgeopropertybypbkey"></a>
 # **GetGeoPropertyByPBKey**
-> GeoPropertyResponse GetGeoPropertyByPBKey (string pbKey, string category)
+> GeoPropertyResponse GetGeoPropertyByPBKey (string pbKey)
 
 Gets GeoPropertyResponse
 
@@ -161,14 +165,17 @@ namespace Example
         public void main()
         {
             
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
             var apiInstance = new LIAPIGeoPropertyServiceApi();
             var pbKey = pbKey_example;  // string | free form text
-            var category = category_example;  // string | all, insuranceBasic, insuranceExtended, owner, financialServices, retail, realEstate
 
             try
             {
                 // Gets GeoPropertyResponse
-                GeoPropertyResponse result = apiInstance.GetGeoPropertyByPBKey(pbKey, category);
+                GeoPropertyResponse result = apiInstance.GetGeoPropertyByPBKey(pbKey);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -185,7 +192,6 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pbKey** | **string**| free form text | 
- **category** | **string**| all, insuranceBasic, insuranceExtended, owner, financialServices, retail, realEstate | 
 
 ### Return type
 
@@ -193,7 +199,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oAuth2Password](../README.md#oAuth2Password)
 
 ### HTTP request headers
 
@@ -204,7 +210,7 @@ No authorization required
 
 <a name="getgeopropertybypbkeybatch"></a>
 # **GetGeoPropertyByPBKeyBatch**
-> GeoPropertyResponses GetGeoPropertyByPBKeyBatch (string category, GeoPropertyPBKeyRequest body = null)
+> GeoPropertyResponses GetGeoPropertyByPBKeyBatch (GeoPropertyPBKeyRequest body = null)
 
 Gets GeoPropertyResponses
 
@@ -225,14 +231,17 @@ namespace Example
         public void main()
         {
             
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
             var apiInstance = new LIAPIGeoPropertyServiceApi();
-            var category = category_example;  // string | all, insuranceBasic, insuranceExtended, owner, financialServices, retail, realEstate
             var body = new GeoPropertyPBKeyRequest(); // GeoPropertyPBKeyRequest |  (optional) 
 
             try
             {
                 // Gets GeoPropertyResponses
-                GeoPropertyResponses result = apiInstance.GetGeoPropertyByPBKeyBatch(category, body);
+                GeoPropertyResponses result = apiInstance.GetGeoPropertyByPBKeyBatch(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -248,7 +257,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **category** | **string**| all, insuranceBasic, insuranceExtended, owner, financialServices, retail, realEstate | 
  **body** | [**GeoPropertyPBKeyRequest**](GeoPropertyPBKeyRequest.md)|  | [optional] 
 
 ### Return type
@@ -257,7 +265,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oAuth2Password](../README.md#oAuth2Password)
 
 ### HTTP request headers
 
