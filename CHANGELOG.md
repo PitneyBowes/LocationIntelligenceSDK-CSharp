@@ -1,7 +1,20 @@
 ## 3.6.0 - 2017-08-18
-- GeoTime - New API Added 
-- GeoEnrich - older API renamed to GeoEnhance
-- GeoTax - IPD tax API added
+- GeoSearch API - Support for Multi-Line text search
+   -Three new parameters are added to the GeoSearch API request. Addition of these parameters supports limiting address search to a state, city, and postcode for more relevant results.
+
+- GeoTax API - New Insurance Premium Districts (IPD) Endpoints Added
+  -GET IPD TaxRate - Returns the IPD tax details pertaining to the region in which the input address belongs.
+	-POST IPD TaxRate - Returns the IPD tax details pertaining to the region based on the multiple addresses provided as input.
+
+- GeoTime API - Capture detailed timezone information.
+  -GeoTime API is available globally. GeoTime API has following endpoints:
+  -GET Timezone By Address
+  -GET Timezone By Location
+
+- GeoEnrich API - Existing GeoEnhance API renamed to GeoEnrich
+ -The GeoEnhance API is renamed to GeoEnrich. GeoEnrich API returns addresses, place names, and business listings with the input of a location coordinate.
+ -Timezone By Location endpoint is removed from GeoEnrich API (previously known as GeoEnhance) and made available in GeoTime API.
+
 
 ## 3.5.0 - 2017-06-29
 - GeoProperty API - Capture detailed property information for analysis, planning, and decisions
