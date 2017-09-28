@@ -50,10 +50,6 @@ limitations under the License.
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LocationIntelligenceSDKCSharp-3.7.0, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\ILMerge.2.14.1208\tools\New folder\LocationIntelligenceSDKCSharp-3.7.0.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
