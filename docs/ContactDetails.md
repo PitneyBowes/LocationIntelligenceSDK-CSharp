@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Address** | [**Address**](Address.md) |  | [optional] 
+**Address** | [**MatchedAddress**](MatchedAddress.md) |  | [optional] 
 **Phone** | **string** |  | [optional] 
 **Fax** | **string** |  | [optional] 
 **Email** | **string** |  | [optional] 

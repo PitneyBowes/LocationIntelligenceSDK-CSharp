@@ -83,7 +83,7 @@ Name | Type | Description  | Notes
 
 <a name="getentitybylocation"></a>
 # **GetEntityByLocation**
-> Locations GetEntityByLocation (string longitude, string latitude, string brandName = null, string category = null, string maxCandidates = null, string searchRadius = null, string searchRadiusUnit = null, string searchDataset = null, string searchPriority = null, string travelTime = null, string travelTimeUnit = null, string travelDistance = null, string travelDistanceUnit = null, string mode = null)
+> PoiByLocation GetEntityByLocation (string longitude, string latitude, string brandName = null, string category = null, string maxCandidates = null, string searchRadius = null, string searchRadiusUnit = null, string searchDataset = null, string searchPriority = null, string travelTime = null, string travelTimeUnit = null, string travelDistance = null, string travelDistanceUnit = null, string mode = null)
 
 Points Of Interest By Location.
 
@@ -127,7 +127,7 @@ namespace Example
             try
             {
                 // Points Of Interest By Location.
-                Locations result = apiInstance.GetEntityByLocation(longitude, latitude, brandName, category, maxCandidates, searchRadius, searchRadiusUnit, searchDataset, searchPriority, travelTime, travelTimeUnit, travelDistance, travelDistanceUnit, mode);
+                PoiByLocation result = apiInstance.GetEntityByLocation(longitude, latitude, brandName, category, maxCandidates, searchRadius, searchRadiusUnit, searchDataset, searchPriority, travelTime, travelTimeUnit, travelDistance, travelDistanceUnit, mode);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Locations**](Locations.md)
+[**PoiByLocation**](PoiByLocation.md)
 
 ### Authorization
 

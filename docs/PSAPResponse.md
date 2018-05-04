@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Coverage** | [**Coverage**](Coverage.md) |  | [optional] 
 **ContactPerson** | [**ContactPerson**](ContactPerson.md) |  | [optional] 
 **SiteDetails** | [**SiteDetails**](SiteDetails.md) |  | [optional] 
-**MailingAddress** | [**Address**](Address.md) |  | [optional] 
+**MailingAddress** | [**MatchedAddress**](MatchedAddress.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

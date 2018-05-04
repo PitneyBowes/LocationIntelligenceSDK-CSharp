@@ -4,14 +4,83 @@ All URIs are relative to *https://api.pitneybowes.com/location-intelligence*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**GetDeviceStatus**](LIAPIGeoLocationServiceApi.md#getdevicestatus) | **GET** /geolocation/v1/devicestatus | Location By Device Status.
 [**GetLocationByFixedLine**](LIAPIGeoLocationServiceApi.md#getlocationbyfixedline) | **GET** /geolocation/v1/location/byfixedline | Location By Fixed Line Network.
 [**GetLocationByIPAddress**](LIAPIGeoLocationServiceApi.md#getlocationbyipaddress) | **GET** /geolocation/v1/location/byipaddress | Location By IP Address.
 [**GetLocationByWiFiAccessPoint**](LIAPIGeoLocationServiceApi.md#getlocationbywifiaccesspoint) | **GET** /geolocation/v1/location/byaccesspoint | Location by WiFi Access Point.
 
 
+<a name="getdevicestatus"></a>
+# **GetDeviceStatus**
+> GeoLocationDeviceSatus GetDeviceStatus (string deviceId, string includeNetworkInfo_ = null)
+
+Location By Device Status.
+
+This service accepts a phone number as input and returns details distinguishing landline and wireless numbers and also checks if a wireless number can be located.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using pb.locationIntelligence.Api;
+using pb.locationIntelligence.Client;
+using pb.locationIntelligence.Model;
+
+namespace Example
+{
+    public class GetDeviceStatusExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
+            var apiInstance = new LIAPIGeoLocationServiceApi();
+            var deviceId = deviceId_example;  // string | Unique identifier for the intended device. Supported identifiers are fixed line and mobile number.
+            var includeNetworkInfo_ = includeNetworkInfo__example;  // string | Y or N (default is Y) – if it is N, then network/carrier details will not be added in the response. (optional) 
+
+            try
+            {
+                // Location By Device Status.
+                GeoLocationDeviceSatus result = apiInstance.GetDeviceStatus(deviceId, includeNetworkInfo_);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling LIAPIGeoLocationServiceApi.GetDeviceStatus: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **deviceId** | **string**| Unique identifier for the intended device. Supported identifiers are fixed line and mobile number. | 
+ **includeNetworkInfo_** | **string**| Y or N (default is Y) – if it is N, then network/carrier details will not be added in the response. | [optional] 
+
+### Return type
+
+[**GeoLocationDeviceSatus**](GeoLocationDeviceSatus.md)
+
+### Authorization
+
+[oAuth2Password](../README.md#oAuth2Password)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getlocationbyfixedline"></a>
 # **GetLocationByFixedLine**
-> GeoLocation GetLocationByFixedLine (string deviceId)
+> GeoLocationFixedLine GetLocationByFixedLine (string deviceId)
 
 Location By Fixed Line Network.
 
@@ -42,7 +111,7 @@ namespace Example
             try
             {
                 // Location By Fixed Line Network.
-                GeoLocation result = apiInstance.GetLocationByFixedLine(deviceId);
+                GeoLocationFixedLine result = apiInstance.GetLocationByFixedLine(deviceId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -62,7 +131,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GeoLocation**](GeoLocation.md)
+[**GeoLocationFixedLine**](GeoLocationFixedLine.md)
 
 ### Authorization
 
@@ -77,7 +146,7 @@ Name | Type | Description  | Notes
 
 <a name="getlocationbyipaddress"></a>
 # **GetLocationByIPAddress**
-> GeoLocation GetLocationByIPAddress (string ipAddress)
+> GeoLocationIpAddr GetLocationByIPAddress (string ipAddress)
 
 Location By IP Address.
 
@@ -108,7 +177,7 @@ namespace Example
             try
             {
                 // Location By IP Address.
-                GeoLocation result = apiInstance.GetLocationByIPAddress(ipAddress);
+                GeoLocationIpAddr result = apiInstance.GetLocationByIPAddress(ipAddress);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -128,7 +197,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GeoLocation**](GeoLocation.md)
+[**GeoLocationIpAddr**](GeoLocationIpAddr.md)
 
 ### Authorization
 
@@ -143,7 +212,7 @@ Name | Type | Description  | Notes
 
 <a name="getlocationbywifiaccesspoint"></a>
 # **GetLocationByWiFiAccessPoint**
-> GeoLocation GetLocationByWiFiAccessPoint (string mac = null, string ssid = null, string rsid = null, string speed = null, string accessPoint = null)
+> GeoLocationAccessPoint GetLocationByWiFiAccessPoint (string mac = null, string ssid = null, string rsid = null, string speed = null, string accessPoint = null)
 
 Location by WiFi Access Point.
 
@@ -178,7 +247,7 @@ namespace Example
             try
             {
                 // Location by WiFi Access Point.
-                GeoLocation result = apiInstance.GetLocationByWiFiAccessPoint(mac, ssid, rsid, speed, accessPoint);
+                GeoLocationAccessPoint result = apiInstance.GetLocationByWiFiAccessPoint(mac, ssid, rsid, speed, accessPoint);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -202,7 +271,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GeoLocation**](GeoLocation.md)
+[**GeoLocationAccessPoint**](GeoLocationAccessPoint.md)
 
 ### Authorization
 

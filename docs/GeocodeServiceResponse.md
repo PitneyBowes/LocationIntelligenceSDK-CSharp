@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ObjectId** | **string** |  | [optional] 
+**ObjectId** | **int?** |  | [optional] 
 **TotalPossibleCandidates** | **int?** |  | [optional] 
 **TotalMatches** | **int?** |  | [optional] 
 **Candidates** | [**List&lt;Candidate&gt;**](Candidate.md) |  | [optional] 

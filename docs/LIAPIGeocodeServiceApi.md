@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 
 <a name="geocodebatch"></a>
 # **GeocodeBatch**
-> GeocodeServiceResponseList GeocodeBatch (string datapackBundle, GeocodeRequest body = null)
+> GeocodeServiceResponseList GeocodeBatch (GeocodeRequest body, string datapackBundle)
 
 Gets Geocode
 
@@ -142,13 +142,13 @@ namespace Example
             Configuration.Default.OAuthSecret = "SECRET";
 
             var apiInstance = new LIAPIGeocodeServiceApi();
+            var body = new GeocodeRequest(); // GeocodeRequest | Geocode Request Object
             var datapackBundle = datapackBundle_example;  // string | value of datapackBundle
-            var body = new GeocodeRequest(); // GeocodeRequest | Geocode Request Object (optional) 
 
             try
             {
                 // Gets Geocode
-                GeocodeServiceResponseList result = apiInstance.GeocodeBatch(datapackBundle, body);
+                GeocodeServiceResponseList result = apiInstance.GeocodeBatch(body, datapackBundle);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -164,8 +164,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **body** | [**GeocodeRequest**](GeocodeRequest.md)| Geocode Request Object | 
  **datapackBundle** | **string**| value of datapackBundle | 
- **body** | [**GeocodeRequest**](GeocodeRequest.md)| Geocode Request Object | [optional] 
 
 ### Return type
 
@@ -388,7 +388,7 @@ Name | Type | Description  | Notes
 
 <a name="getpbkeys"></a>
 # **GetPBKeys**
-> PBKeyResponseList GetPBKeys (PBKeyAddressRequest body = null)
+> PBKeyResponseList GetPBKeys (PBKeyAddressRequest body)
 
 Gets PBKeys
 
@@ -414,7 +414,7 @@ namespace Example
             Configuration.Default.OAuthSecret = "SECRET";
 
             var apiInstance = new LIAPIGeocodeServiceApi();
-            var body = new PBKeyAddressRequest(); // PBKeyAddressRequest |  (optional) 
+            var body = new PBKeyAddressRequest(); // PBKeyAddressRequest | 
 
             try
             {
@@ -435,7 +435,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**PBKeyAddressRequest**](PBKeyAddressRequest.md)|  | [optional] 
+ **body** | [**PBKeyAddressRequest**](PBKeyAddressRequest.md)|  | 
 
 ### Return type
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **AreaName1** | **string** |  | [optional] 
 **Geometry** | [**Geometry**](Geometry.md) |  | [optional] 
 **AreaCodeInfoList** | [**List&lt;AreaCodeInfo&gt;**](AreaCodeInfo.md) |  | [optional] 
-**MatchedAddress** | [**Address**](Address.md) |  | [optional] 
+**MatchedAddress** | [**MatchedAddress**](MatchedAddress.md) |  | [optional] 
 **Match** | [**Match**](Match.md) |  | [optional] 
 **County** | [**County**](County.md) |  | [optional] 
 **Count** | **int?** |  | [optional] 

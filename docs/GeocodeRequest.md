@@ -4,8 +4,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** | Type | 
-**Preferences** | [**Preferences**](Preferences.md) |  | [optional] 
-**Addresses** | [**List&lt;GeocodeAddress&gt;**](GeocodeAddress.md) |  | 
+**Preferences** | [**GeocodePreferences**](GeocodePreferences.md) |  | [optional] 
+**Addresses** | [**List&lt;GeocodeRequestAddress&gt;**](GeocodeRequestAddress.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

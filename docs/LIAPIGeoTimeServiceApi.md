@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 <a name="gettimezonebylocation"></a>
 # **GetTimezoneByLocation**
-> Timezone GetTimezoneByLocation (string timestamp, string longitude, string latitude)
+> TimezoneLocation GetTimezoneByLocation (string timestamp, string longitude, string latitude)
 
 Timezone By Location.
 
@@ -111,7 +111,7 @@ namespace Example
             try
             {
                 // Timezone By Location.
-                Timezone result = apiInstance.GetTimezoneByLocation(timestamp, longitude, latitude);
+                TimezoneLocation result = apiInstance.GetTimezoneByLocation(timestamp, longitude, latitude);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -133,7 +133,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Timezone**](Timezone.md)
+[**TimezoneLocation**](TimezoneLocation.md)
 
 ### Authorization
 

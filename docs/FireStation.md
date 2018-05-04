@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **LocationReference** | **string** |  | [optional] 
 **TravelDistance** | [**Distance**](Distance.md) |  | [optional] 
 **TravelTime** | [**Time**](Time.md) |  | [optional] 
-**ContactDetails** | [**ContactDetails**](ContactDetails.md) |  | [optional] 
+**ContactDetails** | [**FireStationContactDetails**](FireStationContactDetails.md) |  | [optional] 
 **FireDepartment** | [**FireDepartment**](FireDepartment.md) |  | [optional] 
 **Geometry** | [**Geometry**](Geometry.md) |  | [optional] 
 

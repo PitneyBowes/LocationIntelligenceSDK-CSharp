@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 <a name="getbatchtaxbylocation"></a>
 # **GetBatchTaxByLocation**
-> TaxResponses GetBatchTaxByLocation (string taxRateTypeId, TaxLocationRequest body)
+> TaxLocationResponses GetBatchTaxByLocation (string taxRateTypeId, TaxLocationRequest body)
 
 Post Tax By Location
 
@@ -118,7 +118,7 @@ namespace Example
             try
             {
                 // Post Tax By Location
-                TaxResponses result = apiInstance.GetBatchTaxByLocation(taxRateTypeId, body);
+                TaxLocationResponses result = apiInstance.GetBatchTaxByLocation(taxRateTypeId, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -139,7 +139,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaxResponses**](TaxResponses.md)
+[**TaxLocationResponses**](TaxLocationResponses.md)
 
 ### Authorization
 
@@ -154,7 +154,7 @@ Name | Type | Description  | Notes
 
 <a name="getbatchtaxratebyaddress"></a>
 # **GetBatchTaxRateByAddress**
-> TaxResponses GetBatchTaxRateByAddress (string taxRateTypeId, TaxRateAddressRequest body)
+> TaxRateResponses GetBatchTaxRateByAddress (string taxRateTypeId, TaxRateAddressRequest body)
 
 Post Taxrate By Address
 
@@ -186,7 +186,7 @@ namespace Example
             try
             {
                 // Post Taxrate By Address
-                TaxResponses result = apiInstance.GetBatchTaxRateByAddress(taxRateTypeId, body);
+                TaxRateResponses result = apiInstance.GetBatchTaxRateByAddress(taxRateTypeId, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaxResponses**](TaxResponses.md)
+[**TaxRateResponses**](TaxRateResponses.md)
 
 ### Authorization
 
@@ -222,7 +222,7 @@ Name | Type | Description  | Notes
 
 <a name="getbatchtaxratebylocation"></a>
 # **GetBatchTaxRateByLocation**
-> TaxResponses GetBatchTaxRateByLocation (string taxRateTypeId, TaxRateLocationRequest body)
+> TaxRateLocationResponses GetBatchTaxRateByLocation (string taxRateTypeId, TaxRateLocationRequest body)
 
 Post Taxrate By Location
 
@@ -254,7 +254,7 @@ namespace Example
             try
             {
                 // Post Taxrate By Location
-                TaxResponses result = apiInstance.GetBatchTaxRateByLocation(taxRateTypeId, body);
+                TaxRateLocationResponses result = apiInstance.GetBatchTaxRateByLocation(taxRateTypeId, body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -275,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaxResponses**](TaxResponses.md)
+[**TaxRateLocationResponses**](TaxRateLocationResponses.md)
 
 ### Authorization
 
@@ -290,7 +290,7 @@ Name | Type | Description  | Notes
 
 <a name="getipdtaxbyaddress"></a>
 # **GetIPDTaxByAddress**
-> TaxDistrictResponse GetIPDTaxByAddress (string address)
+> TaxDistrictResponse GetIPDTaxByAddress (string address, string returnLatLongFields = null, string latLongFormat = null)
 
 Get IPD Tax by Address
 
@@ -317,11 +317,13 @@ namespace Example
 
             var apiInstance = new LIAPIGeoTaxServiceApi();
             var address = address_example;  // string | The address to be searched.
+            var returnLatLongFields = returnLatLongFields_example;  // string | Y or N (default is N) - Returns Latitude Longitude Fields (optional) 
+            var latLongFormat = latLongFormat_example;  // string | (default is Decimal) - Returns Desired Latitude Longitude Format (optional) 
 
             try
             {
                 // Get IPD Tax by Address
-                TaxDistrictResponse result = apiInstance.GetIPDTaxByAddress(address);
+                TaxDistrictResponse result = apiInstance.GetIPDTaxByAddress(address, returnLatLongFields, latLongFormat);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -338,6 +340,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **address** | **string**| The address to be searched. | 
+ **returnLatLongFields** | **string**| Y or N (default is N) - Returns Latitude Longitude Fields | [optional] 
+ **latLongFormat** | **string**| (default is Decimal) - Returns Desired Latitude Longitude Format | [optional] 
 
 ### Return type
 
@@ -564,7 +568,7 @@ Name | Type | Description  | Notes
 
 <a name="getspecifictaxratebyaddress"></a>
 # **GetSpecificTaxRateByAddress**
-> TaxResponse GetSpecificTaxRateByAddress (string taxRateTypeId, string address)
+> TaxRateResponse GetSpecificTaxRateByAddress (string taxRateTypeId, string address)
 
 Get Taxrate By Address
 
@@ -596,7 +600,7 @@ namespace Example
             try
             {
                 // Get Taxrate By Address
-                TaxResponse result = apiInstance.GetSpecificTaxRateByAddress(taxRateTypeId, address);
+                TaxRateResponse result = apiInstance.GetSpecificTaxRateByAddress(taxRateTypeId, address);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -617,7 +621,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaxResponse**](TaxResponse.md)
+[**TaxRateResponse**](TaxRateResponse.md)
 
 ### Authorization
 
@@ -632,7 +636,7 @@ Name | Type | Description  | Notes
 
 <a name="getspecifictaxratebylocation"></a>
 # **GetSpecificTaxRateByLocation**
-> TaxResponse GetSpecificTaxRateByLocation (string taxRateTypeId, string latitude, string longitude)
+> TaxRateResponse GetSpecificTaxRateByLocation (string taxRateTypeId, string latitude, string longitude)
 
 Get Taxrate By Location
 
@@ -665,7 +669,7 @@ namespace Example
             try
             {
                 // Get Taxrate By Location
-                TaxResponse result = apiInstance.GetSpecificTaxRateByLocation(taxRateTypeId, latitude, longitude);
+                TaxRateResponse result = apiInstance.GetSpecificTaxRateByLocation(taxRateTypeId, latitude, longitude);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -687,7 +691,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**TaxResponse**](TaxResponse.md)
+[**TaxRateResponse**](TaxRateResponse.md)
 
 ### Authorization
 

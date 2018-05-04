@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Comments** | **string** |  | [optional] 
 **Coverage** | [**Coverage**](Coverage.md) |  | [optional] 
 **ContactPerson** | [**ContactPerson**](ContactPerson.md) |  | [optional] 
-**MailingAddress** | [**Address**](Address.md) |  | [optional] 
+**MailingAddress** | [**AHJmailingAddress**](AHJmailingAddress.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

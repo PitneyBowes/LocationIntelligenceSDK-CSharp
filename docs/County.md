@@ -3,7 +3,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Code** | **string** |  | [optional] 
 **Name** | **string** |  | [optional] 
 **Fips** | **string** |  | [optional] 
 

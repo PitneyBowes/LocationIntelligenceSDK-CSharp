@@ -1,3 +1,5 @@
+## 4.6.0 - 2018-05-03
+
 ## 3.6.0 - 2017-08-18
 - GeoSearch API - Support for Multi-Line text search
    -Three new parameters are added to the GeoSearch API request. Addition of these parameters supports limiting address search to a state, city, and postcode for more relevant results.

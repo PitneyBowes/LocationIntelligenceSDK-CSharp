@@ -24,5 +24,12 @@ if not exist ".\bin" mkdir bin
 
 copy packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll bin\Newtonsoft.Json.dll
 copy packages\RestSharp.105.1.0\lib\net45\RestSharp.dll bin\RestSharp.dll
+copy packages\ILMerge.2.14.1208\tools\ILMerge.exe bin\ILMerge.exe
+%CSCPATH%\csc /reference:bin\Newtonsoft.Json.dll;bin\RestSharp.dll /target:library /out:bin\LocationIntelligenceCSharpSDK-4.6.0.dll /recurse:src\pb.locationIntelligence\*.cs /doc:bin\pb.locationIntelligence.xml
+cd bin
+mkdir comb
+ilmerge /out:comb/LocationIntelligenceCSharpSDK-4.6.0.dll Newtonsoft.Json.dll RestSharp.dll LocationIntelligenceCSharpSDK-4.6.0.dll
 
-%CSCPATH%\csc /reference:bin\Newtonsoft.Json.dll;bin\RestSharp.dll /target:library /out:bin\pb.locationIntelligence.dll /recurse:src\pb.locationIntelligence\*.cs /doc:bin\pb.locationIntelligence.xml
+
+
+

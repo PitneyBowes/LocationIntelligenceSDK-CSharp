@@ -144,7 +144,7 @@ Name | Type | Description  | Notes
 
 <a name="getgeopropertybypbkey"></a>
 # **GetGeoPropertyByPBKey**
-> GeoPropertyResponse GetGeoPropertyByPBKey (string pbKey)
+> GeoPropertyPBKeyResponse GetGeoPropertyByPBKey (string pbKey)
 
 Gets GeoPropertyResponse
 
@@ -175,7 +175,7 @@ namespace Example
             try
             {
                 // Gets GeoPropertyResponse
-                GeoPropertyResponse result = apiInstance.GetGeoPropertyByPBKey(pbKey);
+                GeoPropertyPBKeyResponse result = apiInstance.GetGeoPropertyByPBKey(pbKey);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -195,7 +195,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GeoPropertyResponse**](GeoPropertyResponse.md)
+[**GeoPropertyPBKeyResponse**](GeoPropertyPBKeyResponse.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 <a name="getgeopropertybypbkeybatch"></a>
 # **GetGeoPropertyByPBKeyBatch**
-> GeoPropertyResponses GetGeoPropertyByPBKeyBatch (GeoPropertyPBKeyRequest body = null)
+> GeoPropertyPBKeyResponses GetGeoPropertyByPBKeyBatch (GeoPropertyPBKeyRequest body = null)
 
 Gets GeoPropertyResponses
 
@@ -241,7 +241,7 @@ namespace Example
             try
             {
                 // Gets GeoPropertyResponses
-                GeoPropertyResponses result = apiInstance.GetGeoPropertyByPBKeyBatch(body);
+                GeoPropertyPBKeyResponses result = apiInstance.GetGeoPropertyByPBKeyBatch(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GeoPropertyResponses**](GeoPropertyResponses.md)
+[**GeoPropertyPBKeyResponses**](GeoPropertyPBKeyResponses.md)
 
 ### Authorization
 

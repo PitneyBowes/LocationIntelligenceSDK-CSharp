@@ -104,8 +104,8 @@ namespace Example
             Configuration.Default.OAuthSecret = "SECRET";
 
             var apiInstance = new LIAPIGeo911ServiceApi();
-            var longitude = longitude_example;  // string | Latitude of the location.
-            var latitude = latitude_example;  // string | Longitude of the location.
+            var longitude = longitude_example;  // string | Longitude of the location.
+            var latitude = latitude_example;  // string | Latitude of the location.
 
             try
             {
@@ -126,8 +126,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **longitude** | **string**| Latitude of the location. | 
- **latitude** | **string**| Longitude of the location. | 
+ **longitude** | **string**| Longitude of the location. | 
+ **latitude** | **string**| Latitude of the location. | 
 
 ### Return type
 

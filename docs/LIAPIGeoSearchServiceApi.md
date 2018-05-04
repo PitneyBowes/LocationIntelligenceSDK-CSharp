@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="geosearch"></a>
 # **GeoSearch**
-> Locations GeoSearch (string searchText, string latitude = null, string longitude = null, string searchRadius = null, string searchRadiusUnit = null, string maxCandidates = null, string country = null, string matchOnAddressNumber = null, string autoDetectLocation = null, string ipAddress = null, string areaName1 = null, string areaName3 = null, string postCode = null)
+> GeosearchLocations GeoSearch (string searchText, string latitude = null, string longitude = null, string searchRadius = null, string searchRadiusUnit = null, string maxCandidates = null, string country = null, string matchOnAddressNumber = null, string autoDetectLocation = null, string ipAddress = null, string areaName1 = null, string areaName3 = null, string postCode = null)
 
 Gets LocationList
 
@@ -52,7 +52,7 @@ namespace Example
             try
             {
                 // Gets LocationList
-                Locations result = apiInstance.GeoSearch(searchText, latitude, longitude, searchRadius, searchRadiusUnit, maxCandidates, country, matchOnAddressNumber, autoDetectLocation, ipAddress, areaName1, areaName3, postCode);
+                GeosearchLocations result = apiInstance.GeoSearch(searchText, latitude, longitude, searchRadius, searchRadiusUnit, maxCandidates, country, matchOnAddressNumber, autoDetectLocation, ipAddress, areaName1, areaName3, postCode);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Locations**](Locations.md)
+[**GeosearchLocations**](GeosearchLocations.md)
 
 ### Authorization
 
