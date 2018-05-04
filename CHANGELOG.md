@@ -1,4 +1,17 @@
 ## 4.6.0 - 2018-05-03
+## 3.7.0 - 2017-09-28
+- Location by IP Address
+  -Returns the location coordinates corresponding to the IP Address. The service is available globally.
+
+- Location by Wifi Access Point MAC Address
+  - Returns the location coordinates corresponding to the MAC Address of WIfi Access Point. This service is also available globally.
+
+- Location by Fixed Line Number
+  - Returns the location coordinates corresponding to the fixed line phone number. This service is available for US fixed line numbers.
+
+- Location by Wireless Number
+  - Returns the location coordinates corresponding to the wireless phone number. This service is available for US wireless phone numbers.
+   - This service needs approval from wireless carriers as well as the mobile user and therefore has got 4 methods to enable the location check.
 
 ## 3.6.0 - 2017-08-18
 - GeoSearch API - Support for Multi-Line text search
