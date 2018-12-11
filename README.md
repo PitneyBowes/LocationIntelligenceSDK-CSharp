@@ -6,19 +6,9 @@
 [Location Intelligence APIs ](http://developer.pitneybowes.com/en/location-intelligence.html) help you to Incorporate Pitney Bowes extensive geodata into everyday applications, business processes, and workflows. Use our SDKs to get started quickly and easily integrate API calls in your applications.
 
 ### Location Intelligence APIs:
-* [GeoEnrich](https://locate.pitneybowes.com/geoenrich ) : Returns addresses, place names, points-of-interest and timezones with the input of a location coordinate. Useful for enhancing & enriching your geo-tagged data.
-
-* [GeoLife](https://locate.pitneybowes.com/geolife) : Returns household demographics and lifestyle characteristics with the input of an address or location coordinate. Useful for data analysts and commercial and corporate developers building mobile apps and services.
+* [GeoCode](https://locate.pitneybowes.com/geocode): Converts addresses to location coordinates and vice versa. The GeoCode API returns latitude & longitude coordinates with the input of an address and vice versa. Useful for enhancing & enriching your customer addresses.
 
 * [GeoSearch](https://locate.pitneybowes.com/geosearch): Returns an autocompleted list of addresses and places based on the input of a partial address. Useful for commercial developers and content providers, or anyone wanting to offer their own search.
-
-* [GeoComm](https://locate.pitneybowes.com/geocomm): Identifies Local Exchange Carrier presence with a Rate Center area. The GeoComm API retrieves Incumbent Local Exchange Carrier (ILEC) doing-business-as names with the input of an address. Useful for local telecommunications competitive intelligence, partnerships, and provisioning subscribers.
-
-* [Geo911](https://locate.pitneybowes.com/geo911): Integrates Public Safety Answering Point (PSAP) administrative call routing information plus Authority Having Jurisdiction (AHJ) phone numbers into your 911 products and services. The Geo911 API retrieves 10-digit phone numbers and local contact info with the input of a location coordinate. Useful for emergency services administrators, call handlers, and dispatchers.
-
-* [GeoTax](https://locate.pitneybowes.com/geotax): Returns local tax rates with the input of a location coordinate or an address. Critical for any billing, commerce, payment, or payroll application or service.
-
-* [GeoCode](https://locate.pitneybowes.com/geocode): Converts addresses to location coordinates and vice versa. The GeoCode API returns latitude & longitude coordinates with the input of an address and vice versa. Useful for enhancing & enriching your customer addresses.
 
 * [GeoMap](https://locate.pitneybowes.com/geomap): Adds data and more atop Maps. Choose from three map styles - Iron, Bronze, and Steel.
 
@@ -26,19 +16,33 @@
 
 * [GeoRoute](https://locate.pitneybowes.com/georoute): Returns Point-to-Point and Multi-Point Travel Directions by Various Travel Modes. Critical for any Simple or Complex Routing Requirement.
 
+* [GeoEnrich](https://locate.pitneybowes.com/geoenrich ) : Returns addresses, place names, points-of-interest and timezones with the input of a location coordinate. Useful for enhancing & enriching your geo-tagged data.
+
 * [GeoRisk](https://locate.pitneybowes.com/georisk): Returns critical risk intelligence with the input of Location Coordinates or Addresses. Critical for any Risk Mitigation Analyses involving threats to lives or property.
+
+* [Geo911](https://locate.pitneybowes.com/geo911): Integrates Public Safety Answering Point (PSAP) administrative call routing information plus Authority Having Jurisdiction (AHJ) phone numbers into your 911 products and services. The Geo911 API retrieves 10-digit phone numbers and local contact info with the input of a location coordinate. Useful for emergency services administrators, call handlers, and dispatchers.
+
+* [GeoLife](https://locate.pitneybowes.com/geolife) : Returns household demographics and lifestyle characteristics with the input of an address or location coordinate. Useful for data analysts and commercial and corporate developers building mobile apps and services.
 
 * [GeoProperty](https://locate.pitneybowes.com/geoproperty)::  Property Details. Capture property details for analysis and planning. The GeoProperty API returns extensive property attributes with the input of address or PB key. Critical for any property investment, insurance or risk analysis and mitigation.
 
+* [GeoTax](https://locate.pitneybowes.com/geotax): Returns local tax rates with the input of a location coordinate or an address. Critical for any billing, commerce, payment, or payroll application or service.
+
+* [GeoComm](https://locate.pitneybowes.com/geocomm): Identifies Local Exchange Carrier presence with a Rate Center area. The GeoComm API retrieves Incumbent Local Exchange Carrier (ILEC) doing-business-as names with the input of an address. Useful for local telecommunications competitive intelligence, partnerships, and provisioning subscribers.
+
 * [GeoTime](https://locate.pitneybowes.com/geotime): Local time. The GeoTime API returns timezones and UTC offsets with the input of a location coordinate or address. Useful for do-not-call, logistics, and customer engagement applications, business processes and workflows.
 
-* [GeoLocation](https://locate.pitneybowes.com/geolocation): Device Location. The GeoLocation API returns location coordinates based on the input of an IP Address, WiFi Access point MAC address, Fixed line phone number and/or Wireless phone number. Useful for a variety of applications, business processes and workflows in eCommerce, Fraud Detection, Physical-Digital interactions, Field Service and more.
+* [GeoLocation](http://locate.pitneybowes.com/geolocation): Device Location. The GeoLocation API returns location coordinates based on the input of an IP Address, WiFi Access point MAC address, Fixed line phone number and/or Wireless phone number. Useful for a variety of applications, business processes and workflows in eCommerce, Fraud Detection, Physical-Digital interactions, Field Service and more.
 
-* [GeoPost](https://locate.pitneybowes.com/geopost): Accurate Postal Routing. The GeoPost API accepts an address or multiple addresses as inputs and returns US postal routing information including residential, commercial or PO Box delivery destinations. Critical for any direct mail marketing campaign.
+* [GeoPost](http://locate.pitneybowes.com/geopost): Accurate Postal Routing. The GeoPost API accepts an address or multiple addresses as inputs and returns US postal routing information including residential, commercial or PO Box delivery destinations. Critical for any direct mail marketing campaign.
+
+* [GeoIdentity](http://locate.pitneybowes.com/geoidentity): GeoIdentity. Powerful, local socio-economic & affinity insights about your customer. Enrich billing and/or shipping addresses with rich localized Identity profiles, demographics, lifestyle segmentations, neighborhood names, property ownership & values, and social affinity insights. The GeoIdentity API returns all these data with the input of an Address or pbKeyTM. Useful for enhancing & enriching any Retail or Commerce application, business process, or workflow.
+
+* [GeoPlaces](http://locate.pitneybowes.com/geoplaces): Returns the Point-Of-Interests along with their details near a location/address. Refine your search by sepcifying name, type of the place, category code, sic code, search radius, travel time/distance.
 
 The following platforms are supported by Location Intelligence SDKs:
 *	[Android](https://github.com/PitneyBowes/LocationIntelligenceSDK-Android)
-*	[JavaScript](https://github.com/PitneyBowes/LocationIntelligenceSDK-javascript) 
+*	[Node.js](https://github.com/PitneyBowes/LocationIntelligenceSDK-NodeJS) 
 *	[iOS](https://github.com/PitneyBowes/LocationIntelligenceSDK-IOS)
 *	[Java](https://github.com/PitneyBowes/LocationIntelligenceSDK-Java)
 *	[C#](https://github.com/PitneyBowes/LocationIntelligenceSDK-CSharp)  
@@ -58,9 +62,9 @@ Incorporate our extensive geodata into everyday applications, business processes
 
 This C# SDK is automatically generated by the [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) project:
 
-- API version: 4.6.0
-- SDK version: 4.6.0
-- Build date: 2018-05-03
+- API version: 6.0.0
+- SDK version: 6.0.0
+- Build date: 2018-12-11T15:23:52.740+05:30
 - Build package: class io.swagger.codegen.languages.CSharpClientCodegen
 
 ## Frameworks supported
@@ -91,6 +95,18 @@ using pb.locationIntelligence.Client;
 using pb.locationIntelligence.Model;
 ```
 
+## Installation
+Run the following command to generate the DLL
+- [Mac/Linux] `/bin/sh build.sh`
+- [Windows] `build.bat`
+
+Then include the DLL (under the `bin` folder) in the C# project, and use the namespaces:
+```csharp
+using pb.locationIntelligence.Api;
+using pb.locationIntelligence.Client;
+using Model;
+```
+
 ## Getting Started
 
 ```csharp
@@ -98,7 +114,7 @@ using System;
 using System.Diagnostics;
 using pb.locationIntelligence.Api;
 using pb.locationIntelligence.Client;
-using pb.locationIntelligence.Model;
+using Model;
 
 namespace Example
 {
@@ -145,14 +161,23 @@ Class | Method | HTTP request | Description
 *LIAPIGeoEnrichServiceApi* | [**GetAddress**](docs/LIAPIGeoEnrichServiceApi.md#getaddress) | **GET** /geoenrich/v1/address/bylocation | Address By Location.
 *LIAPIGeoEnrichServiceApi* | [**GetEntityByLocation**](docs/LIAPIGeoEnrichServiceApi.md#getentitybylocation) | **GET** /geoenrich/v1/poi/bylocation | Points Of Interest By Location.
 *LIAPIGeoEnrichServiceApi* | [**GetPlaceByLocation**](docs/LIAPIGeoEnrichServiceApi.md#getplacebylocation) | **GET** /geoenrich/v1/place/bylocation | Place By Location.
-*LIAPIGeoLifeServiceApi* | [**GetDemographicsByAddress**](docs/LIAPIGeoLifeServiceApi.md#getdemographicsbyaddress) | **GET** /geolife/v1/demographics/byaddress | Demographics By Address.
-*LIAPIGeoLifeServiceApi* | [**GetDemographicsByLocation**](docs/LIAPIGeoLifeServiceApi.md#getdemographicsbylocation) | **GET** /geolife/v1/demographics/bylocation | Demographics By Location.
+*LIAPIGeoIdentityServiceApi* | [**GetIdentityByAddress**](docs/LIAPIGeoIdentityServiceApi.md#getidentitybyaddress) | **GET** /geoidentity/v1/identity/byaddress | Gets GeoIdentityResponse
+*LIAPIGeoIdentityServiceApi* | [**GetIdentityByEmail**](docs/LIAPIGeoIdentityServiceApi.md#getidentitybyemail) | **GET** /geoidentity/v1/identity/byemail | Gets Identity
+*LIAPIGeoIdentityServiceApi* | [**GetIdentityByPBKey**](docs/LIAPIGeoIdentityServiceApi.md#getidentitybypbkey) | **GET** /geoidentity/v1/identity/bypbkey | Gets GeoIdentityResponse
+*LIAPIGeoLifeServiceApi* | [**GetDemographicsByAddressV2**](docs/LIAPIGeoLifeServiceApi.md#getdemographicsbyaddressv2) | **GET** /geolife/v2/demographics/byaddress | Demographics By Address.
+*LIAPIGeoLifeServiceApi* | [**GetDemographicsByLocationV2**](docs/LIAPIGeoLifeServiceApi.md#getdemographicsbylocationv2) | **GET** /geolife/v2/demographics/bylocation | Demographics By Location.
+*LIAPIGeoLifeServiceApi* | [**GetDemographicsByPBKey**](docs/LIAPIGeoLifeServiceApi.md#getdemographicsbypbkey) | **GET** /geolife/v2/demographics/bypbkey | Demographics By PBKey.
 *LIAPIGeoLifeServiceApi* | [**GetSegmentationByAddress**](docs/LIAPIGeoLifeServiceApi.md#getsegmentationbyaddress) | **GET** /geolife/v1/segmentation/byaddress | Segmentation By Address.
 *LIAPIGeoLifeServiceApi* | [**GetSegmentationByLocation**](docs/LIAPIGeoLifeServiceApi.md#getsegmentationbylocation) | **GET** /geolife/v1/segmentation/bylocation | Segmentation By Location.
+*LIAPIGeoLifeServiceApi* | [**GetSegmentationByPBKey**](docs/LIAPIGeoLifeServiceApi.md#getsegmentationbypbkey) | **GET** /geolife/v1/segmentation/bypbkey | Segmentation By PB Key.
 *LIAPIGeoLocationServiceApi* | [**GetDeviceStatus**](docs/LIAPIGeoLocationServiceApi.md#getdevicestatus) | **GET** /geolocation/v1/devicestatus | Location By Device Status.
 *LIAPIGeoLocationServiceApi* | [**GetLocationByFixedLine**](docs/LIAPIGeoLocationServiceApi.md#getlocationbyfixedline) | **GET** /geolocation/v1/location/byfixedline | Location By Fixed Line Network.
 *LIAPIGeoLocationServiceApi* | [**GetLocationByIPAddress**](docs/LIAPIGeoLocationServiceApi.md#getlocationbyipaddress) | **GET** /geolocation/v1/location/byipaddress | Location By IP Address.
 *LIAPIGeoLocationServiceApi* | [**GetLocationByWiFiAccessPoint**](docs/LIAPIGeoLocationServiceApi.md#getlocationbywifiaccesspoint) | **GET** /geolocation/v1/location/byaccesspoint | Location by WiFi Access Point.
+*LIAPIGeoPlacesServiceApi* | [**GetCategoryCodeMetadata**](docs/LIAPIGeoPlacesServiceApi.md#getcategorycodemetadata) | **GET** /geoplaces/v1/metadata/category | Returns Category Codes with their sub-categories (if exist), descriptions and SIC Codes mapping
+*LIAPIGeoPlacesServiceApi* | [**GetPOIsByAddress**](docs/LIAPIGeoPlacesServiceApi.md#getpoisbyaddress) | **GET** /geoplaces/v1/poi/byaddress | Point of Interests By Address.
+*LIAPIGeoPlacesServiceApi* | [**GetPOIsByLocation**](docs/LIAPIGeoPlacesServiceApi.md#getpoisbylocation) | **GET** /geoplaces/v1/poi/bylocation | Point of Interests By Location.
+*LIAPIGeoPlacesServiceApi* | [**GetSICMetadata**](docs/LIAPIGeoPlacesServiceApi.md#getsicmetadata) | **GET** /geoplaces/v1/metadata/sic | Returns SIC Codes with their Industry Titles and Category Codes mapping
 *LIAPIGeoPostServiceApi* | [**GetCarrierRoutesByAddress**](docs/LIAPIGeoPostServiceApi.md#getcarrierroutesbyaddress) | **GET** /geopost/v1/carrierroute/byaddress | Carrier Route By Address.
 *LIAPIGeoPostServiceApi* | [**GetCarrierRoutesByAddressBatch**](docs/LIAPIGeoPostServiceApi.md#getcarrierroutesbyaddressbatch) | **POST** /geopost/v1/carrierroute/byaddress | Gets GeoPost Carrier Routes for Multiple Addresses
 *LIAPIGeoPropertyServiceApi* | [**GetGeoPropertyByAddress**](docs/LIAPIGeoPropertyServiceApi.md#getgeopropertybyaddress) | **GET** /geoproperty/v1/all/attributes/byaddress | Gets GeoPropertyResponse
@@ -187,7 +212,7 @@ Class | Method | HTTP request | Description
 *LIAPIGeoRouteServiceApi* | [**GetRouteByLocation**](docs/LIAPIGeoRouteServiceApi.md#getroutebylocation) | **GET** /georoute/v1/route/bylocation | Gets Route by Location
 *LIAPIGeoRouteServiceApi* | [**GetTravelCostMatrixByAddress**](docs/LIAPIGeoRouteServiceApi.md#gettravelcostmatrixbyaddress) | **GET** /georoute/v1/travelcostmatrix/byaddress | Gets Cost Matrix by Address
 *LIAPIGeoRouteServiceApi* | [**GetTravelCostMatrixByLocation**](docs/LIAPIGeoRouteServiceApi.md#gettravelcostmatrixbylocation) | **GET** /georoute/v1/travelcostmatrix/bylocation | Gets Cost Matrix by Location
-*LIAPIGeoSearchServiceApi* | [**GeoSearch**](docs/LIAPIGeoSearchServiceApi.md#geosearch) | **GET** /geosearch/v1/locations | Gets LocationList
+*LIAPIGeoSearchServiceApi* | [**GeoSearch**](docs/LIAPIGeoSearchServiceApi.md#geosearch) | **GET** /geosearch/v2/locations | Gets LocationList
 *LIAPIGeoTaxServiceApi* | [**GetBatchTaxByAddress**](docs/LIAPIGeoTaxServiceApi.md#getbatchtaxbyaddress) | **POST** /geotax/v1/tax/{taxRateTypeId}/byaddress | Post Tax By Address
 *LIAPIGeoTaxServiceApi* | [**GetBatchTaxByLocation**](docs/LIAPIGeoTaxServiceApi.md#getbatchtaxbylocation) | **POST** /geotax/v1/tax/{taxRateTypeId}/bylocation | Post Tax By Location
 *LIAPIGeoTaxServiceApi* | [**GetBatchTaxRateByAddress**](docs/LIAPIGeoTaxServiceApi.md#getbatchtaxratebyaddress) | **POST** /geotax/v1/taxrate/{taxRateTypeId}/byaddress | Post Taxrate By Address
@@ -224,14 +249,17 @@ Class | Method | HTTP request | Description
  - [Model.Accuracy](docs/Accuracy.md)
  - [Model.Address](docs/Address.md)
  - [Model.AddressBylocation](docs/AddressBylocation.md)
+ - [Model.Age](docs/Age.md)
  - [Model.AgeTheme](docs/AgeTheme.md)
  - [Model.Area](docs/Area.md)
  - [Model.AreaCodeInfo](docs/AreaCodeInfo.md)
+ - [Model.AssetsAndWealthTheme](docs/AssetsAndWealthTheme.md)
  - [Model.AttitudesAndMotivationTheme](docs/AttitudesAndMotivationTheme.md)
  - [Model.AutomobileTheme](docs/AutomobileTheme.md)
  - [Model.BaseFloodElevation](docs/BaseFloodElevation.md)
  - [Model.BasicBoundary](docs/BasicBoundary.md)
  - [Model.BasicBoundaryAddress](docs/BasicBoundaryAddress.md)
+ - [Model.Birthday](docs/Birthday.md)
  - [Model.Boundaries](docs/Boundaries.md)
  - [Model.Boundary](docs/Boundary.md)
  - [Model.BoundaryBuffer](docs/BoundaryBuffer.md)
@@ -246,6 +274,8 @@ Class | Method | HTTP request | Description
  - [Model.CarrierRoutePreference](docs/CarrierRoutePreference.md)
  - [Model.CarrierRouteResponse](docs/CarrierRouteResponse.md)
  - [Model.CarrierRouteResponseList](docs/CarrierRouteResponseList.md)
+ - [Model.Category](docs/Category.md)
+ - [Model.CategoryMetadata](docs/CategoryMetadata.md)
  - [Model.Cbsa](docs/Cbsa.md)
  - [Model.Census](docs/Census.md)
  - [Model.ChannelPreferencesTheme](docs/ChannelPreferencesTheme.md)
@@ -278,6 +308,8 @@ Class | Method | HTTP request | Description
  - [Model.DateTimeEarthQuake](docs/DateTimeEarthQuake.md)
  - [Model.Demographics](docs/Demographics.md)
  - [Model.DemographicsThemes](docs/DemographicsThemes.md)
+ - [Model.DemographicsThemesV2](docs/DemographicsThemesV2.md)
+ - [Model.DemographicsV2](docs/DemographicsV2.md)
  - [Model.Depth](docs/Depth.md)
  - [Model.DeviceStatusNetwork](docs/DeviceStatusNetwork.md)
  - [Model.Dictionary](docs/Dictionary.md)
@@ -289,6 +321,7 @@ Class | Method | HTTP request | Description
  - [Model.DistanceToFloodHazardLocationResponse](docs/DistanceToFloodHazardLocationResponse.md)
  - [Model.DistanceToFloodHazardResponse](docs/DistanceToFloodHazardResponse.md)
  - [Model.DistrictType](docs/DistrictType.md)
+ - [Model.DomesticUltimateBusiness](docs/DomesticUltimateBusiness.md)
  - [Model.EarthquakeEvent](docs/EarthquakeEvent.md)
  - [Model.EarthquakeEventsResponse](docs/EarthquakeEventsResponse.md)
  - [Model.EarthquakeHistory](docs/EarthquakeHistory.md)
@@ -300,10 +333,19 @@ Class | Method | HTTP request | Description
  - [Model.EarthquakeRiskPreferences](docs/EarthquakeRiskPreferences.md)
  - [Model.EarthquakeRiskResponse](docs/EarthquakeRiskResponse.md)
  - [Model.EarthquakeRiskResponseList](docs/EarthquakeRiskResponseList.md)
+ - [Model.Education](docs/Education.md)
+ - [Model.EducationTheme](docs/EducationTheme.md)
  - [Model.EducationalAttainmentTheme](docs/EducationalAttainmentTheme.md)
+ - [Model.Email](docs/Email.md)
+ - [Model.EmployeeCount](docs/EmployeeCount.md)
+ - [Model.Employment](docs/Employment.md)
+ - [Model.EmploymentTheme](docs/EmploymentTheme.md)
+ - [Model.End](docs/End.md)
  - [Model.EthnicityTheme](docs/EthnicityTheme.md)
  - [Model.EventsCount](docs/EventsCount.md)
+ - [Model.ExpenditureTheme](docs/ExpenditureTheme.md)
  - [Model.Field](docs/Field.md)
+ - [Model.FieldV2](docs/FieldV2.md)
  - [Model.FieldsMatching](docs/FieldsMatching.md)
  - [Model.FinancialProductsTheme](docs/FinancialProductsTheme.md)
  - [Model.FireDepartment](docs/FireDepartment.md)
@@ -333,6 +375,9 @@ Class | Method | HTTP request | Description
  - [Model.FloodRiskResponseList](docs/FloodRiskResponseList.md)
  - [Model.FloodZone](docs/FloodZone.md)
  - [Model.GenderTheme](docs/GenderTheme.md)
+ - [Model.GeoIdentityName](docs/GeoIdentityName.md)
+ - [Model.GeoIdentityPlace](docs/GeoIdentityPlace.md)
+ - [Model.GeoIdentityResponse](docs/GeoIdentityResponse.md)
  - [Model.GeoLocationAccessPoint](docs/GeoLocationAccessPoint.md)
  - [Model.GeoLocationCountry](docs/GeoLocationCountry.md)
  - [Model.GeoLocationDeviceSatus](docs/GeoLocationDeviceSatus.md)
@@ -341,6 +386,7 @@ Class | Method | HTTP request | Description
  - [Model.GeoLocationIpAddr](docs/GeoLocationIpAddr.md)
  - [Model.GeoLocationPlace](docs/GeoLocationPlace.md)
  - [Model.GeoLocationState](docs/GeoLocationState.md)
+ - [Model.GeoPlaceMetadataResponse](docs/GeoPlaceMetadataResponse.md)
  - [Model.GeoPos](docs/GeoPos.md)
  - [Model.GeoPostGeometry](docs/GeoPostGeometry.md)
  - [Model.GeoPropertyAddressRequest](docs/GeoPropertyAddressRequest.md)
@@ -365,20 +411,33 @@ Class | Method | HTTP request | Description
  - [Model.GeocodeServiceResponse](docs/GeocodeServiceResponse.md)
  - [Model.GeocodeServiceResponseList](docs/GeocodeServiceResponseList.md)
  - [Model.Geometry](docs/Geometry.md)
+ - [Model.GeoplacesResponse](docs/GeoplacesResponse.md)
  - [Model.GeosearchLocation](docs/GeosearchLocation.md)
  - [Model.GeosearchLocations](docs/GeosearchLocations.md)
+ - [Model.GlobalUltimateBusiness](docs/GlobalUltimateBusiness.md)
  - [Model.Grid](docs/Grid.md)
+ - [Model.HealthTheme](docs/HealthTheme.md)
+ - [Model.HouseholdFinance](docs/HouseholdFinance.md)
  - [Model.HouseholdSizeTheme](docs/HouseholdSizeTheme.md)
+ - [Model.HouseholdsTheme](docs/HouseholdsTheme.md)
+ - [Model.HousingTheme](docs/HousingTheme.md)
  - [Model.IPDTaxByAddressBatchRequest](docs/IPDTaxByAddressBatchRequest.md)
  - [Model.IPDTaxJurisdiction](docs/IPDTaxJurisdiction.md)
+ - [Model.Identity](docs/Identity.md)
+ - [Model.IdentityDetail](docs/IdentityDetail.md)
  - [Model.IncomeTheme](docs/IncomeTheme.md)
+ - [Model.IncomeThemeV2](docs/IncomeThemeV2.md)
  - [Model.IndexVariable](docs/IndexVariable.md)
  - [Model.IndividualValueVariable](docs/IndividualValueVariable.md)
+ - [Model.IndividualValueVariableV2](docs/IndividualValueVariableV2.md)
  - [Model.InputParameter](docs/InputParameter.md)
+ - [Model.Interest](docs/Interest.md)
  - [Model.IpInfo](docs/IpInfo.md)
  - [Model.Ipd](docs/Ipd.md)
  - [Model.LatLongFields](docs/LatLongFields.md)
  - [Model.LifeStyleTheme](docs/LifeStyleTheme.md)
+ - [Model.Lifestyle](docs/Lifestyle.md)
+ - [Model.Location](docs/Location.md)
  - [Model.Locations](docs/Locations.md)
  - [Model.Magnitude](docs/Magnitude.md)
  - [Model.MaritalStatusTheme](docs/MaritalStatusTheme.md)
@@ -387,6 +446,7 @@ Class | Method | HTTP request | Description
  - [Model.Matrix](docs/Matrix.md)
  - [Model.Mcd](docs/Mcd.md)
  - [Model.Name](docs/Name.md)
+ - [Model.Neighborhood](docs/Neighborhood.md)
  - [Model.Network](docs/Network.md)
  - [Model.Operation](docs/Operation.md)
  - [Model.OrganizationType](docs/OrganizationType.md)
@@ -394,8 +454,11 @@ Class | Method | HTTP request | Description
  - [Model.PBKeyAddressRequest](docs/PBKeyAddressRequest.md)
  - [Model.PBKeyResponse](docs/PBKeyResponse.md)
  - [Model.PBKeyResponseList](docs/PBKeyResponseList.md)
+ - [Model.POIPlaces](docs/POIPlaces.md)
  - [Model.PSAPResponse](docs/PSAPResponse.md)
+ - [Model.ParentBusiness](docs/ParentBusiness.md)
  - [Model.PbKey](docs/PbKey.md)
+ - [Model.Photo](docs/Photo.md)
  - [Model.Place](docs/Place.md)
  - [Model.PlaceByLocations](docs/PlaceByLocations.md)
  - [Model.PlaceByLocationsLocation](docs/PlaceByLocationsLocation.md)
@@ -403,16 +466,23 @@ Class | Method | HTTP request | Description
  - [Model.PlaceLocationName](docs/PlaceLocationName.md)
  - [Model.Poi](docs/Poi.md)
  - [Model.PoiByLocation](docs/PoiByLocation.md)
+ - [Model.PoiClassification](docs/PoiClassification.md)
+ - [Model.PoiContactDetails](docs/PoiContactDetails.md)
  - [Model.PoiLocation](docs/PoiLocation.md)
  - [Model.Points](docs/Points.md)
  - [Model.PolygonGeometry](docs/PolygonGeometry.md)
+ - [Model.PopulationTheme](docs/PopulationTheme.md)
  - [Model.Preferences](docs/Preferences.md)
  - [Model.PrimaryZone](docs/PrimaryZone.md)
+ - [Model.Profile](docs/Profile.md)
  - [Model.Properties](docs/Properties.md)
+ - [Model.Property](docs/Property.md)
  - [Model.Proxy](docs/Proxy.md)
  - [Model.PurchasingBehaviorTheme](docs/PurchasingBehaviorTheme.md)
+ - [Model.RaceAndEthnicityTheme](docs/RaceAndEthnicityTheme.md)
  - [Model.RaceTheme](docs/RaceTheme.md)
  - [Model.RangeVariable](docs/RangeVariable.md)
+ - [Model.RangeVariableV2](docs/RangeVariableV2.md)
  - [Model.Rate](docs/Rate.md)
  - [Model.RateCenterResponse](docs/RateCenterResponse.md)
  - [Model.ReturnFieldsDescriptor](docs/ReturnFieldsDescriptor.md)
@@ -426,15 +496,20 @@ Class | Method | HTTP request | Description
  - [Model.RouteGeometry](docs/RouteGeometry.md)
  - [Model.SalesTax](docs/SalesTax.md)
  - [Model.SalesTaxRate](docs/SalesTaxRate.md)
+ - [Model.SalesVolume](docs/SalesVolume.md)
  - [Model.Segmentation](docs/Segmentation.md)
  - [Model.SegmentationThemes](docs/SegmentationThemes.md)
  - [Model.ShoreLineDistance](docs/ShoreLineDistance.md)
+ - [Model.Sic](docs/Sic.md)
+ - [Model.SicMetadata](docs/SicMetadata.md)
  - [Model.SiteDetails](docs/SiteDetails.md)
  - [Model.SpecialPurposeDistrict](docs/SpecialPurposeDistrict.md)
  - [Model.SpecialPurposeDistrictTax](docs/SpecialPurposeDistrictTax.md)
  - [Model.SpecialPurposeDistrictTaxRate](docs/SpecialPurposeDistrictTaxRate.md)
+ - [Model.Start](docs/Start.md)
  - [Model.StartEndPoint](docs/StartEndPoint.md)
  - [Model.Status](docs/Status.md)
+ - [Model.SupplyAndDemandTheme](docs/SupplyAndDemandTheme.md)
  - [Model.SupportLevel](docs/SupportLevel.md)
  - [Model.TaxAddress](docs/TaxAddress.md)
  - [Model.TaxAddressRequest](docs/TaxAddressRequest.md)
@@ -462,10 +537,12 @@ Class | Method | HTTP request | Description
  - [Model.Time](docs/Time.md)
  - [Model.Timezone](docs/Timezone.md)
  - [Model.TimezoneLocation](docs/TimezoneLocation.md)
+ - [Model.Topic](docs/Topic.md)
  - [Model.TravelBoundaries](docs/TravelBoundaries.md)
  - [Model.TravelBoundary](docs/TravelBoundary.md)
  - [Model.TravelCostMatrixResponse](docs/TravelCostMatrixResponse.md)
  - [Model.Type](docs/Type.md)
+ - [Model.Url](docs/Url.md)
  - [Model.UseTax](docs/UseTax.md)
  - [Model.UseTaxRate](docs/UseTaxRate.md)
  - [Model.WaterBody](docs/WaterBody.md)
