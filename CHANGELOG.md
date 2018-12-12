@@ -1,3 +1,16 @@
+## 6.0.0 -2018-12-12
+-	GeoPlaces API
+	- New API for searching Points of Interest 
+	- Powered by elastic search, enables search for POIs by SIC codes, Free text search with fuzzy support, MI Codes and by well-              known categories like, restaurants, hotels, ATMs, parks etc.
+	- Also supports download of POIs to a csv file
+-	Geocode API
+	- Added ‘Advanced’ method with TomTom data only. This method sits in between existing ‘Premium’ and ‘Basic’ geocode offerings.
+-   GeoLife API 
+	- Added PB Key methods for Demographics & Segmentation End points
+-	GeoTime API 
+	- Added support for match mode and enhanced API response to include Zone Type.
+-   GeoIdentity 
+	- New Endpoint ‘Identity by Email’ added
 ## 4.6.0 - 2018-05-03
 ## 3.7.0 - 2017-09-28
 - Location by IP Address
