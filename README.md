@@ -38,7 +38,7 @@
 
 * [GeoIdentity](http://locate.pitneybowes.com/geoidentity): GeoIdentity. Powerful, local socio-economic & affinity insights about your customer. Enrich billing and/or shipping addresses with rich localized Identity profiles, demographics, lifestyle segmentations, neighborhood names, property ownership & values, and social affinity insights. The GeoIdentity API returns all these data with the input of an Address or pbKeyTM. Useful for enhancing & enriching any Retail or Commerce application, business process, or workflow.
 
-* [GeoPlaces](http://locate.pitneybowes.com/geoplaces): Returns the Point-Of-Interests along with their details near a location/address. Refine your search by sepcifying name, type of the place, category code, sic code, search radius, travel time/distance.
+
 
 The following platforms are supported by Location Intelligence SDKs:
 *	[Android](https://github.com/PitneyBowes/LocationIntelligenceSDK-Android)
@@ -158,9 +158,11 @@ Class | Method | HTTP request | Description
 *LIAPIGeo911ServiceApi* | [**GetPSAPByLocation**](docs/LIAPIGeo911ServiceApi.md#getpsapbylocation) | **GET** /geo911/v1/psap/bylocation | PSAP By Location.
 *LIAPIGeoCommServiceApi* | [**GetRateCenterByAddress**](docs/LIAPIGeoCommServiceApi.md#getratecenterbyaddress) | **GET** /geocomm/v1/ratecenter/byaddress | Rate Center By Address.
 *LIAPIGeoCommServiceApi* | [**GetRateCenterByLocation**](docs/LIAPIGeoCommServiceApi.md#getratecenterbylocation) | **GET** /geocomm/v1/ratecenter/bylocation | Rate Center By Location.
-*LIAPIGeoEnrichServiceApi* | [**GetAddress**](docs/LIAPIGeoEnrichServiceApi.md#getaddress) | **GET** /geoenrich/v1/address/bylocation | Address By Location.
-*LIAPIGeoEnrichServiceApi* | [**GetEntityByLocation**](docs/LIAPIGeoEnrichServiceApi.md#getentitybylocation) | **GET** /geoenrich/v1/poi/bylocation | Points Of Interest By Location.
+*LIAPIGeoEnrichServiceApi* | [**GetCategoryCodeMetadata**](docs/LIAPIGeoEnrichServiceApi.md#getcategorycodemetadata) | **GET** /geoenrich/v1/metadata/category | Returns Category Codes with their sub-categories (if exist), descriptions and SIC Codes mapping
+*LIAPIGeoEnrichServiceApi* | [**GetPOIsByAddress**](docs/LIAPIGeoEnrichServiceApi.md#getpoisbyaddress) | **GET** /geoenrich/v1/poi/byaddress | Point of Interests By Address.
+*LIAPIGeoEnrichServiceApi* | [**GetPOIsByLocation**](docs/LIAPIGeoEnrichServiceApi.md#getpoisbylocation) | **GET** /geoenrich/v1/poi/bylocation | Point of Interests By Location.
 *LIAPIGeoEnrichServiceApi* | [**GetPlaceByLocation**](docs/LIAPIGeoEnrichServiceApi.md#getplacebylocation) | **GET** /geoenrich/v1/place/bylocation | Place By Location.
+*LIAPIGeoEnrichServiceApi* | [**GetSICMetadata**](docs/LIAPIGeoEnrichServiceApi.md#getsicmetadata) | **GET** /geoenrich/v1/metadata/sic | Returns SIC Codes with their Industry Titles and Category Codes mapping
 *LIAPIGeoIdentityServiceApi* | [**GetIdentityByAddress**](docs/LIAPIGeoIdentityServiceApi.md#getidentitybyaddress) | **GET** /geoidentity/v1/identity/byaddress | Gets GeoIdentityResponse
 *LIAPIGeoIdentityServiceApi* | [**GetIdentityByEmail**](docs/LIAPIGeoIdentityServiceApi.md#getidentitybyemail) | **GET** /geoidentity/v1/identity/byemail | Gets Identity
 *LIAPIGeoIdentityServiceApi* | [**GetIdentityByPBKey**](docs/LIAPIGeoIdentityServiceApi.md#getidentitybypbkey) | **GET** /geoidentity/v1/identity/bypbkey | Gets GeoIdentityResponse
@@ -174,10 +176,6 @@ Class | Method | HTTP request | Description
 *LIAPIGeoLocationServiceApi* | [**GetLocationByFixedLine**](docs/LIAPIGeoLocationServiceApi.md#getlocationbyfixedline) | **GET** /geolocation/v1/location/byfixedline | Location By Fixed Line Network.
 *LIAPIGeoLocationServiceApi* | [**GetLocationByIPAddress**](docs/LIAPIGeoLocationServiceApi.md#getlocationbyipaddress) | **GET** /geolocation/v1/location/byipaddress | Location By IP Address.
 *LIAPIGeoLocationServiceApi* | [**GetLocationByWiFiAccessPoint**](docs/LIAPIGeoLocationServiceApi.md#getlocationbywifiaccesspoint) | **GET** /geolocation/v1/location/byaccesspoint | Location by WiFi Access Point.
-*LIAPIGeoPlacesServiceApi* | [**GetCategoryCodeMetadata**](docs/LIAPIGeoPlacesServiceApi.md#getcategorycodemetadata) | **GET** /geoplaces/v1/metadata/category | Returns Category Codes with their sub-categories (if exist), descriptions and SIC Codes mapping
-*LIAPIGeoPlacesServiceApi* | [**GetPOIsByAddress**](docs/LIAPIGeoPlacesServiceApi.md#getpoisbyaddress) | **GET** /geoplaces/v1/poi/byaddress | Point of Interests By Address.
-*LIAPIGeoPlacesServiceApi* | [**GetPOIsByLocation**](docs/LIAPIGeoPlacesServiceApi.md#getpoisbylocation) | **GET** /geoplaces/v1/poi/bylocation | Point of Interests By Location.
-*LIAPIGeoPlacesServiceApi* | [**GetSICMetadata**](docs/LIAPIGeoPlacesServiceApi.md#getsicmetadata) | **GET** /geoplaces/v1/metadata/sic | Returns SIC Codes with their Industry Titles and Category Codes mapping
 *LIAPIGeoPostServiceApi* | [**GetCarrierRoutesByAddress**](docs/LIAPIGeoPostServiceApi.md#getcarrierroutesbyaddress) | **GET** /geopost/v1/carrierroute/byaddress | Carrier Route By Address.
 *LIAPIGeoPostServiceApi* | [**GetCarrierRoutesByAddressBatch**](docs/LIAPIGeoPostServiceApi.md#getcarrierroutesbyaddressbatch) | **POST** /geopost/v1/carrierroute/byaddress | Gets GeoPost Carrier Routes for Multiple Addresses
 *LIAPIGeoPropertyServiceApi* | [**GetGeoPropertyByAddress**](docs/LIAPIGeoPropertyServiceApi.md#getgeopropertybyaddress) | **GET** /geoproperty/v1/all/attributes/byaddress | Gets GeoPropertyResponse
@@ -248,7 +246,6 @@ Class | Method | HTTP request | Description
  - [Model.AHJmailingAddress](docs/AHJmailingAddress.md)
  - [Model.Accuracy](docs/Accuracy.md)
  - [Model.Address](docs/Address.md)
- - [Model.AddressBylocation](docs/AddressBylocation.md)
  - [Model.Age](docs/Age.md)
  - [Model.AgeTheme](docs/AgeTheme.md)
  - [Model.Area](docs/Area.md)
@@ -285,7 +282,6 @@ Class | Method | HTTP request | Description
  - [Model.Community](docs/Community.md)
  - [Model.CommuterPatternsTheme](docs/CommuterPatternsTheme.md)
  - [Model.ConfiguredDictionaryResponse](docs/ConfiguredDictionaryResponse.md)
- - [Model.ContactDetails](docs/ContactDetails.md)
  - [Model.ContactPerson](docs/ContactPerson.md)
  - [Model.Cost](docs/Cost.md)
  - [Model.Costs](docs/Costs.md)
@@ -306,7 +302,6 @@ Class | Method | HTTP request | Description
  - [Model.CustomObjectMember](docs/CustomObjectMember.md)
  - [Model.CustomPreferences](docs/CustomPreferences.md)
  - [Model.DateTimeEarthQuake](docs/DateTimeEarthQuake.md)
- - [Model.Demographics](docs/Demographics.md)
  - [Model.DemographicsThemes](docs/DemographicsThemes.md)
  - [Model.DemographicsThemesV2](docs/DemographicsThemesV2.md)
  - [Model.DemographicsV2](docs/DemographicsV2.md)
@@ -375,6 +370,8 @@ Class | Method | HTTP request | Description
  - [Model.FloodRiskResponseList](docs/FloodRiskResponseList.md)
  - [Model.FloodZone](docs/FloodZone.md)
  - [Model.GenderTheme](docs/GenderTheme.md)
+ - [Model.GeoEnrichMetadataResponse](docs/GeoEnrichMetadataResponse.md)
+ - [Model.GeoEnrichResponse](docs/GeoEnrichResponse.md)
  - [Model.GeoIdentityName](docs/GeoIdentityName.md)
  - [Model.GeoIdentityPlace](docs/GeoIdentityPlace.md)
  - [Model.GeoIdentityResponse](docs/GeoIdentityResponse.md)
@@ -386,7 +383,6 @@ Class | Method | HTTP request | Description
  - [Model.GeoLocationIpAddr](docs/GeoLocationIpAddr.md)
  - [Model.GeoLocationPlace](docs/GeoLocationPlace.md)
  - [Model.GeoLocationState](docs/GeoLocationState.md)
- - [Model.GeoPlaceMetadataResponse](docs/GeoPlaceMetadataResponse.md)
  - [Model.GeoPos](docs/GeoPos.md)
  - [Model.GeoPostGeometry](docs/GeoPostGeometry.md)
  - [Model.GeoPropertyAddressRequest](docs/GeoPropertyAddressRequest.md)
@@ -411,7 +407,6 @@ Class | Method | HTTP request | Description
  - [Model.GeocodeServiceResponse](docs/GeocodeServiceResponse.md)
  - [Model.GeocodeServiceResponseList](docs/GeocodeServiceResponseList.md)
  - [Model.Geometry](docs/Geometry.md)
- - [Model.GeoplacesResponse](docs/GeoplacesResponse.md)
  - [Model.GeosearchLocation](docs/GeosearchLocation.md)
  - [Model.GeosearchLocations](docs/GeosearchLocations.md)
  - [Model.GlobalUltimateBusiness](docs/GlobalUltimateBusiness.md)
@@ -438,14 +433,12 @@ Class | Method | HTTP request | Description
  - [Model.LifeStyleTheme](docs/LifeStyleTheme.md)
  - [Model.Lifestyle](docs/Lifestyle.md)
  - [Model.Location](docs/Location.md)
- - [Model.Locations](docs/Locations.md)
  - [Model.Magnitude](docs/Magnitude.md)
  - [Model.MaritalStatusTheme](docs/MaritalStatusTheme.md)
  - [Model.Match](docs/Match.md)
  - [Model.MatchedAddress](docs/MatchedAddress.md)
  - [Model.Matrix](docs/Matrix.md)
  - [Model.Mcd](docs/Mcd.md)
- - [Model.Name](docs/Name.md)
  - [Model.Neighborhood](docs/Neighborhood.md)
  - [Model.Network](docs/Network.md)
  - [Model.Operation](docs/Operation.md)
@@ -459,16 +452,12 @@ Class | Method | HTTP request | Description
  - [Model.ParentBusiness](docs/ParentBusiness.md)
  - [Model.PbKey](docs/PbKey.md)
  - [Model.Photo](docs/Photo.md)
- - [Model.Place](docs/Place.md)
  - [Model.PlaceByLocations](docs/PlaceByLocations.md)
  - [Model.PlaceByLocationsLocation](docs/PlaceByLocationsLocation.md)
  - [Model.PlaceLocation](docs/PlaceLocation.md)
  - [Model.PlaceLocationName](docs/PlaceLocationName.md)
- - [Model.Poi](docs/Poi.md)
- - [Model.PoiByLocation](docs/PoiByLocation.md)
  - [Model.PoiClassification](docs/PoiClassification.md)
  - [Model.PoiContactDetails](docs/PoiContactDetails.md)
- - [Model.PoiLocation](docs/PoiLocation.md)
  - [Model.Points](docs/Points.md)
  - [Model.PolygonGeometry](docs/PolygonGeometry.md)
  - [Model.PopulationTheme](docs/PopulationTheme.md)
@@ -548,4 +537,3 @@ Class | Method | HTTP request | Description
  - [Model.WaterBody](docs/WaterBody.md)
  - [Model.WaterBodyLocationResponse](docs/WaterBodyLocationResponse.md)
  - [Model.WaterBodyResponse](docs/WaterBodyResponse.md)
-
