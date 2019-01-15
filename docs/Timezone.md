@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TimezoneName** | **string** |  | [optional] 
+**ZoneType** | **string** |  | [optional] 
 **UtcOffset** | **long?** |  | [optional] 
 **DstOffset** | **long?** |  | [optional] 
 **Timestamp** | **long?** |  | [optional] 

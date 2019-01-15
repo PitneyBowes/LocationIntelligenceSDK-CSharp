@@ -401,6 +401,10 @@ namespace Example
         public void main()
         {
             
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
             var apiInstance = new LIAPIGeoRiskServiceApi();
             var body = new DistanceToFloodHazardAddressRequest(); // DistanceToFloodHazardAddressRequest |  (optional) 
 
@@ -431,7 +435,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oAuth2Password](../README.md#oAuth2Password)
 
 ### HTTP request headers
 
@@ -539,6 +543,10 @@ namespace Example
         public void main()
         {
             
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
             var apiInstance = new LIAPIGeoRiskServiceApi();
             var body = new DistanceToFloodHazardLocationRequest(); // DistanceToFloodHazardLocationRequest |  (optional) 
 
@@ -569,7 +577,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oAuth2Password](../README.md#oAuth2Password)
 
 ### HTTP request headers
 

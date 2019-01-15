@@ -47,7 +47,7 @@ namespace Example
             var placeName = placeName_example;  // string | Building name, place name, Point of Interest (POI), company or firm name associated with the input address. (optional) 
             var mainAddress = mainAddress_example;  // string | Single line input, treated as collection of field elements. (optional)  (default to 4750 Walnut St., Boulder CO, 80301)
             var lastLine = lastLine_example;  // string | The last line of the address. (optional) 
-            var areaName1 = areaName1_example;  // string | Specifies the largest geographic area, typically a state or province. (optional) 
+            var areaName1 = areaName1_example;  // string | Specifies the largest geographical area, typically a state or province. (optional) 
             var areaName2 = areaName2_example;  // string | Specifies the secondary geographic area, typically a county or district. (optional) 
             var areaName3 = areaName3_example;  // string | Specifies a city or town name. (optional) 
             var areaName4 = areaName4_example;  // string | Specifies a city subdivision or locality. (optional) 
@@ -55,7 +55,7 @@ namespace Example
             var matchMode = matchMode_example;  // string | Match modes determine the leniency used to make a match between the input address and the reference data. (optional)  (default to Standard)
             var fallbackGeo = true;  // bool? | Specifies whether to attempt to determine a geographic region centroid when an address-level geocode cannot be determined. (optional)  (default to true)
             var fallbackPostal = true;  // bool? | Specifies whether to attempt to determine a post code centroid when an address-level geocode cannot be determined. (optional)  (default to true)
-            var maxCands = 56;  // int? | The maximum number of candidates to return. Must be an integer value. (optional)  (default to 1)
+            var maxCands = 56;  // int? | The maximum number of candidates to return. (optional)  (default to 1)
             var streetOffset = 56;  // int? | Indicates the offset distance from the street segments to use in street-level geocoding. (optional)  (default to 7)
             var streetOffsetUnits = streetOffsetUnits_example;  // string | Specifies the unit of measurement for the street offset. (optional)  (default to METERS)
             var cornerOffset = 56;  // int? | Specifies the distance to offset the street end points in street-level matching. (optional)  (default to 7)
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
  **placeName** | **string**| Building name, place name, Point of Interest (POI), company or firm name associated with the input address. | [optional] 
  **mainAddress** | **string**| Single line input, treated as collection of field elements. | [optional] [default to 4750 Walnut St., Boulder CO, 80301]
  **lastLine** | **string**| The last line of the address. | [optional] 
- **areaName1** | **string**| Specifies the largest geographic area, typically a state or province. | [optional] 
+ **areaName1** | **string**| Specifies the largest geographical area, typically a state or province. | [optional] 
  **areaName2** | **string**| Specifies the secondary geographic area, typically a county or district. | [optional] 
  **areaName3** | **string**| Specifies a city or town name. | [optional] 
  **areaName4** | **string**| Specifies a city subdivision or locality. | [optional] 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
  **matchMode** | **string**| Match modes determine the leniency used to make a match between the input address and the reference data. | [optional] [default to Standard]
  **fallbackGeo** | **bool?**| Specifies whether to attempt to determine a geographic region centroid when an address-level geocode cannot be determined. | [optional] [default to true]
  **fallbackPostal** | **bool?**| Specifies whether to attempt to determine a post code centroid when an address-level geocode cannot be determined. | [optional] [default to true]
- **maxCands** | **int?**| The maximum number of candidates to return. Must be an integer value. | [optional] [default to 1]
+ **maxCands** | **int?**| The maximum number of candidates to return. | [optional] [default to 1]
  **streetOffset** | **int?**| Indicates the offset distance from the street segments to use in street-level geocoding. | [optional] [default to 7]
  **streetOffsetUnits** | **string**| Specifies the unit of measurement for the street offset. | [optional] [default to METERS]
  **cornerOffset** | **int?**| Specifies the distance to offset the street end points in street-level matching. | [optional] [default to 7]
@@ -481,7 +481,7 @@ namespace Example
 
             var apiInstance = new LIAPIGeocodeServiceApi();
             var datapackBundle = datapackBundle_example;  // string | value of datapackBundle
-            var body = new ReverseGeocodeRequest(); // ReverseGeocodeRequest | Reverse Geocode Request object (optional) 
+            var body = new ReverseGeocodeRequest(); // ReverseGeocodeRequest | Request for Reverse Geocode (optional) 
 
             try
             {
@@ -503,7 +503,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **datapackBundle** | **string**| value of datapackBundle | 
- **body** | [**ReverseGeocodeRequest**](ReverseGeocodeRequest.md)| Reverse Geocode Request object | [optional] 
+ **body** | [**ReverseGeocodeRequest**](ReverseGeocodeRequest.md)| Request for Reverse Geocode | [optional] 
 
 ### Return type
 
@@ -552,9 +552,9 @@ namespace Example
             var x = 3.4;  // decimal? | Longitude of the location. (default to -105.240976)
             var y = 3.4;  // decimal? | Latitude of the location. (default to 40.018301)
             var country = country_example;  // string | Country name or ISO code. (optional) 
-            var coordSysName = coordSysName_example;  // string | Coordinate system to convert geometry in format codespace:code. (optional)  (default to EPSG:4326)
+            var coordSysName = coordSysName_example;  // string | Coordinate system to convert geometry to in format codespace:code. (optional)  (default to EPSG:4326)
             var distance = 56;  // int? | Radius in which search is performed. (optional)  (default to 150)
-            var distanceUnits = distanceUnits_example;  // string | Unit of measurement for the search distance. (optional)  (default to METERS)
+            var distanceUnits = distanceUnits_example;  // string | Unit of measurement. (optional)  (default to METERS)
 
             try
             {
@@ -579,9 +579,9 @@ Name | Type | Description  | Notes
  **x** | **decimal?**| Longitude of the location. | [default to -105.240976]
  **y** | **decimal?**| Latitude of the location. | [default to 40.018301]
  **country** | **string**| Country name or ISO code. | [optional] 
- **coordSysName** | **string**| Coordinate system to convert geometry in format codespace:code. | [optional] [default to EPSG:4326]
+ **coordSysName** | **string**| Coordinate system to convert geometry to in format codespace:code. | [optional] [default to EPSG:4326]
  **distance** | **int?**| Radius in which search is performed. | [optional] [default to 150]
- **distanceUnits** | **string**| Unit of measurement for the search distance. | [optional] [default to METERS]
+ **distanceUnits** | **string**| Unit of measurement. | [optional] [default to METERS]
 
 ### Return type
 

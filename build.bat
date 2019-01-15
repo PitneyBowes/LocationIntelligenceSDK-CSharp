@@ -17,7 +17,7 @@
 SET CSCPATH=%SYSTEMROOT%\Microsoft.NET\Framework\v4.0.30319
 
 
-if not exist ".\nuget.exe" powershell -Command "(new-object System.Net.WebClient).DownloadFile('https://nuget.org/nuget.exe', '.\nuget.exe')"
+if not exist ".\nuget.exe" powershell -Command "(new-object System.Net.WebClient).DownloadFile('https://dist.nuget.org/win-x86-commandline/v3.3.0/nuget.exe', '.\nuget.exe')"
 .\nuget.exe install src\pb.locationIntelligence\packages.config -o packages
 
 if not exist ".\bin" mkdir bin
@@ -25,10 +25,10 @@ if not exist ".\bin" mkdir bin
 copy packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll bin\Newtonsoft.Json.dll
 copy packages\RestSharp.105.1.0\lib\net45\RestSharp.dll bin\RestSharp.dll
 copy packages\ILMerge.2.14.1208\tools\ILMerge.exe bin\ILMerge.exe
-%CSCPATH%\csc /reference:bin\Newtonsoft.Json.dll;bin\RestSharp.dll /target:library /out:bin\LocationIntelligenceCSharpSDK-4.6.0.dll /recurse:src\pb.locationIntelligence\*.cs /doc:bin\pb.locationIntelligence.xml
+%CSCPATH%\csc /reference:bin\Newtonsoft.Json.dll;bin\RestSharp.dll /target:library /out:bin\LocationIntelligenceCSharpSDK-6.0.0.dll /recurse:src\pb.locationIntelligence\*.cs /doc:bin\pb.locationIntelligence.xml
 cd bin
 mkdir comb
-ilmerge /out:comb/LocationIntelligenceCSharpSDK-4.6.0.dll Newtonsoft.Json.dll RestSharp.dll LocationIntelligenceCSharpSDK-4.6.0.dll
+ilmerge /out:comb/LocationIntelligenceCSharpSDK-6.0.0.dll Newtonsoft.Json.dll RestSharp.dll LocationIntelligenceCSharpSDK-6.0.0.dll
 
 
 

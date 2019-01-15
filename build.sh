@@ -44,5 +44,5 @@ then
   echo "[ERROR] Compilation failed with exit code $?"
   exit 1
 else
-  echo "[INFO] bin/LocationIntelligenceCSharpSDK-4.6.0.dll was created successfully"
+  echo "[INFO] bin/LocationIntelligenceCSharpSDK-6.0.0.dll was created successfully"
 fi

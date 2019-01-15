@@ -4,12 +4,12 @@ All URIs are relative to *https://api.pitneybowes.com/location-intelligence*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GeoSearch**](LIAPIGeoSearchServiceApi.md#geosearch) | **GET** /geosearch/v1/locations | Gets LocationList
+[**GeoSearch**](LIAPIGeoSearchServiceApi.md#geosearch) | **GET** /geosearch/v2/locations | Gets LocationList
 
 
 <a name="geosearch"></a>
 # **GeoSearch**
-> GeosearchLocations GeoSearch (string searchText, string latitude = null, string longitude = null, string searchRadius = null, string searchRadiusUnit = null, string maxCandidates = null, string country = null, string matchOnAddressNumber = null, string autoDetectLocation = null, string ipAddress = null, string areaName1 = null, string areaName3 = null, string postCode = null)
+> GeosearchLocations GeoSearch (string searchText, string latitude = null, string longitude = null, string searchRadius = null, string searchRadiusUnit = null, string maxCandidates = null, string country = null, string matchOnAddressNumber = null, string autoDetectLocation = null, string ipAddress = null, string areaName1 = null, string areaName3 = null, string postCode = null, string returnAdminAreasOnly = null, string includeRangesDetails = null, string searchType = null)
 
 Gets LocationList
 
@@ -48,11 +48,14 @@ namespace Example
             var areaName1 = areaName1_example;  // string | State province of the input to be searched (optional) 
             var areaName3 = areaName3_example;  // string | City of the input to be searched (optional) 
             var postCode = postCode_example;  // string | Postal Code of the input to be searched (optional) 
+            var returnAdminAreasOnly = returnAdminAreasOnly_example;  // string | if value set 'Y' then it will only do a matching on postcode or areaName1, areaName2, areaName3 and areaName4 fields in the data (optional)  (default to N)
+            var includeRangesDetails = includeRangesDetails_example;  // string | if value set 'Y' then display all unit info of ranges, if value set 'N' then don't show ranges (optional)  (default to Y)
+            var searchType = searchType_example;  // string | Preference to control search type of interactive requests. (optional)  (default to ADDRESS)
 
             try
             {
                 // Gets LocationList
-                GeosearchLocations result = apiInstance.GeoSearch(searchText, latitude, longitude, searchRadius, searchRadiusUnit, maxCandidates, country, matchOnAddressNumber, autoDetectLocation, ipAddress, areaName1, areaName3, postCode);
+                GeosearchLocations result = apiInstance.GeoSearch(searchText, latitude, longitude, searchRadius, searchRadiusUnit, maxCandidates, country, matchOnAddressNumber, autoDetectLocation, ipAddress, areaName1, areaName3, postCode, returnAdminAreasOnly, includeRangesDetails, searchType);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -81,6 +84,9 @@ Name | Type | Description  | Notes
  **areaName1** | **string**| State province of the input to be searched | [optional] 
  **areaName3** | **string**| City of the input to be searched | [optional] 
  **postCode** | **string**| Postal Code of the input to be searched | [optional] 
+ **returnAdminAreasOnly** | **string**| if value set &#39;Y&#39; then it will only do a matching on postcode or areaName1, areaName2, areaName3 and areaName4 fields in the data | [optional] [default to N]
+ **includeRangesDetails** | **string**| if value set &#39;Y&#39; then display all unit info of ranges, if value set &#39;N&#39; then don&#39;t show ranges | [optional] [default to Y]
+ **searchType** | **string**| Preference to control search type of interactive requests. | [optional] [default to ADDRESS]
 
 ### Return type
 

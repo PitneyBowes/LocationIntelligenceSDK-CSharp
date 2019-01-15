@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 <a name="gettimezonebyaddress"></a>
 # **GetTimezoneByAddress**
-> Timezone GetTimezoneByAddress (string timestamp, string address)
+> Timezone GetTimezoneByAddress (string timestamp, string address, string matchMode = null, string country = null)
 
 Timezone By Address.
 
@@ -38,11 +38,13 @@ namespace Example
             var apiInstance = new LIAPIGeoTimeServiceApi();
             var timestamp = timestamp_example;  // string | Timestamp in miliseconds.
             var address = address_example;  // string | The address to be searched.
+            var matchMode = matchMode_example;  // string | Match modes determine the leniency used to make a match between the input address and the reference data. (optional)  (default to Relaxed)
+            var country = country_example;  // string | Country ISO code. (optional)  (default to USA)
 
             try
             {
                 // Timezone By Address.
-                Timezone result = apiInstance.GetTimezoneByAddress(timestamp, address);
+                Timezone result = apiInstance.GetTimezoneByAddress(timestamp, address, matchMode, country);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -60,6 +62,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **timestamp** | **string**| Timestamp in miliseconds. | 
  **address** | **string**| The address to be searched. | 
+ **matchMode** | **string**| Match modes determine the leniency used to make a match between the input address and the reference data. | [optional] [default to Relaxed]
+ **country** | **string**| Country ISO code. | [optional] [default to USA]
 
 ### Return type
 

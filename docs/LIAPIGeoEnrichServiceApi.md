@@ -4,18 +4,20 @@ All URIs are relative to *https://api.pitneybowes.com/location-intelligence*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetAddress**](LIAPIGeoEnrichServiceApi.md#getaddress) | **GET** /geoenrich/v1/address/bylocation | Address By Location.
-[**GetEntityByLocation**](LIAPIGeoEnrichServiceApi.md#getentitybylocation) | **GET** /geoenrich/v1/poi/bylocation | Points Of Interest By Location.
+[**GetCategoryCodeMetadata**](LIAPIGeoEnrichServiceApi.md#getcategorycodemetadata) | **GET** /geoenrich/v1/metadata/category | Returns Category Codes with their sub-categories (if exist), descriptions and SIC Codes mapping
+[**GetPOIsByAddress**](LIAPIGeoEnrichServiceApi.md#getpoisbyaddress) | **GET** /geoenrich/v1/poi/byaddress | Point of Interests By Address.
+[**GetPOIsByLocation**](LIAPIGeoEnrichServiceApi.md#getpoisbylocation) | **GET** /geoenrich/v1/poi/bylocation | Point of Interests By Location.
 [**GetPlaceByLocation**](LIAPIGeoEnrichServiceApi.md#getplacebylocation) | **GET** /geoenrich/v1/place/bylocation | Place By Location.
+[**GetSICMetadata**](LIAPIGeoEnrichServiceApi.md#getsicmetadata) | **GET** /geoenrich/v1/metadata/sic | Returns SIC Codes with their Industry Titles and Category Codes mapping
 
 
-<a name="getaddress"></a>
-# **GetAddress**
-> Locations GetAddress (string latitude, string longitude, string searchRadius = null, string searchRadiusUnit = null)
+<a name="getcategorycodemetadata"></a>
+# **GetCategoryCodeMetadata**
+> GeoEnrichMetadataResponse GetCategoryCodeMetadata (string categoryCode = null)
 
-Address By Location.
+Returns Category Codes with their sub-categories (if exist), descriptions and SIC Codes mapping
 
-This service accepts longitude and latitude as input and returns an address for that location.
+Accepts first partial digits or full category codes to filter the response
 
 ### Example
 ```csharp
@@ -27,7 +29,7 @@ using pb.locationIntelligence.Model;
 
 namespace Example
 {
-    public class GetAddressExample
+    public class GetCategoryCodeMetadataExample
     {
         public void main()
         {
@@ -37,20 +39,17 @@ namespace Example
             Configuration.Default.OAuthSecret = "SECRET";
 
             var apiInstance = new LIAPIGeoEnrichServiceApi();
-            var latitude = latitude_example;  // string | Latitude of the location.
-            var longitude = longitude_example;  // string | Longitude of the location.
-            var searchRadius = searchRadius_example;  // string | Radius range within which search is performed. (optional) 
-            var searchRadiusUnit = searchRadiusUnit_example;  // string | Radius unit such as feet, kilometers, miles or meters. (optional) 
+            var categoryCode = categoryCode_example;  // string | Specify starting digits or full category code to filter the response (optional) 
 
             try
             {
-                // Address By Location.
-                Locations result = apiInstance.GetAddress(latitude, longitude, searchRadius, searchRadiusUnit);
+                // Returns Category Codes with their sub-categories (if exist), descriptions and SIC Codes mapping
+                GeoEnrichMetadataResponse result = apiInstance.GetCategoryCodeMetadata(categoryCode);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling LIAPIGeoEnrichServiceApi.GetAddress: " + e.Message );
+                Debug.Print("Exception when calling LIAPIGeoEnrichServiceApi.GetCategoryCodeMetadata: " + e.Message );
             }
         }
     }
@@ -61,14 +60,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **latitude** | **string**| Latitude of the location. | 
- **longitude** | **string**| Longitude of the location. | 
- **searchRadius** | **string**| Radius range within which search is performed. | [optional] 
- **searchRadiusUnit** | **string**| Radius unit such as feet, kilometers, miles or meters. | [optional] 
+ **categoryCode** | **string**| Specify starting digits or full category code to filter the response | [optional] 
 
 ### Return type
 
-[**Locations**](Locations.md)
+[**GeoEnrichMetadataResponse**](GeoEnrichMetadataResponse.md)
 
 ### Authorization
 
@@ -77,17 +73,17 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
- - **Accept**: application/xml, application/json
+ - **Accept**: application/json, application/xml, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getentitybylocation"></a>
-# **GetEntityByLocation**
-> PoiByLocation GetEntityByLocation (string longitude, string latitude, string brandName = null, string category = null, string maxCandidates = null, string searchRadius = null, string searchRadiusUnit = null, string searchDataset = null, string searchPriority = null, string travelTime = null, string travelTimeUnit = null, string travelDistance = null, string travelDistanceUnit = null, string mode = null)
+<a name="getpoisbyaddress"></a>
+# **GetPOIsByAddress**
+> GeoEnrichResponse GetPOIsByAddress (string address, string country = null, string name = null, string type = null, string categoryCode = null, string sicCode = null, string maxCandidates = null, string searchRadius = null, string searchRadiusUnit = null, string travelTime = null, string travelTimeUnit = null, string travelDistance = null, string travelDistanceUnit = null, string travelMode = null, string sortBy = null)
 
-Points Of Interest By Location.
+Point of Interests By Address.
 
-Identifies and retrieves Points of Interest that exist around a specific location (ordered by distance from the location).
+Accepts address as an input to retrieve nearby point of interests.
 
 ### Example
 ```csharp
@@ -99,7 +95,7 @@ using pb.locationIntelligence.Model;
 
 namespace Example
 {
-    public class GetEntityByLocationExample
+    public class GetPOIsByAddressExample
     {
         public void main()
         {
@@ -109,30 +105,125 @@ namespace Example
             Configuration.Default.OAuthSecret = "SECRET";
 
             var apiInstance = new LIAPIGeoEnrichServiceApi();
-            var longitude = longitude_example;  // string | Longitude of the location.
-            var latitude = latitude_example;  // string | Latitude of the location.
-            var brandName = brandName_example;  // string | Specifies the name of the brand to be searched. Also performs search on partially specified brand names. (optional) 
-            var category = category_example;  // string | Specific Category/Categories for which the POI search is performed. (Categories 10020102,10020103 are for Chinese and Italian Restaurants .https://developer2.pitneybowes.com/docs/location-intelligence/v1/en/poicategory/EightDigitPOICategoryCodes.xlsx  (optional) 
+            var address = address_example;  // string | Address
+            var country = country_example;  // string | Country (optional) 
+            var name = name_example;  // string | Matched against Name, BrandName and Trade Name. Partial terms are also matched with fuzziness (max edit distance is 1) (optional) 
+            var type = type_example;  // string | Matched against the content which defines the type of the poi.  (optional) 
+            var categoryCode = categoryCode_example;  // string | Specific Category/Categories Codes for the desired POIs. Accepts a mix of 4 digit (Top Category), 6 digit (Second-Level Category) and 11 digit (Low-Level Category) Category Codes. https://developer2.pitneybowes.com/docs/location-intelligence/v1/en/poicategory/LiApiPOICategoryCodes.xlsx  (optional) 
+            var sicCode = sicCode_example;  // string | Specific SIC Codes/Codes for the desired POIs. Accepts a mix of 4 digit (Top Category) and 8 digit (Low-Level Category) SIC Codes. (optional) 
             var maxCandidates = maxCandidates_example;  // string | Maximum number of POIs that can be retrieved. (optional) 
             var searchRadius = searchRadius_example;  // string | Radius range within which search is performed. (optional) 
             var searchRadiusUnit = searchRadiusUnit_example;  // string | Radius unit such as Feet, Kilometers, Miles or Meters. (optional) 
-            var searchDataset = searchDataset_example;  // string | The datasets upon which the POI search can be performed. (optional) 
-            var searchPriority = searchPriority_example;  // string | Search order of POI datasets mentioned in searchDataset. (optional) 
             var travelTime = travelTime_example;  // string | Specifies the travel time within which method searches for results (POIs which can be reached within travel time)the search boundary in terms of time mentioned in 'travelTimeUnit'. The results are retrieved from the polygon formed based on the travel time specified. This means search can be done in the mentioned time results be from the mentioned time. (optional) 
             var travelTimeUnit = travelTimeUnit_example;  // string | Specifies acceptable time units.Allowed values Minutes,Hours,Seconds and Milliseconds (optional) 
             var travelDistance = travelDistance_example;  // string | Specifies the search boundary in terms of distance mentioned in 'travelDistanceUnit'. The results are retrieved from the polygon formed based on the travel distance specified. (optional) 
             var travelDistanceUnit = travelDistanceUnit_example;  // string | Specifies acceptable time units.Allowed values Feet,Kilometers,Miles and Meters (optional) 
-            var mode = mode_example;  // string | Specifies the available mode of commute. This is required when u r trying to do search by travel distance or travel time.Allowed values driving and walking (optional) 
+            var travelMode = travelMode_example;  // string | Specifies the available mode of commute. This is required when u r trying to do search by travel distance or travel time. Allowed values driving and walking (optional) 
+            var sortBy = sortBy_example;  // string | Specifies the order in which POIs are retrieved. (optional)  (default to distance)
 
             try
             {
-                // Points Of Interest By Location.
-                PoiByLocation result = apiInstance.GetEntityByLocation(longitude, latitude, brandName, category, maxCandidates, searchRadius, searchRadiusUnit, searchDataset, searchPriority, travelTime, travelTimeUnit, travelDistance, travelDistanceUnit, mode);
+                // Point of Interests By Address.
+                GeoEnrichResponse result = apiInstance.GetPOIsByAddress(address, country, name, type, categoryCode, sicCode, maxCandidates, searchRadius, searchRadiusUnit, travelTime, travelTimeUnit, travelDistance, travelDistanceUnit, travelMode, sortBy);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling LIAPIGeoEnrichServiceApi.GetEntityByLocation: " + e.Message );
+                Debug.Print("Exception when calling LIAPIGeoEnrichServiceApi.GetPOIsByAddress: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **string**| Address | 
+ **country** | **string**| Country | [optional] 
+ **name** | **string**| Matched against Name, BrandName and Trade Name. Partial terms are also matched with fuzziness (max edit distance is 1) | [optional] 
+ **type** | **string**| Matched against the content which defines the type of the poi.  | [optional] 
+ **categoryCode** | **string**| Specific Category/Categories Codes for the desired POIs. Accepts a mix of 4 digit (Top Category), 6 digit (Second-Level Category) and 11 digit (Low-Level Category) Category Codes. https://developer2.pitneybowes.com/docs/location-intelligence/v1/en/poicategory/LiApiPOICategoryCodes.xlsx  | [optional] 
+ **sicCode** | **string**| Specific SIC Codes/Codes for the desired POIs. Accepts a mix of 4 digit (Top Category) and 8 digit (Low-Level Category) SIC Codes. | [optional] 
+ **maxCandidates** | **string**| Maximum number of POIs that can be retrieved. | [optional] 
+ **searchRadius** | **string**| Radius range within which search is performed. | [optional] 
+ **searchRadiusUnit** | **string**| Radius unit such as Feet, Kilometers, Miles or Meters. | [optional] 
+ **travelTime** | **string**| Specifies the travel time within which method searches for results (POIs which can be reached within travel time)the search boundary in terms of time mentioned in &#39;travelTimeUnit&#39;. The results are retrieved from the polygon formed based on the travel time specified. This means search can be done in the mentioned time results be from the mentioned time. | [optional] 
+ **travelTimeUnit** | **string**| Specifies acceptable time units.Allowed values Minutes,Hours,Seconds and Milliseconds | [optional] 
+ **travelDistance** | **string**| Specifies the search boundary in terms of distance mentioned in &#39;travelDistanceUnit&#39;. The results are retrieved from the polygon formed based on the travel distance specified. | [optional] 
+ **travelDistanceUnit** | **string**| Specifies acceptable time units.Allowed values Feet,Kilometers,Miles and Meters | [optional] 
+ **travelMode** | **string**| Specifies the available mode of commute. This is required when u r trying to do search by travel distance or travel time. Allowed values driving and walking | [optional] 
+ **sortBy** | **string**| Specifies the order in which POIs are retrieved. | [optional] [default to distance]
+
+### Return type
+
+[**GeoEnrichResponse**](GeoEnrichResponse.md)
+
+### Authorization
+
+[oAuth2Password](../README.md#oAuth2Password)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml, text/csv
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getpoisbylocation"></a>
+# **GetPOIsByLocation**
+> GeoEnrichResponse GetPOIsByLocation (string longitude, string latitude, string name = null, string type = null, string categoryCode = null, string sicCode = null, string maxCandidates = null, string searchRadius = null, string searchRadiusUnit = null, string travelTime = null, string travelTimeUnit = null, string travelDistance = null, string travelDistanceUnit = null, string travelMode = null, string sortBy = null)
+
+Point of Interests By Location.
+
+Accepts longitude and latitude as an input to retrieve nearby point of interests.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using pb.locationIntelligence.Api;
+using pb.locationIntelligence.Client;
+using pb.locationIntelligence.Model;
+
+namespace Example
+{
+    public class GetPOIsByLocationExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
+            var apiInstance = new LIAPIGeoEnrichServiceApi();
+            var longitude = longitude_example;  // string | Longitude of the location.
+            var latitude = latitude_example;  // string | Latitude of the location.
+            var name = name_example;  // string | Matched against Name, BrandName and Trade Name. Partial terms are also matched with fuzziness (max edit distance is 1) (optional) 
+            var type = type_example;  // string | Matched against the content which defines the type of the poi.  (optional) 
+            var categoryCode = categoryCode_example;  // string | Specific Category/Categories Codes for the desired POIs. Accepts a mix of 4 digit (Top Category), 6 digit (Second-Level Category) and 11 digit (Low-Level Category) Category Codes. https://locate.pitneybowes.com/docs/location-intelligence/v1/en/poicategory/LiApiPOICategoryCodes.xlsx  (optional) 
+            var sicCode = sicCode_example;  // string | Specific SIC Codes/Codes for the desired POIs. Accepts a mix of 4 digit (Top Category) and 8 digit (Low-Level Category) SIC Codes. (optional) 
+            var maxCandidates = maxCandidates_example;  // string | Maximum number of POIs that can be retrieved. (optional) 
+            var searchRadius = searchRadius_example;  // string | Radius range within which search is performed. (optional) 
+            var searchRadiusUnit = searchRadiusUnit_example;  // string | Radius unit such as Feet, Kilometers, Miles or Meters. (optional) 
+            var travelTime = travelTime_example;  // string | Specifies the travel time within which method searches for results (POIs which can be reached within travel time)the search boundary in terms of time mentioned in 'travelTimeUnit'. The results are retrieved from the polygon formed based on the travel time specified. This means search can be done in the mentioned time results be from the mentioned time. (optional) 
+            var travelTimeUnit = travelTimeUnit_example;  // string | Specifies acceptable time units.Allowed values Minutes,Hours,Seconds and Milliseconds (optional) 
+            var travelDistance = travelDistance_example;  // string | Specifies the search boundary in terms of distance mentioned in 'travelDistanceUnit'. The results are retrieved from the polygon formed based on the travel distance specified. (optional) 
+            var travelDistanceUnit = travelDistanceUnit_example;  // string | Specifies acceptable time units.Allowed values Feet,Kilometers,Miles and Meters (optional) 
+            var travelMode = travelMode_example;  // string | Specifies the available mode of commute. This is required when u r trying to do search by travel distance or travel time. Allowed values driving and walking (optional) 
+            var sortBy = sortBy_example;  // string | Specifies the order in which POIs are retrieved. (optional)  (default to distance)
+
+            try
+            {
+                // Point of Interests By Location.
+                GeoEnrichResponse result = apiInstance.GetPOIsByLocation(longitude, latitude, name, type, categoryCode, sicCode, maxCandidates, searchRadius, searchRadiusUnit, travelTime, travelTimeUnit, travelDistance, travelDistanceUnit, travelMode, sortBy);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling LIAPIGeoEnrichServiceApi.GetPOIsByLocation: " + e.Message );
             }
         }
     }
@@ -145,22 +236,23 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **longitude** | **string**| Longitude of the location. | 
  **latitude** | **string**| Latitude of the location. | 
- **brandName** | **string**| Specifies the name of the brand to be searched. Also performs search on partially specified brand names. | [optional] 
- **category** | **string**| Specific Category/Categories for which the POI search is performed. (Categories 10020102,10020103 are for Chinese and Italian Restaurants .https://developer2.pitneybowes.com/docs/location-intelligence/v1/en/poicategory/EightDigitPOICategoryCodes.xlsx  | [optional] 
+ **name** | **string**| Matched against Name, BrandName and Trade Name. Partial terms are also matched with fuzziness (max edit distance is 1) | [optional] 
+ **type** | **string**| Matched against the content which defines the type of the poi.  | [optional] 
+ **categoryCode** | **string**| Specific Category/Categories Codes for the desired POIs. Accepts a mix of 4 digit (Top Category), 6 digit (Second-Level Category) and 11 digit (Low-Level Category) Category Codes. https://locate.pitneybowes.com/docs/location-intelligence/v1/en/poicategory/LiApiPOICategoryCodes.xlsx  | [optional] 
+ **sicCode** | **string**| Specific SIC Codes/Codes for the desired POIs. Accepts a mix of 4 digit (Top Category) and 8 digit (Low-Level Category) SIC Codes. | [optional] 
  **maxCandidates** | **string**| Maximum number of POIs that can be retrieved. | [optional] 
  **searchRadius** | **string**| Radius range within which search is performed. | [optional] 
  **searchRadiusUnit** | **string**| Radius unit such as Feet, Kilometers, Miles or Meters. | [optional] 
- **searchDataset** | **string**| The datasets upon which the POI search can be performed. | [optional] 
- **searchPriority** | **string**| Search order of POI datasets mentioned in searchDataset. | [optional] 
  **travelTime** | **string**| Specifies the travel time within which method searches for results (POIs which can be reached within travel time)the search boundary in terms of time mentioned in &#39;travelTimeUnit&#39;. The results are retrieved from the polygon formed based on the travel time specified. This means search can be done in the mentioned time results be from the mentioned time. | [optional] 
  **travelTimeUnit** | **string**| Specifies acceptable time units.Allowed values Minutes,Hours,Seconds and Milliseconds | [optional] 
  **travelDistance** | **string**| Specifies the search boundary in terms of distance mentioned in &#39;travelDistanceUnit&#39;. The results are retrieved from the polygon formed based on the travel distance specified. | [optional] 
  **travelDistanceUnit** | **string**| Specifies acceptable time units.Allowed values Feet,Kilometers,Miles and Meters | [optional] 
- **mode** | **string**| Specifies the available mode of commute. This is required when u r trying to do search by travel distance or travel time.Allowed values driving and walking | [optional] 
+ **travelMode** | **string**| Specifies the available mode of commute. This is required when u r trying to do search by travel distance or travel time. Allowed values driving and walking | [optional] 
+ **sortBy** | **string**| Specifies the order in which POIs are retrieved. | [optional] [default to distance]
 
 ### Return type
 
-[**PoiByLocation**](PoiByLocation.md)
+[**GeoEnrichResponse**](GeoEnrichResponse.md)
 
 ### Authorization
 
@@ -169,7 +261,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, application/xml
- - **Accept**: application/xml, application/json
+ - **Accept**: application/json, application/xml, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -240,6 +332,72 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, application/xml
  - **Accept**: application/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getsicmetadata"></a>
+# **GetSICMetadata**
+> GeoEnrichMetadataResponse GetSICMetadata (string sicCode = null)
+
+Returns SIC Codes with their Industry Titles and Category Codes mapping
+
+Accepts first few partial digits or full SIC codes to filter the response
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using pb.locationIntelligence.Api;
+using pb.locationIntelligence.Client;
+using pb.locationIntelligence.Model;
+
+namespace Example
+{
+    public class GetSICMetadataExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
+            var apiInstance = new LIAPIGeoEnrichServiceApi();
+            var sicCode = sicCode_example;  // string | Specify starting digits or full sic code to filter the response (optional) 
+
+            try
+            {
+                // Returns SIC Codes with their Industry Titles and Category Codes mapping
+                GeoEnrichMetadataResponse result = apiInstance.GetSICMetadata(sicCode);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling LIAPIGeoEnrichServiceApi.GetSICMetadata: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **sicCode** | **string**| Specify starting digits or full sic code to filter the response | [optional] 
+
+### Return type
+
+[**GeoEnrichMetadataResponse**](GeoEnrichMetadataResponse.md)
+
+### Authorization
+
+[oAuth2Password](../README.md#oAuth2Password)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml, text/csv
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
