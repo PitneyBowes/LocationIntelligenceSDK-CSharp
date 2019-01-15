@@ -38,8 +38,6 @@
 
 * [GeoIdentity](http://locate.pitneybowes.com/geoidentity): GeoIdentity. Powerful, local socio-economic & affinity insights about your customer. Enrich billing and/or shipping addresses with rich localized Identity profiles, demographics, lifestyle segmentations, neighborhood names, property ownership & values, and social affinity insights. The GeoIdentity API returns all these data with the input of an Address or pbKeyTM. Useful for enhancing & enriching any Retail or Commerce application, business process, or workflow.
 
-* [GeoPlaces](http://locate.pitneybowes.com/geoplaces): Returns the Point-Of-Interests along with their details near a location/address. Refine your search by sepcifying name, type of the place, category code, sic code, search radius, travel time/distance.
-
 The following platforms are supported by Location Intelligence SDKs:
 *	[Android](https://github.com/PitneyBowes/LocationIntelligenceSDK-Android)
 *	[Node.js](https://github.com/PitneyBowes/LocationIntelligenceSDK-NodeJS) 
