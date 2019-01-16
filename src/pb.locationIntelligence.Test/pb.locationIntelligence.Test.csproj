@@ -89,7 +89,6 @@ limitations under the License.
     <Compile Include="Api\LIAPIGeoLocationServiceApiTests.cs" />
     <Compile Include="Api\LIAPIGeoPlacesServiceApiTests.cs" />
     <Compile Include="Api\LIAPIGeoPostServiceApiTests.cs" />
-    <Compile Include="Api\LIAPIGeoPropertyServiceApiTests.cs" />
     <Compile Include="Api\LIAPIGeoRiskServiceApiTests.cs" />
     <Compile Include="Api\LIAPIGeoRouteServiceApiTests.cs" />
     <Compile Include="Api\LIAPIGeoSearchServiceApiTests.cs" />
