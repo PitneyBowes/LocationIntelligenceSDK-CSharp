@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**GetDictionaries**](LIAPIGeocodeServiceApi.md#getdictionaries) | **GET** /geocode-service/v1/transient/{datapackBundle}/dictionaries | Gets installed Dictionaries
 [**GetPBKey**](LIAPIGeocodeServiceApi.md#getpbkey) | **GET** /geocode-service/v1/key/byaddress | Gets PBKey
 [**GetPBKeys**](LIAPIGeocodeServiceApi.md#getpbkeys) | **POST** /geocode-service/v1/key/byaddress | Gets PBKeys
+[**KeyLookup**](LIAPIGeocodeServiceApi.md#keylookup) | **GET** /geocode-service/v1/keylookup | Get Address
+[**KeyLookupBatch**](LIAPIGeocodeServiceApi.md#keylookupbatch) | **POST** /geocode-service/v1/keylookup | Get List of Address
 [**ReverseGeocodBatch**](LIAPIGeocodeServiceApi.md#reversegeocodbatch) | **POST** /geocode-service/v1/transient/{datapackBundle}/reverseGeocode | reverse Geocode
 [**ReverseGeocode**](LIAPIGeocodeServiceApi.md#reversegeocode) | **GET** /geocode-service/v1/transient/{datapackBundle}/reverseGeocode | reverse Geocode
 
@@ -449,6 +451,142 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, application/xml
  - **Accept**: application/xml, application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="keylookup"></a>
+# **KeyLookup**
+> GeocodeServiceResponse KeyLookup (string key, string type = null, string country = null)
+
+Get Address
+
+Gets Address for an input free form PBKey text
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using pb.locationIntelligence.Api;
+using pb.locationIntelligence.Client;
+using pb.locationIntelligence.Model;
+
+namespace Example
+{
+    public class KeyLookupExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
+            var apiInstance = new LIAPIGeocodeServiceApi();
+            var key = key_example;  // string | free form text
+            var type = type_example;  // string |  (optional) 
+            var country = country_example;  // string |  (optional) 
+
+            try
+            {
+                // Get Address
+                GeocodeServiceResponse result = apiInstance.KeyLookup(key, type, country);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling LIAPIGeocodeServiceApi.KeyLookup: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **key** | **string**| free form text | 
+ **type** | **string**|  | [optional] 
+ **country** | **string**|  | [optional] 
+
+### Return type
+
+[**GeocodeServiceResponse**](GeocodeServiceResponse.md)
+
+### Authorization
+
+[oAuth2Password](../README.md#oAuth2Password)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="keylookupbatch"></a>
+# **KeyLookupBatch**
+> GeocodeServiceResponseList KeyLookupBatch (KeyLookupRequest body = null)
+
+Get List of Address
+
+Gets Address for an input free form PBKey text
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using pb.locationIntelligence.Api;
+using pb.locationIntelligence.Client;
+using pb.locationIntelligence.Model;
+
+namespace Example
+{
+    public class KeyLookupBatchExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
+            var apiInstance = new LIAPIGeocodeServiceApi();
+            var body = new KeyLookupRequest(); // KeyLookupRequest |  (optional) 
+
+            try
+            {
+                // Get List of Address
+                GeocodeServiceResponseList result = apiInstance.KeyLookupBatch(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling LIAPIGeocodeServiceApi.KeyLookupBatch: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**KeyLookupRequest**](KeyLookupRequest.md)|  | [optional] 
+
+### Return type
+
+[**GeocodeServiceResponseList**](GeocodeServiceResponseList.md)
+
+### Authorization
+
+[oAuth2Password](../README.md#oAuth2Password)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

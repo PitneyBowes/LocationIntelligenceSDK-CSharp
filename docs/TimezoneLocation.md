@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ObjectId** | **string** |  | [optional] 
 **TimezoneName** | **string** |  | [optional] 
 **ZoneType** | **string** |  | [optional] 
 **UtcOffset** | **long?** |  | [optional] 

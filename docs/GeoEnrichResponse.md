@@ -3,6 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Page** | **string** |  | [optional] 
+**Candidates** | **string** |  | [optional] 
+**TotalMatchingCandidates** | **string** |  | [optional] 
 **Poi** | [**List&lt;POIPlaces&gt;**](POIPlaces.md) |  | [optional] 
 **MatchedAddress** | [**MatchedAddress**](MatchedAddress.md) |  | [optional] 
 
