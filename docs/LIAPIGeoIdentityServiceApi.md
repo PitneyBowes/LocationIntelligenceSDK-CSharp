@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getidentitybyaddress"></a>
 # **GetIdentityByAddress**
-> GeoIdentityResponse GetIdentityByAddress (string address, string givenName = null, string familyName = null, string confidence = null, string maxCandidates = null, string includeNeighborhoodDetails = null)
+> GeoIdentityResponse GetIdentityByAddress (string address, string givenName = null, string familyName = null, string confidence = null, string maxCandidates = null, string theme = null, string filter = null)
 
 Gets GeoIdentityResponse
 
@@ -43,12 +43,13 @@ namespace Example
             var familyName = familyName_example;  // string | This filters all the associated identities of address by family Name (optional) 
             var confidence = confidence_example;  // string | To adjust quality threshold of data returned. Default is HIGH (optional) 
             var maxCandidates = maxCandidates_example;  // string | Number of identities returned in response (optional) 
-            var includeNeighborhoodDetails = includeNeighborhoodDetails_example;  // string | Whether to include neighborhood details in the response or not. Default is Y (optional) 
+            var theme = theme_example;  // string | theme parameter for filtering results (optional) 
+            var filter = filter_example;  // string | filter params (optional) 
 
             try
             {
                 // Gets GeoIdentityResponse
-                GeoIdentityResponse result = apiInstance.GetIdentityByAddress(address, givenName, familyName, confidence, maxCandidates, includeNeighborhoodDetails);
+                GeoIdentityResponse result = apiInstance.GetIdentityByAddress(address, givenName, familyName, confidence, maxCandidates, theme, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -69,7 +70,8 @@ Name | Type | Description  | Notes
  **familyName** | **string**| This filters all the associated identities of address by family Name | [optional] 
  **confidence** | **string**| To adjust quality threshold of data returned. Default is HIGH | [optional] 
  **maxCandidates** | **string**| Number of identities returned in response | [optional] 
- **includeNeighborhoodDetails** | **string**| Whether to include neighborhood details in the response or not. Default is Y | [optional] 
+ **theme** | **string**| theme parameter for filtering results | [optional] 
+ **filter** | **string**| filter params | [optional] 
 
 ### Return type
 
@@ -88,7 +90,7 @@ Name | Type | Description  | Notes
 
 <a name="getidentitybyemail"></a>
 # **GetIdentityByEmail**
-> Identity GetIdentityByEmail (string email, string confidence = null)
+> Identity GetIdentityByEmail (string email, string confidence = null, string theme = null, string filter = null)
 
 Gets Identity
 
@@ -116,11 +118,13 @@ namespace Example
             var apiInstance = new LIAPIGeoIdentityServiceApi();
             var email = email_example;  // string | This specifies the email address
             var confidence = confidence_example;  // string | To adjust quality threshold of data returned. Default is HIGH (optional) 
+            var theme = theme_example;  // string | theme parameter for filtering results (optional) 
+            var filter = filter_example;  // string | filter params (optional) 
 
             try
             {
                 // Gets Identity
-                Identity result = apiInstance.GetIdentityByEmail(email, confidence);
+                Identity result = apiInstance.GetIdentityByEmail(email, confidence, theme, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -138,6 +142,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **email** | **string**| This specifies the email address | 
  **confidence** | **string**| To adjust quality threshold of data returned. Default is HIGH | [optional] 
+ **theme** | **string**| theme parameter for filtering results | [optional] 
+ **filter** | **string**| filter params | [optional] 
 
 ### Return type
 
@@ -156,7 +162,7 @@ Name | Type | Description  | Notes
 
 <a name="getidentitybypbkey"></a>
 # **GetIdentityByPBKey**
-> GeoIdentityResponse GetIdentityByPBKey (string pbKey, string givenName = null, string familyName = null, string confidence = null, string maxCandidates = null, string includeNeighborhoodDetails = null)
+> GeoIdentityResponse GetIdentityByPBKey (string pbKey, string givenName = null, string familyName = null, string confidence = null, string maxCandidates = null, string theme = null, string filter = null)
 
 Gets GeoIdentityResponse
 
@@ -187,12 +193,13 @@ namespace Example
             var familyName = familyName_example;  // string | This filters all the associated identities of address by family Name (optional) 
             var confidence = confidence_example;  // string | To adjust quality threshold of data returned. Default is HIGH (optional) 
             var maxCandidates = maxCandidates_example;  // string | Number of identities returned in response (optional) 
-            var includeNeighborhoodDetails = includeNeighborhoodDetails_example;  // string | Whether to include neighborhood details in the response or not. Default is Y (optional) 
+            var theme = theme_example;  // string | theme parameter for filtering results (optional) 
+            var filter = filter_example;  // string | filter params (optional) 
 
             try
             {
                 // Gets GeoIdentityResponse
-                GeoIdentityResponse result = apiInstance.GetIdentityByPBKey(pbKey, givenName, familyName, confidence, maxCandidates, includeNeighborhoodDetails);
+                GeoIdentityResponse result = apiInstance.GetIdentityByPBKey(pbKey, givenName, familyName, confidence, maxCandidates, theme, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -213,7 +220,8 @@ Name | Type | Description  | Notes
  **familyName** | **string**| This filters all the associated identities of address by family Name | [optional] 
  **confidence** | **string**| To adjust quality threshold of data returned. Default is HIGH | [optional] 
  **maxCandidates** | **string**| Number of identities returned in response | [optional] 
- **includeNeighborhoodDetails** | **string**| Whether to include neighborhood details in the response or not. Default is Y | [optional] 
+ **theme** | **string**| theme parameter for filtering results | [optional] 
+ **filter** | **string**| filter params | [optional] 
 
 ### Return type
 
@@ -232,7 +240,7 @@ Name | Type | Description  | Notes
 
 <a name="getidentitybytwitter"></a>
 # **GetIdentityByTwitter**
-> Identity GetIdentityByTwitter (string twitter, string confidence = null)
+> Identity GetIdentityByTwitter (string twitter, string confidence = null, string theme = null, string filter = null)
 
 Gets Identity
 
@@ -260,11 +268,13 @@ namespace Example
             var apiInstance = new LIAPIGeoIdentityServiceApi();
             var twitter = twitter_example;  // string | Twitter handle of the identity.
             var confidence = confidence_example;  // string | To adjust quality threshold of data returned. Default is HIGH (optional) 
+            var theme = theme_example;  // string | theme parameter for filtering results (optional) 
+            var filter = filter_example;  // string | filter params (optional) 
 
             try
             {
                 // Gets Identity
-                Identity result = apiInstance.GetIdentityByTwitter(twitter, confidence);
+                Identity result = apiInstance.GetIdentityByTwitter(twitter, confidence, theme, filter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -282,6 +292,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **twitter** | **string**| Twitter handle of the identity. | 
  **confidence** | **string**| To adjust quality threshold of data returned. Default is HIGH | [optional] 
+ **theme** | **string**| theme parameter for filtering results | [optional] 
+ **filter** | **string**| filter params | [optional] 
 
 ### Return type
 

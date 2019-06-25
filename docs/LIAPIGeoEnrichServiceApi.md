@@ -334,7 +334,7 @@ Name | Type | Description  | Notes
 
 <a name="getpoisbylocation"></a>
 # **GetPOIsByLocation**
-> GeoEnrichResponse GetPOIsByLocation (string longitude, string latitude, string name = null, string type = null, string categoryCode = null, string sicCode = null, string maxCandidates = null, string searchRadius = null, string searchRadiusUnit = null, string travelTime = null, string travelTimeUnit = null, string travelDistance = null, string travelDistanceUnit = null, string travelMode = null, string sortBy = null, string fuzzyOnName = null, string page = null)
+> GeoEnrichResponse GetPOIsByLocation (string longitude, string latitude, string searchText = null, string type = null, string categoryCode = null, string sicCode = null, string maxCandidates = null, string searchRadius = null, string searchRadiusUnit = null, string travelTime = null, string travelTimeUnit = null, string travelDistance = null, string travelDistanceUnit = null, string travelMode = null, string sortBy = null, string fuzzyOnName = null, string page = null, string searchOnNameOnly = null)
 
 Points of Interest By Location.
 
@@ -362,7 +362,7 @@ namespace Example
             var apiInstance = new LIAPIGeoEnrichServiceApi();
             var longitude = longitude_example;  // string | Longitude of the location.
             var latitude = latitude_example;  // string | Latitude of the location.
-            var name = name_example;  // string | Matched against Name, BrandName and Trade Name. Partial terms are also matched with fuzziness (max edit distance is 1) (optional) 
+            var searchText = searchText_example;  // string | Matched against Name, BrandName and Trade Name. Partial terms are also matched with fuzziness (max edit distance is 1) (optional) 
             var type = type_example;  // string | Matched against the content which defines the type of the poi.  (optional) 
             var categoryCode = categoryCode_example;  // string | Specific Category/Categories Codes for the desired POIs. Accepts a mix of 4 digit (Top Category), 6 digit (Second-Level Category) and 11 digit (Low-Level Category) Category Codes. https://locate.pitneybowes.com/downloads/location-intelligence/v1/CategoryCodes.xlsx  (optional) 
             var sicCode = sicCode_example;  // string | Specific SIC Codes/Codes for the desired POIs. Accepts a mix of 4 digit (Top Category) and 8 digit (Low-Level Category) SIC Codes. (optional) 
@@ -377,11 +377,12 @@ namespace Example
             var sortBy = sortBy_example;  // string | Specifies the order in which POIs are retrieved. (optional)  (default to distance)
             var fuzzyOnName = fuzzyOnName_example;  // string | Allowed values are Y/N. If N, the search on name will not allow fuzziness. (optional) 
             var page = page_example;  // string | Will support pagination, by default 1st page with maxCandidates results are returned. (optional) 
+            var searchOnNameOnly = searchOnNameOnly_example;  // string | search name description (optional) 
 
             try
             {
                 // Points of Interest By Location.
-                GeoEnrichResponse result = apiInstance.GetPOIsByLocation(longitude, latitude, name, type, categoryCode, sicCode, maxCandidates, searchRadius, searchRadiusUnit, travelTime, travelTimeUnit, travelDistance, travelDistanceUnit, travelMode, sortBy, fuzzyOnName, page);
+                GeoEnrichResponse result = apiInstance.GetPOIsByLocation(longitude, latitude, searchText, type, categoryCode, sicCode, maxCandidates, searchRadius, searchRadiusUnit, travelTime, travelTimeUnit, travelDistance, travelDistanceUnit, travelMode, sortBy, fuzzyOnName, page, searchOnNameOnly);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -399,7 +400,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **longitude** | **string**| Longitude of the location. | 
  **latitude** | **string**| Latitude of the location. | 
- **name** | **string**| Matched against Name, BrandName and Trade Name. Partial terms are also matched with fuzziness (max edit distance is 1) | [optional] 
+ **searchText** | **string**| Matched against Name, BrandName and Trade Name. Partial terms are also matched with fuzziness (max edit distance is 1) | [optional] 
  **type** | **string**| Matched against the content which defines the type of the poi.  | [optional] 
  **categoryCode** | **string**| Specific Category/Categories Codes for the desired POIs. Accepts a mix of 4 digit (Top Category), 6 digit (Second-Level Category) and 11 digit (Low-Level Category) Category Codes. https://locate.pitneybowes.com/downloads/location-intelligence/v1/CategoryCodes.xlsx  | [optional] 
  **sicCode** | **string**| Specific SIC Codes/Codes for the desired POIs. Accepts a mix of 4 digit (Top Category) and 8 digit (Low-Level Category) SIC Codes. | [optional] 
@@ -414,6 +415,7 @@ Name | Type | Description  | Notes
  **sortBy** | **string**| Specifies the order in which POIs are retrieved. | [optional] [default to distance]
  **fuzzyOnName** | **string**| Allowed values are Y/N. If N, the search on name will not allow fuzziness. | [optional] 
  **page** | **string**| Will support pagination, by default 1st page with maxCandidates results are returned. | [optional] 
+ **searchOnNameOnly** | **string**| search name description | [optional] 
 
 ### Return type
 
@@ -570,7 +572,7 @@ Name | Type | Description  | Notes
 
 <a name="poisautocomplete"></a>
 # **PoisAutocomplete**
-> GeoEnrichResponse PoisAutocomplete (string longitude = null, string latitude = null, string name = null, string searchRadius = null, string searchRadiusUnit = null, string travelTime = null, string travelTimeUnit = null, string travelDistance = null, string travelDistanceUnit = null, string travelMode = null, string country = null, string areaName1 = null, string areaName3 = null, string postcode1 = null, string postcode2 = null, string ipAddress = null, string autoDetectLocation = null, string type = null, string categoryCode = null, string sicCode = null, string maxCandidates = null, string sortBy = null)
+> GeoEnrichResponse PoisAutocomplete (string longitude = null, string latitude = null, string searchText = null, string searchRadius = null, string searchRadiusUnit = null, string travelTime = null, string travelTimeUnit = null, string travelDistance = null, string travelDistanceUnit = null, string travelMode = null, string country = null, string areaName1 = null, string areaName3 = null, string postcode1 = null, string postcode2 = null, string ipAddress = null, string autoDetectLocation = null, string type = null, string categoryCode = null, string sicCode = null, string maxCandidates = null, string sortBy = null, string searchOnNameOnly = null)
 
 Points of Interest Autocomplete.
 
@@ -598,7 +600,7 @@ namespace Example
             var apiInstance = new LIAPIGeoEnrichServiceApi();
             var longitude = longitude_example;  // string | Longitude of the location. (optional) 
             var latitude = latitude_example;  // string | Latitude of the location. (optional) 
-            var name = name_example;  // string | Matched against Name, BrandName and Trade Name. Partial terms are also matched with fuzziness (max edit distance is 1) (optional) 
+            var searchText = searchText_example;  // string | Matched against Name, BrandName and Trade Name. Partial terms are also matched with fuzziness (max edit distance is 1) (optional) 
             var searchRadius = searchRadius_example;  // string | Radius range within which search is performed. (optional) 
             var searchRadiusUnit = searchRadiusUnit_example;  // string | Radius unit such as Feet, Kilometers, Miles or Meters. (optional) 
             var travelTime = travelTime_example;  // string | Specifies the travel time within which method searches for results (POIs which can be reached within travel time)the search boundary in terms of time mentioned in 'travelTimeUnit'. The results are retrieved from the polygon formed based on the travel time specified. This means search can be done in the mentioned time results be from the mentioned time. (optional) 
@@ -618,11 +620,12 @@ namespace Example
             var sicCode = sicCode_example;  // string | Specific SIC Codes/Codes for the desired POIs. Accepts a mix of 4 digit (Top Category) and 8 digit (Low-Level Category) SIC Codes. (optional) 
             var maxCandidates = maxCandidates_example;  // string | Maximum number of POIs that can be retrieved. (optional) 
             var sortBy = sortBy_example;  // string | Specifies the order in which POIs are retrieved. (optional)  (default to distance)
+            var searchOnNameOnly = searchOnNameOnly_example;  // string | specifies search on name (optional) 
 
             try
             {
                 // Points of Interest Autocomplete.
-                GeoEnrichResponse result = apiInstance.PoisAutocomplete(longitude, latitude, name, searchRadius, searchRadiusUnit, travelTime, travelTimeUnit, travelDistance, travelDistanceUnit, travelMode, country, areaName1, areaName3, postcode1, postcode2, ipAddress, autoDetectLocation, type, categoryCode, sicCode, maxCandidates, sortBy);
+                GeoEnrichResponse result = apiInstance.PoisAutocomplete(longitude, latitude, searchText, searchRadius, searchRadiusUnit, travelTime, travelTimeUnit, travelDistance, travelDistanceUnit, travelMode, country, areaName1, areaName3, postcode1, postcode2, ipAddress, autoDetectLocation, type, categoryCode, sicCode, maxCandidates, sortBy, searchOnNameOnly);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -640,7 +643,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **longitude** | **string**| Longitude of the location. | [optional] 
  **latitude** | **string**| Latitude of the location. | [optional] 
- **name** | **string**| Matched against Name, BrandName and Trade Name. Partial terms are also matched with fuzziness (max edit distance is 1) | [optional] 
+ **searchText** | **string**| Matched against Name, BrandName and Trade Name. Partial terms are also matched with fuzziness (max edit distance is 1) | [optional] 
  **searchRadius** | **string**| Radius range within which search is performed. | [optional] 
  **searchRadiusUnit** | **string**| Radius unit such as Feet, Kilometers, Miles or Meters. | [optional] 
  **travelTime** | **string**| Specifies the travel time within which method searches for results (POIs which can be reached within travel time)the search boundary in terms of time mentioned in &#39;travelTimeUnit&#39;. The results are retrieved from the polygon formed based on the travel time specified. This means search can be done in the mentioned time results be from the mentioned time. | [optional] 
@@ -660,6 +663,7 @@ Name | Type | Description  | Notes
  **sicCode** | **string**| Specific SIC Codes/Codes for the desired POIs. Accepts a mix of 4 digit (Top Category) and 8 digit (Low-Level Category) SIC Codes. | [optional] 
  **maxCandidates** | **string**| Maximum number of POIs that can be retrieved. | [optional] 
  **sortBy** | **string**| Specifies the order in which POIs are retrieved. | [optional] [default to distance]
+ **searchOnNameOnly** | **string**| specifies search on name | [optional] 
 
 ### Return type
 
