@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Geometry** | [**CommonGeometry**](CommonGeometry.md) |  | [optional] 
 **PoiList** | [**List&lt;Poi&gt;**](Poi.md) |  | [optional] 
 **MatchedAddress** | [**MatchedAddress**](MatchedAddress.md) |  | [optional] 
+**Id** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

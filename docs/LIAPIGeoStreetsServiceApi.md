@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetIntersectionByAddress**](LIAPIGeoStreetsServiceApi.md#getintersectionbyaddress) | **GET** /geostreets/v1/intersection/byaddress | Gets NearestIntersection of major roads
 [**GetIntersectionByLocation**](LIAPIGeoStreetsServiceApi.md#getintersectionbylocation) | **GET** /geostreets/v1/intersection/bylocation | Gets NearestIntersection of major roads
+[**GetNearestSpeedLimit**](LIAPIGeoStreetsServiceApi.md#getnearestspeedlimit) | **GET** /geostreets/v1/speedlimit | Gets NearestSpeedLimit
 
 
 <a name="getintersectionbyaddress"></a>
@@ -158,6 +159,72 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**IntersectionResponse**](IntersectionResponse.md)
+
+### Authorization
+
+[oAuth2Password](../README.md#oAuth2Password)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getnearestspeedlimit"></a>
+# **GetNearestSpeedLimit**
+> SpeedLimit GetNearestSpeedLimit (string path)
+
+Gets NearestSpeedLimit
+
+GetNearestSpeedLimit Endpoint will take point coordinates of a path and will return the posted speed limit of the road segment on which this path will snap.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using pb.locationIntelligence.Api;
+using pb.locationIntelligence.Client;
+using pb.locationIntelligence.Model;
+
+namespace Example
+{
+    public class GetNearestSpeedLimitExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
+            var apiInstance = new LIAPIGeoStreetsServiceApi();
+            var path = path_example;  // string | Accepts multiple points which will be snapped to the nearest road segment. Longitude and Latitude will be comma separated (longitude,latitude) and Point Coordinates will be separated by semi-colon(;)
+
+            try
+            {
+                // Gets NearestSpeedLimit
+                SpeedLimit result = apiInstance.GetNearestSpeedLimit(path);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling LIAPIGeoStreetsServiceApi.GetNearestSpeedLimit: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **path** | **string**| Accepts multiple points which will be snapped to the nearest road segment. Longitude and Latitude will be comma separated (longitude,latitude) and Point Coordinates will be separated by semi-colon(;) | 
+
+### Return type
+
+[**SpeedLimit**](SpeedLimit.md)
 
 ### Authorization
 

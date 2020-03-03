@@ -7,8 +7,11 @@ Method | HTTP request | Description
 [**GetBasicBoundaryByAddress**](LIAPIGeoZoneServiceApi.md#getbasicboundarybyaddress) | **GET** /geozone/v1/basicboundary/byaddress | Gets Basic Boundary by Address
 [**GetBasicBoundaryByLocation**](LIAPIGeoZoneServiceApi.md#getbasicboundarybylocation) | **GET** /geozone/v1/basicboundary/bylocation | Gets Basic Boundary by Location
 [**GetPOIBoundaryByAddress**](LIAPIGeoZoneServiceApi.md#getpoiboundarybyaddress) | **GET** /geozone/v1/poiboundary/byaddress | Get Point of Interests Boundary by Address
+[**GetPOIBoundaryByAddressBatch**](LIAPIGeoZoneServiceApi.md#getpoiboundarybyaddressbatch) | **POST** /geozone/v1/poiboundary/byaddress | Batch method for getting Point of Interests Boundary by Address
 [**GetPOIBoundaryByLocation**](LIAPIGeoZoneServiceApi.md#getpoiboundarybylocation) | **GET** /geozone/v1/poiboundary/bylocation | Get Point of Interests Boundary by Location
+[**GetPOIBoundaryByLocationBatch**](LIAPIGeoZoneServiceApi.md#getpoiboundarybylocationbatch) | **POST** /geozone/v1/poiboundary/bylocation | Batch method for getting Point of Interests Boundary by Location
 [**GetPOIBoundaryByPBKey**](LIAPIGeoZoneServiceApi.md#getpoiboundarybypbkey) | **GET** /geozone/v1/poiboundary/bypbkey | Gets Point of Interests Boundary by PBKey
+[**GetPOIBoundaryByPBKeyBatch**](LIAPIGeoZoneServiceApi.md#getpoiboundarybypbkeybatch) | **POST** /geozone/v1/poiboundary/bypbkey | Batch method for getting Point of Interests Boundary by PBKey
 [**GetTravelBoundaryByDistance**](LIAPIGeoZoneServiceApi.md#gettravelboundarybydistance) | **GET** /geozone/v1/travelboundary/bydistance | Gets travel Boundary by Distance
 [**GetTravelBoundaryByTime**](LIAPIGeoZoneServiceApi.md#gettravelboundarybytime) | **GET** /geozone/v1/travelboundary/bytime | Gets travel Boundary by Time
 
@@ -239,6 +242,72 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getpoiboundarybyaddressbatch"></a>
+# **GetPOIBoundaryByAddressBatch**
+> POIBoundaryResponse GetPOIBoundaryByAddressBatch (POIBoundaryAddressRequest body = null)
+
+Batch method for getting Point of Interests Boundary by Address
+
+Batch method for getting Point of Interests Boundary by Address
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using pb.locationIntelligence.Api;
+using pb.locationIntelligence.Client;
+using pb.locationIntelligence.Model;
+
+namespace Example
+{
+    public class GetPOIBoundaryByAddressBatchExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
+            var apiInstance = new LIAPIGeoZoneServiceApi();
+            var body = new POIBoundaryAddressRequest(); // POIBoundaryAddressRequest |  (optional) 
+
+            try
+            {
+                // Batch method for getting Point of Interests Boundary by Address
+                POIBoundaryResponse result = apiInstance.GetPOIBoundaryByAddressBatch(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling LIAPIGeoZoneServiceApi.GetPOIBoundaryByAddressBatch: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**POIBoundaryAddressRequest**](POIBoundaryAddressRequest.md)|  | [optional] 
+
+### Return type
+
+[**POIBoundaryResponse**](POIBoundaryResponse.md)
+
+### Authorization
+
+[oAuth2Password](../README.md#oAuth2Password)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getpoiboundarybylocation"></a>
 # **GetPOIBoundaryByLocation**
 > PoiBoundary GetPOIBoundaryByLocation (string latitude, string longitude, string categoryCode = null, string sicCode = null, string naicsCode = null)
@@ -313,6 +382,72 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getpoiboundarybylocationbatch"></a>
+# **GetPOIBoundaryByLocationBatch**
+> POIBoundaryResponse GetPOIBoundaryByLocationBatch (POIBoundaryLocationRequest body = null)
+
+Batch method for getting Point of Interests Boundary by Location
+
+Batch method for getting Point of Interests Boundary by Location
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using pb.locationIntelligence.Api;
+using pb.locationIntelligence.Client;
+using pb.locationIntelligence.Model;
+
+namespace Example
+{
+    public class GetPOIBoundaryByLocationBatchExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
+            var apiInstance = new LIAPIGeoZoneServiceApi();
+            var body = new POIBoundaryLocationRequest(); // POIBoundaryLocationRequest |  (optional) 
+
+            try
+            {
+                // Batch method for getting Point of Interests Boundary by Location
+                POIBoundaryResponse result = apiInstance.GetPOIBoundaryByLocationBatch(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling LIAPIGeoZoneServiceApi.GetPOIBoundaryByLocationBatch: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**POIBoundaryLocationRequest**](POIBoundaryLocationRequest.md)|  | [optional] 
+
+### Return type
+
+[**POIBoundaryResponse**](POIBoundaryResponse.md)
+
+### Authorization
+
+[oAuth2Password](../README.md#oAuth2Password)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getpoiboundarybypbkey"></a>
 # **GetPOIBoundaryByPBKey**
 > PoiBoundary GetPOIBoundaryByPBKey (string pbKey, string categoryCode = null, string sicCode = null, string naicsCode = null)
@@ -381,6 +516,72 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getpoiboundarybypbkeybatch"></a>
+# **GetPOIBoundaryByPBKeyBatch**
+> POIBoundaryResponse GetPOIBoundaryByPBKeyBatch (POIBoundaryPBKeyRequest body = null)
+
+Batch method for getting Point of Interests Boundary by PBKey
+
+Batch method for getting Point of Interests Boundary by PBKey
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using pb.locationIntelligence.Api;
+using pb.locationIntelligence.Client;
+using pb.locationIntelligence.Model;
+
+namespace Example
+{
+    public class GetPOIBoundaryByPBKeyBatchExample
+    {
+        public void main()
+        {
+            
+            // Configure OAuth2 API_KEY and SECRET for authorization: oAuth2Password
+            Configuration.Default.OAuthApiKey = "API_KEY";
+            Configuration.Default.OAuthSecret = "SECRET";
+
+            var apiInstance = new LIAPIGeoZoneServiceApi();
+            var body = new POIBoundaryPBKeyRequest(); // POIBoundaryPBKeyRequest |  (optional) 
+
+            try
+            {
+                // Batch method for getting Point of Interests Boundary by PBKey
+                POIBoundaryResponse result = apiInstance.GetPOIBoundaryByPBKeyBatch(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling LIAPIGeoZoneServiceApi.GetPOIBoundaryByPBKeyBatch: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**POIBoundaryPBKeyRequest**](POIBoundaryPBKeyRequest.md)|  | [optional] 
+
+### Return type
+
+[**POIBoundaryResponse**](POIBoundaryResponse.md)
+
+### Authorization
+
+[oAuth2Password](../README.md#oAuth2Password)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, application/xml
  - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

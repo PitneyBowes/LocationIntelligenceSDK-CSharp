@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 <a name="getroutebyaddress"></a>
 # **GetRouteByAddress**
-> GeoRouteResponse GetRouteByAddress (string startAddress, string endAddress, string db = null, string country = null, string intermediateAddresses = null, string oip = null, string destinationSrs = null, string optimizeBy = null, string returnDistance = null, string distanceUnit = null, string returnTime = null, string timeUnit = null, string language = null, string directionsStyle = null, string segmentGeometryStyle = null, string primaryNameOnly = null, string majorRoads = null, string historicTrafficTimeBucket = null, string returnDirectionGeometry = null)
+> GeoRouteResponse GetRouteByAddress (string startAddress, string endAddress, string db = null, string country = null, string intermediateAddresses = null, string oip = null, string destinationSrs = null, string optimizeBy = null, string returnDistance = null, string distanceUnit = null, string returnTime = null, string timeUnit = null, string language = null, string directionsStyle = null, string segmentGeometryStyle = null, string primaryNameOnly = null, string majorRoads = null, string historicTrafficTimeBucket = null, string returnDirectionGeometry = null, string useCvr = null, string looseningBarrierRestrictions = null, string vehicleType = null, string weight = null, string weightUnit = null, string height = null, string heightUnit = null, string length = null, string lengthUnit = null, string width = null, string widthUnit = null)
 
 Gets Route by Address
 
@@ -57,11 +57,22 @@ namespace Example
             var majorRoads = majorRoads_example;  // string | Whether to include all roads in route calculation or just major roads. (optional)  (default to false)
             var historicTrafficTimeBucket = historicTrafficTimeBucket_example;  // string | Specifies whether routing calculation uses the historic traffic speeds. (optional)  (default to None)
             var returnDirectionGeometry = returnDirectionGeometry_example;  // string | Whether to include geometry associated with each route instruction in response. (optional)  (default to false)
+            var useCvr = useCvr_example;  // string | This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs (optional)  (default to N)
+            var looseningBarrierRestrictions = looseningBarrierRestrictions_example;  // string | Specifies that barriers will be removed when determining the route (optional)  (default to Y)
+            var vehicleType = vehicleType_example;  // string | vehicle type (optional)  (default to ALL)
+            var weight = weight_example;  // string | Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var weightUnit = weightUnit_example;  // string | The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton) (optional)  (default to kg)
+            var height = height_example;  // string | Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var heightUnit = heightUnit_example;  // string | The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) (optional)  (default to ft)
+            var length = length_example;  // string | Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var lengthUnit = lengthUnit_example;  // string | The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) (optional)  (default to ft)
+            var width = width_example;  // string | Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var widthUnit = widthUnit_example;  // string | The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) (optional)  (default to ft)
 
             try
             {
                 // Gets Route by Address
-                GeoRouteResponse result = apiInstance.GetRouteByAddress(startAddress, endAddress, db, country, intermediateAddresses, oip, destinationSrs, optimizeBy, returnDistance, distanceUnit, returnTime, timeUnit, language, directionsStyle, segmentGeometryStyle, primaryNameOnly, majorRoads, historicTrafficTimeBucket, returnDirectionGeometry);
+                GeoRouteResponse result = apiInstance.GetRouteByAddress(startAddress, endAddress, db, country, intermediateAddresses, oip, destinationSrs, optimizeBy, returnDistance, distanceUnit, returnTime, timeUnit, language, directionsStyle, segmentGeometryStyle, primaryNameOnly, majorRoads, historicTrafficTimeBucket, returnDirectionGeometry, useCvr, looseningBarrierRestrictions, vehicleType, weight, weightUnit, height, heightUnit, length, lengthUnit, width, widthUnit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -96,6 +107,17 @@ Name | Type | Description  | Notes
  **majorRoads** | **string**| Whether to include all roads in route calculation or just major roads. | [optional] [default to false]
  **historicTrafficTimeBucket** | **string**| Specifies whether routing calculation uses the historic traffic speeds. | [optional] [default to None]
  **returnDirectionGeometry** | **string**| Whether to include geometry associated with each route instruction in response. | [optional] [default to false]
+ **useCvr** | **string**| This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs | [optional] [default to N]
+ **looseningBarrierRestrictions** | **string**| Specifies that barriers will be removed when determining the route | [optional] [default to Y]
+ **vehicleType** | **string**| vehicle type | [optional] [default to ALL]
+ **weight** | **string**| Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **weightUnit** | **string**| The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton) | [optional] [default to kg]
+ **height** | **string**| Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **heightUnit** | **string**| The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) | [optional] [default to ft]
+ **length** | **string**| Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **lengthUnit** | **string**| The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) | [optional] [default to ft]
+ **width** | **string**| Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **widthUnit** | **string**| The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) | [optional] [default to ft]
 
 ### Return type
 
@@ -114,7 +136,7 @@ Name | Type | Description  | Notes
 
 <a name="getroutebylocation"></a>
 # **GetRouteByLocation**
-> GeoRouteResponse GetRouteByLocation (string startPoint, string endPoint, string db = null, string intermediatePoints = null, string oip = null, string destinationSrs = null, string optimizeBy = null, string returnDistance = null, string distanceUnit = null, string returnTime = null, string timeUnit = null, string language = null, string directionsStyle = null, string segmentGeometryStyle = null, string primaryNameOnly = null, string majorRoads = null, string historicTrafficTimeBucket = null, string returnDirectionGeometry = null)
+> GeoRouteResponse GetRouteByLocation (string startPoint, string endPoint, string db = null, string intermediatePoints = null, string oip = null, string destinationSrs = null, string optimizeBy = null, string returnDistance = null, string distanceUnit = null, string returnTime = null, string timeUnit = null, string language = null, string directionsStyle = null, string segmentGeometryStyle = null, string primaryNameOnly = null, string majorRoads = null, string historicTrafficTimeBucket = null, string returnDirectionGeometry = null, string useCvr = null, string looseningBarrierRestrictions = null, string vehicleType = null, string weight = null, string weightUnit = null, string height = null, string heightUnit = null, string length = null, string lengthUnit = null, string width = null, string widthUnit = null)
 
 Gets Route by Location
 
@@ -158,11 +180,22 @@ namespace Example
             var majorRoads = majorRoads_example;  // string | Whether to include all roads in route calculation or just major roads. (optional)  (default to false)
             var historicTrafficTimeBucket = historicTrafficTimeBucket_example;  // string | Specifies whether routing calculation uses the historic traffic speeds. (optional)  (default to None)
             var returnDirectionGeometry = returnDirectionGeometry_example;  // string | Whether to include geometry associated with each route instruction in response. (optional)  (default to false)
+            var useCvr = useCvr_example;  // string | This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs (optional)  (default to N)
+            var looseningBarrierRestrictions = looseningBarrierRestrictions_example;  // string | Specifies that barriers will be removed when determining the route (optional)  (default to Y)
+            var vehicleType = vehicleType_example;  // string | vehicle type (optional)  (default to ALL)
+            var weight = weight_example;  // string | Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var weightUnit = weightUnit_example;  // string | The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton) (optional)  (default to kg)
+            var height = height_example;  // string | Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var heightUnit = heightUnit_example;  // string | The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) (optional)  (default to ft)
+            var length = length_example;  // string | Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var lengthUnit = lengthUnit_example;  // string | The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) (optional)  (default to ft)
+            var width = width_example;  // string | Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var widthUnit = widthUnit_example;  // string | The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) (optional)  (default to ft)
 
             try
             {
                 // Gets Route by Location
-                GeoRouteResponse result = apiInstance.GetRouteByLocation(startPoint, endPoint, db, intermediatePoints, oip, destinationSrs, optimizeBy, returnDistance, distanceUnit, returnTime, timeUnit, language, directionsStyle, segmentGeometryStyle, primaryNameOnly, majorRoads, historicTrafficTimeBucket, returnDirectionGeometry);
+                GeoRouteResponse result = apiInstance.GetRouteByLocation(startPoint, endPoint, db, intermediatePoints, oip, destinationSrs, optimizeBy, returnDistance, distanceUnit, returnTime, timeUnit, language, directionsStyle, segmentGeometryStyle, primaryNameOnly, majorRoads, historicTrafficTimeBucket, returnDirectionGeometry, useCvr, looseningBarrierRestrictions, vehicleType, weight, weightUnit, height, heightUnit, length, lengthUnit, width, widthUnit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -196,6 +229,17 @@ Name | Type | Description  | Notes
  **majorRoads** | **string**| Whether to include all roads in route calculation or just major roads. | [optional] [default to false]
  **historicTrafficTimeBucket** | **string**| Specifies whether routing calculation uses the historic traffic speeds. | [optional] [default to None]
  **returnDirectionGeometry** | **string**| Whether to include geometry associated with each route instruction in response. | [optional] [default to false]
+ **useCvr** | **string**| This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs | [optional] [default to N]
+ **looseningBarrierRestrictions** | **string**| Specifies that barriers will be removed when determining the route | [optional] [default to Y]
+ **vehicleType** | **string**| vehicle type | [optional] [default to ALL]
+ **weight** | **string**| Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **weightUnit** | **string**| The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton) | [optional] [default to kg]
+ **height** | **string**| Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **heightUnit** | **string**| The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) | [optional] [default to ft]
+ **length** | **string**| Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **lengthUnit** | **string**| The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) | [optional] [default to ft]
+ **width** | **string**| Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **widthUnit** | **string**| The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) | [optional] [default to ft]
 
 ### Return type
 
@@ -214,7 +258,7 @@ Name | Type | Description  | Notes
 
 <a name="gettravelcostmatrixbyaddress"></a>
 # **GetTravelCostMatrixByAddress**
-> TravelCostMatrixResponse GetTravelCostMatrixByAddress (string startAddresses, string endAddresses, string db = null, string country = null, string optimizeBy = null, string returnDistance = null, string destinationSrs = null, string distanceUnit = null, string returnTime = null, string timeUnit = null, string majorRoads = null, string returnOptimalRoutesOnly = null, string historicTrafficTimeBucket = null)
+> TravelCostMatrixResponse GetTravelCostMatrixByAddress (string startAddresses, string endAddresses, string db = null, string country = null, string optimizeBy = null, string returnDistance = null, string destinationSrs = null, string distanceUnit = null, string returnTime = null, string timeUnit = null, string majorRoads = null, string returnOptimalRoutesOnly = null, string historicTrafficTimeBucket = null, string useCvr = null, string looseningBarrierRestrictions = null, string vehicleType = null, string weight = null, string weightUnit = null, string height = null, string heightUnit = null, string length = null, string lengthUnit = null, string width = null, string widthUnit = null)
 
 Gets Cost Matrix by Address
 
@@ -253,11 +297,22 @@ namespace Example
             var majorRoads = majorRoads_example;  // string | Whether to include all roads in routes calculation or just major roads. (optional)  (default to false)
             var returnOptimalRoutesOnly = returnOptimalRoutesOnly_example;  // string | Specifies whether to return only the optimized route for each start and end point combination. (optional)  (default to true)
             var historicTrafficTimeBucket = historicTrafficTimeBucket_example;  // string | Specifies whether routing calculation uses the historic traffic speeds. (optional)  (default to None)
+            var useCvr = useCvr_example;  // string | This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs (optional)  (default to N)
+            var looseningBarrierRestrictions = looseningBarrierRestrictions_example;  // string | Specifies that barriers will be removed when determining the route (optional)  (default to Y)
+            var vehicleType = vehicleType_example;  // string | vehicle type (optional)  (default to ALL)
+            var weight = weight_example;  // string | Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var weightUnit = weightUnit_example;  // string | The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton) (optional)  (default to kg)
+            var height = height_example;  // string | Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var heightUnit = heightUnit_example;  // string | The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) (optional)  (default to ft)
+            var length = length_example;  // string | Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var lengthUnit = lengthUnit_example;  // string | The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) (optional)  (default to ft)
+            var width = width_example;  // string | Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var widthUnit = widthUnit_example;  // string | The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) (optional)  (default to ft)
 
             try
             {
                 // Gets Cost Matrix by Address
-                TravelCostMatrixResponse result = apiInstance.GetTravelCostMatrixByAddress(startAddresses, endAddresses, db, country, optimizeBy, returnDistance, destinationSrs, distanceUnit, returnTime, timeUnit, majorRoads, returnOptimalRoutesOnly, historicTrafficTimeBucket);
+                TravelCostMatrixResponse result = apiInstance.GetTravelCostMatrixByAddress(startAddresses, endAddresses, db, country, optimizeBy, returnDistance, destinationSrs, distanceUnit, returnTime, timeUnit, majorRoads, returnOptimalRoutesOnly, historicTrafficTimeBucket, useCvr, looseningBarrierRestrictions, vehicleType, weight, weightUnit, height, heightUnit, length, lengthUnit, width, widthUnit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -286,6 +341,17 @@ Name | Type | Description  | Notes
  **majorRoads** | **string**| Whether to include all roads in routes calculation or just major roads. | [optional] [default to false]
  **returnOptimalRoutesOnly** | **string**| Specifies whether to return only the optimized route for each start and end point combination. | [optional] [default to true]
  **historicTrafficTimeBucket** | **string**| Specifies whether routing calculation uses the historic traffic speeds. | [optional] [default to None]
+ **useCvr** | **string**| This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs | [optional] [default to N]
+ **looseningBarrierRestrictions** | **string**| Specifies that barriers will be removed when determining the route | [optional] [default to Y]
+ **vehicleType** | **string**| vehicle type | [optional] [default to ALL]
+ **weight** | **string**| Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **weightUnit** | **string**| The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton) | [optional] [default to kg]
+ **height** | **string**| Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **heightUnit** | **string**| The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) | [optional] [default to ft]
+ **length** | **string**| Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **lengthUnit** | **string**| The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) | [optional] [default to ft]
+ **width** | **string**| Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **widthUnit** | **string**| The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) | [optional] [default to ft]
 
 ### Return type
 
@@ -304,7 +370,7 @@ Name | Type | Description  | Notes
 
 <a name="gettravelcostmatrixbylocation"></a>
 # **GetTravelCostMatrixByLocation**
-> TravelCostMatrixResponse GetTravelCostMatrixByLocation (string startPoints, string endPoints, string db = null, string optimizeBy = null, string returnDistance = null, string destinationSrs = null, string distanceUnit = null, string returnTime = null, string timeUnit = null, string majorRoads = null, string returnOptimalRoutesOnly = null, string historicTrafficTimeBucket = null)
+> TravelCostMatrixResponse GetTravelCostMatrixByLocation (string startPoints, string endPoints, string db = null, string optimizeBy = null, string returnDistance = null, string destinationSrs = null, string distanceUnit = null, string returnTime = null, string timeUnit = null, string majorRoads = null, string returnOptimalRoutesOnly = null, string historicTrafficTimeBucket = null, string useCvr = null, string looseningBarrierRestrictions = null, string vehicleType = null, string weight = null, string weightUnit = null, string height = null, string heightUnit = null, string length = null, string lengthUnit = null, string width = null, string widthUnit = null)
 
 Gets Cost Matrix by Location
 
@@ -342,11 +408,22 @@ namespace Example
             var majorRoads = majorRoads_example;  // string | Whether to include all roads in routes calculation or just major roads. (optional)  (default to false)
             var returnOptimalRoutesOnly = returnOptimalRoutesOnly_example;  // string | Specifies whether to return only the optimized route for each start and end point combination. (optional)  (default to true)
             var historicTrafficTimeBucket = historicTrafficTimeBucket_example;  // string | Specifies whether routing calculation uses the historic traffic speeds. (optional)  (default to None)
+            var useCvr = useCvr_example;  // string | This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs (optional)  (default to N)
+            var looseningBarrierRestrictions = looseningBarrierRestrictions_example;  // string | Specifies that barriers will be removed when determining the route (optional)  (default to Y)
+            var vehicleType = vehicleType_example;  // string | vehicle type (optional)  (default to ALL)
+            var weight = weight_example;  // string | Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var weightUnit = weightUnit_example;  // string | The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton) (optional)  (default to kg)
+            var height = height_example;  // string | Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var heightUnit = heightUnit_example;  // string | The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) (optional)  (default to ft)
+            var length = length_example;  // string | Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var lengthUnit = lengthUnit_example;  // string | The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) (optional)  (default to ft)
+            var width = width_example;  // string | Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route. (optional) 
+            var widthUnit = widthUnit_example;  // string | The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) (optional)  (default to ft)
 
             try
             {
                 // Gets Cost Matrix by Location
-                TravelCostMatrixResponse result = apiInstance.GetTravelCostMatrixByLocation(startPoints, endPoints, db, optimizeBy, returnDistance, destinationSrs, distanceUnit, returnTime, timeUnit, majorRoads, returnOptimalRoutesOnly, historicTrafficTimeBucket);
+                TravelCostMatrixResponse result = apiInstance.GetTravelCostMatrixByLocation(startPoints, endPoints, db, optimizeBy, returnDistance, destinationSrs, distanceUnit, returnTime, timeUnit, majorRoads, returnOptimalRoutesOnly, historicTrafficTimeBucket, useCvr, looseningBarrierRestrictions, vehicleType, weight, weightUnit, height, heightUnit, length, lengthUnit, width, widthUnit);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -374,6 +451,17 @@ Name | Type | Description  | Notes
  **majorRoads** | **string**| Whether to include all roads in routes calculation or just major roads. | [optional] [default to false]
  **returnOptimalRoutesOnly** | **string**| Specifies whether to return only the optimized route for each start and end point combination. | [optional] [default to true]
  **historicTrafficTimeBucket** | **string**| Specifies whether routing calculation uses the historic traffic speeds. | [optional] [default to None]
+ **useCvr** | **string**| This parameter will enable/disable CVR (Commercial Vehicle Restrictions) capability in our APIs | [optional] [default to N]
+ **looseningBarrierRestrictions** | **string**| Specifies that barriers will be removed when determining the route | [optional] [default to Y]
+ **vehicleType** | **string**| vehicle type | [optional] [default to ALL]
+ **weight** | **string**| Specifies the maximum weight of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **weightUnit** | **string**| The unit of weight eg. kg(kilogram), lb(pound), mt(metric ton), t(ton) | [optional] [default to kg]
+ **height** | **string**| Specifies the maximum height of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **heightUnit** | **string**| The unit of height e.g m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) | [optional] [default to ft]
+ **length** | **string**| Specifies the maximum length of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **lengthUnit** | **string**| The unit of length eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) | [optional] [default to ft]
+ **width** | **string**| Specifies the maximum width of a vehicle. Any vehicles over this value will be restricted when determining the route. | [optional] 
+ **widthUnit** | **string**| The unit of width eg. m(meter), km(kilometer), yd(yard), ft(foot), mi(mile) | [optional] [default to ft]
 
 ### Return type
 

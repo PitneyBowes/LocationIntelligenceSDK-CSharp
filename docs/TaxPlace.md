@@ -5,6 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** |  | [optional] 
 **Code** | **string** |  | [optional] 
+**GnisCode** | **string** |  | [optional] 
+**SelfCollected** | **bool?** |  | [optional] 
 **ClassCode** | **string** |  | [optional] 
 **IncorporatedFlag** | **string** |  | [optional] 
 **LastAnnexedDate** | **string** |  | [optional] 
