@@ -24,7 +24,7 @@ limitations under the License.
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FE215C05-B0B2-4532-B1BE-AFFC569189AF}</ProjectGuid>
+    <ProjectGuid>{48F99163-4F90-4A84-AA0F-77376B4F8EF5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>pb.locationIntelligence</RootNamespace>

@@ -108,6 +108,14 @@ namespace pb.locationIntelligence.Test
         {
             // TODO unit test for the property 'Percentile'
         }
+        /// <summary>
+        /// Test the property 'StateScore'
+        /// </summary>
+        [Test]
+        public void StateScoreTest()
+        {
+            // TODO unit test for the property 'StateScore'
+        }
 
     }
 

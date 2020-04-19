@@ -101,30 +101,6 @@ namespace pb.locationIntelligence.Test
         }
         
         /// <summary>
-        /// Test GetGeoPropertyByPBKey
-        /// </summary>
-        [Test]
-        public void GetGeoPropertyByPBKeyTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string pbKey = null;
-            //var response = instance.GetGeoPropertyByPBKey(pbKey);
-            //Assert.IsInstanceOf<GeoPropertyPBKeyResponse> (response, "response is GeoPropertyPBKeyResponse");
-        }
-        
-        /// <summary>
-        /// Test GetGeoPropertyByPBKeyBatch
-        /// </summary>
-        [Test]
-        public void GetGeoPropertyByPBKeyBatchTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //GeoPropertyPBKeyRequest body = null;
-            //var response = instance.GetGeoPropertyByPBKeyBatch(body);
-            //Assert.IsInstanceOf<GeoPropertyPBKeyResponses> (response, "response is GeoPropertyPBKeyResponses");
-        }
-        
-        /// <summary>
         /// Test GetParcelBoundaryByAddress
         /// </summary>
         [Test]
@@ -152,19 +128,6 @@ namespace pb.locationIntelligence.Test
         }
         
         /// <summary>
-        /// Test GetParcelBoundaryByPBKey
-        /// </summary>
-        [Test]
-        public void GetParcelBoundaryByPBKeyTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string pbKey = null;
-            //string accept = null;
-            //var response = instance.GetParcelBoundaryByPBKey(pbKey, accept);
-            //Assert.IsInstanceOf<ParcelBoundary> (response, "response is ParcelBoundary");
-        }
-        
-        /// <summary>
         /// Test GetSchoolsByAddress
         /// </summary>
         [Test]
@@ -187,32 +150,6 @@ namespace pb.locationIntelligence.Test
             //string travelMode = null;
             //string maxCandidates = null;
             //var response = instance.GetSchoolsByAddress(address, edLevel, schoolType, schoolSubType, gender, assignedSchoolsOnly, districtSchoolsOnly, searchRadius, searchRadiusUnit, travelTime, travelTimeUnit, travelDistance, travelDistanceUnit, travelMode, maxCandidates);
-            //Assert.IsInstanceOf<SchoolsNearByResponse> (response, "response is SchoolsNearByResponse");
-        }
-        
-        /// <summary>
-        /// Test GetSchoolsNearByUsingPBKey
-        /// </summary>
-        [Test]
-        public void GetSchoolsNearByUsingPBKeyTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string pbKey = null;
-            //string edLevel = null;
-            //string schoolType = null;
-            //string schoolSubType = null;
-            //string gender = null;
-            //string assignedSchoolsOnly = null;
-            //string districtSchoolsOnly = null;
-            //string searchRadius = null;
-            //string searchRadiusUnit = null;
-            //string travelTime = null;
-            //string travelTimeUnit = null;
-            //string travelDistance = null;
-            //string travelDistanceUnit = null;
-            //string travelMode = null;
-            //string maxCandidates = null;
-            //var response = instance.GetSchoolsNearByUsingPBKey(pbKey, edLevel, schoolType, schoolSubType, gender, assignedSchoolsOnly, districtSchoolsOnly, searchRadius, searchRadiusUnit, travelTime, travelTimeUnit, travelDistance, travelDistanceUnit, travelMode, maxCandidates);
             //Assert.IsInstanceOf<SchoolsNearByResponse> (response, "response is SchoolsNearByResponse");
         }
         

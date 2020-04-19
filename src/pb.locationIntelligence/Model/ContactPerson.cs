@@ -43,6 +43,7 @@ namespace pb.locationIntelligence.Model
         /// Initializes a new instance of the <see cref="ContactPerson" /> class.
         /// </summary>
         /// <param name="Title">Title.</param>
+        /// <param name="FullName">FullName.</param>
         /// <param name="Prefix">Prefix.</param>
         /// <param name="FirstName">FirstName.</param>
         /// <param name="LastName">LastName.</param>
@@ -51,9 +52,10 @@ namespace pb.locationIntelligence.Model
         /// <param name="Email">Email.</param>
         /// <param name="Comments">Comments.</param>
         /// <param name="AdditionalDetails">AdditionalDetails.</param>
-        public ContactPerson(string Title = null, string Prefix = null, string FirstName = null, string LastName = null, string Phone = null, string Fax = null, string Email = null, string Comments = null, string AdditionalDetails = null)
+        public ContactPerson(string Title = null, string FullName = null, string Prefix = null, string FirstName = null, string LastName = null, string Phone = null, string Fax = null, string Email = null, string Comments = null, string AdditionalDetails = null)
         {
             this.Title = Title;
+            this.FullName = FullName;
             this.Prefix = Prefix;
             this.FirstName = FirstName;
             this.LastName = LastName;
@@ -69,6 +71,11 @@ namespace pb.locationIntelligence.Model
         /// </summary>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
+        /// <summary>
+        /// Gets or Sets FullName
+        /// </summary>
+        [DataMember(Name="fullName", EmitDefaultValue=false)]
+        public string FullName { get; set; }
         /// <summary>
         /// Gets or Sets Prefix
         /// </summary>
@@ -118,6 +125,7 @@ namespace pb.locationIntelligence.Model
             var sb = new StringBuilder();
             sb.Append("class ContactPerson {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  FullName: ").Append(FullName).Append("\n");
             sb.Append("  Prefix: ").Append(Prefix).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
@@ -166,6 +174,11 @@ namespace pb.locationIntelligence.Model
                     this.Title == other.Title ||
                     this.Title != null &&
                     this.Title.Equals(other.Title)
+                ) && 
+                (
+                    this.FullName == other.FullName ||
+                    this.FullName != null &&
+                    this.FullName.Equals(other.FullName)
                 ) && 
                 (
                     this.Prefix == other.Prefix ||
@@ -222,6 +235,8 @@ namespace pb.locationIntelligence.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Title != null)
                     hash = hash * 59 + this.Title.GetHashCode();
+                if (this.FullName != null)
+                    hash = hash * 59 + this.FullName.GetHashCode();
                 if (this.Prefix != null)
                     hash = hash * 59 + this.Prefix.GetHashCode();
                 if (this.FirstName != null)

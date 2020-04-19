@@ -111,22 +111,6 @@ namespace pb.locationIntelligence.Test
         }
         
         /// <summary>
-        /// Test GetDemographicsByPBKey
-        /// </summary>
-        [Test]
-        public void GetDemographicsByPBKeyTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string pbKey = null;
-            //string profile = null;
-            //string filter = null;
-            //string valueFormat = null;
-            //string variableLevel = null;
-            //var response = instance.GetDemographicsByPBKey(pbKey, profile, filter, valueFormat, variableLevel);
-            //Assert.IsInstanceOf<DemographicsV2> (response, "response is DemographicsV2");
-        }
-        
-        /// <summary>
         /// Test GetSegmentationByAddress
         /// </summary>
         [Test]
@@ -149,18 +133,6 @@ namespace pb.locationIntelligence.Test
             //string longitude = null;
             //string latitude = null;
             //var response = instance.GetSegmentationByLocation(longitude, latitude);
-            //Assert.IsInstanceOf<Segmentation> (response, "response is Segmentation");
-        }
-        
-        /// <summary>
-        /// Test GetSegmentationByPBKey
-        /// </summary>
-        [Test]
-        public void GetSegmentationByPBKeyTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string pbKey = null;
-            //var response = instance.GetSegmentationByPBKey(pbKey);
             //Assert.IsInstanceOf<Segmentation> (response, "response is Segmentation");
         }
         

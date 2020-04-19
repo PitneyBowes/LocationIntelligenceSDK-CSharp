@@ -5,6 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AhjType** | **string** |  | [optional] 
 **AhjId** | **string** |  | [optional] 
+**Type** | **string** |  | [optional] 
+**FccId** | **string** |  | [optional] 
 **Agency** | **string** |  | [optional] 
 **Phone** | **string** |  | [optional] 
 **Comments** | **string** |  | [optional] 

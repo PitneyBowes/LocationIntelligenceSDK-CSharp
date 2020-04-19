@@ -44,11 +44,15 @@ namespace pb.locationIntelligence.Model
         /// </summary>
         /// <param name="Phone">Phone.</param>
         /// <param name="Fax">Fax.</param>
+        /// <param name="ContactName">ContactName.</param>
+        /// <param name="Email">Email.</param>
         /// <param name="Address">Address.</param>
-        public SiteDetails(string Phone = null, string Fax = null, MatchedAddress Address = null)
+        public SiteDetails(string Phone = null, string Fax = null, string ContactName = null, string Email = null, MatchedAddress Address = null)
         {
             this.Phone = Phone;
             this.Fax = Fax;
+            this.ContactName = ContactName;
+            this.Email = Email;
             this.Address = Address;
         }
         
@@ -62,6 +66,16 @@ namespace pb.locationIntelligence.Model
         /// </summary>
         [DataMember(Name="fax", EmitDefaultValue=false)]
         public string Fax { get; set; }
+        /// <summary>
+        /// Gets or Sets ContactName
+        /// </summary>
+        [DataMember(Name="contactName", EmitDefaultValue=false)]
+        public string ContactName { get; set; }
+        /// <summary>
+        /// Gets or Sets Email
+        /// </summary>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
         /// <summary>
         /// Gets or Sets Address
         /// </summary>
@@ -77,6 +91,8 @@ namespace pb.locationIntelligence.Model
             sb.Append("class SiteDetails {\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Fax: ").Append(Fax).Append("\n");
+            sb.Append("  ContactName: ").Append(ContactName).Append("\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  Address: ").Append(Address).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -125,6 +141,16 @@ namespace pb.locationIntelligence.Model
                     this.Fax.Equals(other.Fax)
                 ) && 
                 (
+                    this.ContactName == other.ContactName ||
+                    this.ContactName != null &&
+                    this.ContactName.Equals(other.ContactName)
+                ) && 
+                (
+                    this.Email == other.Email ||
+                    this.Email != null &&
+                    this.Email.Equals(other.Email)
+                ) && 
+                (
                     this.Address == other.Address ||
                     this.Address != null &&
                     this.Address.Equals(other.Address)
@@ -146,6 +172,10 @@ namespace pb.locationIntelligence.Model
                     hash = hash * 59 + this.Phone.GetHashCode();
                 if (this.Fax != null)
                     hash = hash * 59 + this.Fax.GetHashCode();
+                if (this.ContactName != null)
+                    hash = hash * 59 + this.ContactName.GetHashCode();
+                if (this.Email != null)
+                    hash = hash * 59 + this.Email.GetHashCode();
                 if (this.Address != null)
                     hash = hash * 59 + this.Address.GetHashCode();
                 return hash;

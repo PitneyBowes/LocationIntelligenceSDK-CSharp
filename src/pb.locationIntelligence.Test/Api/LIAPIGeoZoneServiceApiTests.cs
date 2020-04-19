@@ -167,33 +167,6 @@ namespace pb.locationIntelligence.Test
         }
         
         /// <summary>
-        /// Test GetPOIBoundaryByPBKey
-        /// </summary>
-        [Test]
-        public void GetPOIBoundaryByPBKeyTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string pbKey = null;
-            //string categoryCode = null;
-            //string sicCode = null;
-            //string naicsCode = null;
-            //var response = instance.GetPOIBoundaryByPBKey(pbKey, categoryCode, sicCode, naicsCode);
-            //Assert.IsInstanceOf<PoiBoundary> (response, "response is PoiBoundary");
-        }
-        
-        /// <summary>
-        /// Test GetPOIBoundaryByPBKeyBatch
-        /// </summary>
-        [Test]
-        public void GetPOIBoundaryByPBKeyBatchTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //POIBoundaryPBKeyRequest body = null;
-            //var response = instance.GetPOIBoundaryByPBKeyBatch(body);
-            //Assert.IsInstanceOf<POIBoundaryResponse> (response, "response is POIBoundaryResponse");
-        }
-        
-        /// <summary>
         /// Test GetTravelBoundaryByDistance
         /// </summary>
         [Test]

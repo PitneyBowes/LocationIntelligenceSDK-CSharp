@@ -85,6 +85,14 @@ namespace pb.locationIntelligence.Test
             // TODO unit test for the property 'Title'
         }
         /// <summary>
+        /// Test the property 'FullName'
+        /// </summary>
+        [Test]
+        public void FullNameTest()
+        {
+            // TODO unit test for the property 'FullName'
+        }
+        /// <summary>
         /// Test the property 'Prefix'
         /// </summary>
         [Test]

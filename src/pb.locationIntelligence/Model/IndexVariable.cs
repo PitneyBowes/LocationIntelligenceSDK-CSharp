@@ -46,12 +46,14 @@ namespace pb.locationIntelligence.Model
         /// <param name="Score">Score.</param>
         /// <param name="Category">Category.</param>
         /// <param name="Percentile">Percentile.</param>
-        public IndexVariable(string Name = null, string Score = null, string Category = null, string Percentile = null)
+        /// <param name="StateScore">StateScore.</param>
+        public IndexVariable(string Name = null, string Score = null, string Category = null, string Percentile = null, string StateScore = null)
         {
             this.Name = Name;
             this.Score = Score;
             this.Category = Category;
             this.Percentile = Percentile;
+            this.StateScore = StateScore;
         }
         
         /// <summary>
@@ -75,6 +77,11 @@ namespace pb.locationIntelligence.Model
         [DataMember(Name="percentile", EmitDefaultValue=false)]
         public string Percentile { get; set; }
         /// <summary>
+        /// Gets or Sets StateScore
+        /// </summary>
+        [DataMember(Name="stateScore", EmitDefaultValue=false)]
+        public string StateScore { get; set; }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -86,6 +93,7 @@ namespace pb.locationIntelligence.Model
             sb.Append("  Score: ").Append(Score).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Percentile: ").Append(Percentile).Append("\n");
+            sb.Append("  StateScore: ").Append(StateScore).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -141,6 +149,11 @@ namespace pb.locationIntelligence.Model
                     this.Percentile == other.Percentile ||
                     this.Percentile != null &&
                     this.Percentile.Equals(other.Percentile)
+                ) && 
+                (
+                    this.StateScore == other.StateScore ||
+                    this.StateScore != null &&
+                    this.StateScore.Equals(other.StateScore)
                 );
         }
 
@@ -163,6 +176,8 @@ namespace pb.locationIntelligence.Model
                     hash = hash * 59 + this.Category.GetHashCode();
                 if (this.Percentile != null)
                     hash = hash * 59 + this.Percentile.GetHashCode();
+                if (this.StateScore != null)
+                    hash = hash * 59 + this.StateScore.GetHashCode();
                 return hash;
             }
         }

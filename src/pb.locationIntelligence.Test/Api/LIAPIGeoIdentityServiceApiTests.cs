@@ -110,24 +110,6 @@ namespace pb.locationIntelligence.Test
         }
         
         /// <summary>
-        /// Test GetIdentityByPBKey
-        /// </summary>
-        [Test]
-        public void GetIdentityByPBKeyTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string pbKey = null;
-            //string givenName = null;
-            //string familyName = null;
-            //string confidence = null;
-            //string maxCandidates = null;
-            //string theme = null;
-            //string filter = null;
-            //var response = instance.GetIdentityByPBKey(pbKey, givenName, familyName, confidence, maxCandidates, theme, filter);
-            //Assert.IsInstanceOf<GeoIdentityResponse> (response, "response is GeoIdentityResponse");
-        }
-        
-        /// <summary>
         /// Test GetIdentityByTwitter
         /// </summary>
         [Test]

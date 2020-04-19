@@ -87,7 +87,7 @@ limitations under the License.
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\pb.locationIntelligence\pb.locationIntelligence.csproj">
-          <Project>{FE215C05-B0B2-4532-B1BE-AFFC569189AF}</Project>
+          <Project>{48F99163-4F90-4A84-AA0F-77376B4F8EF5}</Project>
           <Name>pb.locationIntelligence</Name>
       </ProjectReference>
   </ItemGroup>

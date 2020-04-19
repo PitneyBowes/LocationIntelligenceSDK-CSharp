@@ -93,6 +93,22 @@ namespace pb.locationIntelligence.Test
             // TODO unit test for the property 'Fax'
         }
         /// <summary>
+        /// Test the property 'ContactName'
+        /// </summary>
+        [Test]
+        public void ContactNameTest()
+        {
+            // TODO unit test for the property 'ContactName'
+        }
+        /// <summary>
+        /// Test the property 'Email'
+        /// </summary>
+        [Test]
+        public void EmailTest()
+        {
+            // TODO unit test for the property 'Email'
+        }
+        /// <summary>
         /// Test the property 'Address'
         /// </summary>
         [Test]

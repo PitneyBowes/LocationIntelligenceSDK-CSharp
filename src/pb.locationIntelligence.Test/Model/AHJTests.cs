@@ -93,6 +93,22 @@ namespace pb.locationIntelligence.Test
             // TODO unit test for the property 'AhjId'
         }
         /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'FccId'
+        /// </summary>
+        [Test]
+        public void FccIdTest()
+        {
+            // TODO unit test for the property 'FccId'
+        }
+        /// <summary>
         /// Test the property 'Agency'
         /// </summary>
         [Test]

@@ -44,16 +44,20 @@ namespace pb.locationIntelligence.Model
         /// </summary>
         /// <param name="AhjType">AhjType.</param>
         /// <param name="AhjId">AhjId.</param>
+        /// <param name="Type">Type.</param>
+        /// <param name="FccId">FccId.</param>
         /// <param name="Agency">Agency.</param>
         /// <param name="Phone">Phone.</param>
         /// <param name="Comments">Comments.</param>
         /// <param name="Coverage">Coverage.</param>
         /// <param name="ContactPerson">ContactPerson.</param>
         /// <param name="MailingAddress">MailingAddress.</param>
-        public AHJ(string AhjType = null, string AhjId = null, string Agency = null, string Phone = null, string Comments = null, Coverage Coverage = null, ContactPerson ContactPerson = null, AHJmailingAddress MailingAddress = null)
+        public AHJ(string AhjType = null, string AhjId = null, string Type = null, string FccId = null, string Agency = null, string Phone = null, string Comments = null, Coverage Coverage = null, ContactPerson ContactPerson = null, AHJmailingAddress MailingAddress = null)
         {
             this.AhjType = AhjType;
             this.AhjId = AhjId;
+            this.Type = Type;
+            this.FccId = FccId;
             this.Agency = Agency;
             this.Phone = Phone;
             this.Comments = Comments;
@@ -72,6 +76,16 @@ namespace pb.locationIntelligence.Model
         /// </summary>
         [DataMember(Name="ahjId", EmitDefaultValue=false)]
         public string AhjId { get; set; }
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+        /// <summary>
+        /// Gets or Sets FccId
+        /// </summary>
+        [DataMember(Name="fccId", EmitDefaultValue=false)]
+        public string FccId { get; set; }
         /// <summary>
         /// Gets or Sets Agency
         /// </summary>
@@ -112,6 +126,8 @@ namespace pb.locationIntelligence.Model
             sb.Append("class AHJ {\n");
             sb.Append("  AhjType: ").Append(AhjType).Append("\n");
             sb.Append("  AhjId: ").Append(AhjId).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  FccId: ").Append(FccId).Append("\n");
             sb.Append("  Agency: ").Append(Agency).Append("\n");
             sb.Append("  Phone: ").Append(Phone).Append("\n");
             sb.Append("  Comments: ").Append(Comments).Append("\n");
@@ -165,6 +181,16 @@ namespace pb.locationIntelligence.Model
                     this.AhjId.Equals(other.AhjId)
                 ) && 
                 (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.FccId == other.FccId ||
+                    this.FccId != null &&
+                    this.FccId.Equals(other.FccId)
+                ) && 
+                (
                     this.Agency == other.Agency ||
                     this.Agency != null &&
                     this.Agency.Equals(other.Agency)
@@ -211,6 +237,10 @@ namespace pb.locationIntelligence.Model
                     hash = hash * 59 + this.AhjType.GetHashCode();
                 if (this.AhjId != null)
                     hash = hash * 59 + this.AhjId.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.FccId != null)
+                    hash = hash * 59 + this.FccId.GetHashCode();
                 if (this.Agency != null)
                     hash = hash * 59 + this.Agency.GetHashCode();
                 if (this.Phone != null)
